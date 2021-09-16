@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="InfogesEmape.Modules.MasterPage" %>
+<%@ Register src="../Includes/TitleContent.ascx" tagname="TitleContent" tagprefix="uc1" %>
+<%@ Register src="../Includes/Footer.ascx" tagname="Footer" tagprefix="uc2" %>
+<%@ Register src="../Includes/Header.ascx" tagname="Header" tagprefix="uc3" %>
+
+<%@ Register assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" tagprefix="dxw" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%--<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.0.js"></script>--%>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <link href="~/Styles/style01.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/TabbedMenu.css" rel="TabbedMenusheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+      
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 184px;
+        }
+        .style7
+        {
+            width: 297px;
+        }
+        </style>
+        <style type="text/css">
+            body
+            {
+             /*background-image: "../Images/FondoEmape.jpeg"*/
+            }
+            .outer
+            {
+                width: 100%;
+                border: solid 1px gray;
+                padding: 1px;
+            }
+            .inner
+            {
+                border: solid 1px gray;
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="width: 100%; text-align:center; margin-right: 0px;">
+       <table style="width: 100%">  
+       <tr>
+       <td>
+       <uc3:Header ID="Header1" runat="server"  />
+       </td>
+       </tr>
+        <tr align="center">
+        <td>
+        <div style="vertical-align:inherit; background-color: #FFFFFF;" class="nav-justified">            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"  >
+            <!-- AREA DE CONTENIDO DE FORMULARIOS -->
+            </asp:ContentPlaceHolder>
+        </div>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<%--        <uc2:Footer ID="Footer1" runat="server"  />--%>
+        </td>
+        </tr>
+        </table>
+        <br />
+         
+  
+    </div>
+    </form>
+    
+</body>
+</html>

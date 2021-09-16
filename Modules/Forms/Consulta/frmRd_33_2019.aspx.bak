@@ -1,0 +1,272 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmRd_33_2019.aspx.cs" Inherits="InfoGesRegional.Modules.Forms.Consulta.frmRd_33_2019" %>
+
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dxwgv" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dxe" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dxcp" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dxe" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView.Export" TagPrefix="dxwgv" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxTabControl" tagprefix="dxtc" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dxw" %>
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPopupControl" tagprefix="dxpc" %>
+
+
+
+<%@ Register assembly="DevExpress.XtraCharts.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts" tagprefix="cc1" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+     <script type="text/javascript">
+        // <![CDATA[
+         var CustomPager = {
+             gotoBox_Init: function (s, e) {
+                 s.SetText(1 + ASPxGridInfoGes.GetPageIndex());
+             },
+             gotoBox_KeyPress: function (s, e) {
+                 if (e.htmlEvent.keyCode != 13)
+                     return;
+                 ASPxClientUtils.PreventEventAndBubble(e.htmlEvent);
+                 CustomPager.applyGotoBoxValue(s);
+             },
+             gotoBox_ValueChanged: function (s, e) {
+                 CustomPager.applyGotoBoxValue(s);
+             },
+             applyGotoBoxValue: function (textBox) {
+                 if (ASPxGridInfoGes.InCallback())
+                     return;
+                 var pageIndex = parseInt(textBox.GetText()) - 1;
+                 if (pageIndex < 0)
+                     pageIndex = 0;
+                 ASPxGridInfoGes.GotoPage(pageIndex);
+             },
+             combo_SelectedIndexChanged: function (s, e) {
+                 ASPxGridInfoGes.PerformCallback(s.GetSelectedItem().text);
+             }
+         };
+
+         function button1_Click(s, e) {
+             if (ASPxGridInfoGes.IsCustomizationWindowVisible())
+                 ASPxGridInfoGes.HideCustomizationWindow();
+             else
+                 ASPxGridInfoGes.ShowCustomizationWindow();
+             UpdateButtonText();
+         }
+         function grid_CustomizationWindowCloseUp(s, e) {
+             UpdateButtonText();
+         }
+         function UpdateButtonText() {
+             var text = ASPxGridInfoGes.IsCustomizationWindowVisible() ? "Hide" : "Show";
+             text += " Personalizar Ventana";
+             button1.SetText(text);
+         };
+        // ]]>
+        </script>
+<head runat="server">
+    <title>Consulta Expediente Administrativo SIAF</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+   
+
+<table>
+<tr>
+<td style="padding-right: 4px">
+<dxe:ASPxButton ID="btnXlsExport" runat="server" Text="Export to XLS" UseSubmitBehavior="False"
+                    OnClick="btnXlsExport_Click" /> </td>
+<td><dxe:ASPxButton runat="server" ID="btnCollapse" Text="Collapse All Rows" UseSubmitBehavior="false"
+    AutoPostBack="false">
+    <ClientSideEvents Click="function() { ASPxGridview1.CollapseAll() }" />
+</dxe:ASPxButton>
+</td>
+<td>
+<dxe:ASPxButton runat="server" ID="btnExpand" Text="Expand All Rows" UseSubmitBehavior="false"
+    AutoPostBack="false">
+    <ClientSideEvents Click="function() { ASPxGridview1.ExpandAll() }" />
+</dxe:ASPxButton>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+<dxtc:ASPxPageControl ID="ASPxPageControl1" runat="server" AutoPostBack="true"
+ActiveTabIndex="0" CssFilePath="~/App_Themes/Glass/Editors/styles.css" 
+    CssPostfix="Glass" Height="300%" LoadingPanelText="" TabSpacing="3px" 
+        Width="1079px" OnActiveTabChanged="ASPxPageControl1auc" >
+	<ContentStyle VerticalAlign="Top">
+	<Border BorderColor="#AECAF0" BorderStyle="Solid" BorderWidth="1px" />
+    <Border BorderStyle="Solid" BorderColor="#AECAF0" BorderWidth="1px"></Border>
+	</ContentStyle>     
+	<ActiveTabStyle Font-Bold="True" Font-Size="Small">
+	</ActiveTabStyle>                        
+	<TabPages >   
+		<dxtc:TabPage Text="COMPROMISOS SIN DEVENGAR" >
+			<ContentCollection>
+				<dxw:ContentControl ID="ContentControl3" runat="server">	
+	
+				</dxw:ContentControl>
+			</ContentCollection>
+		</dxtc:TabPage>                               
+		<dxtc:TabPage Text="DEVENGADOS SIN GIROS" >
+			<ContentCollection>
+				<dxw:ContentControl ID="ContentControl2" runat="server">	
+												
+				</dxw:ContentControl>
+			</ContentCollection>
+		</dxtc:TabPage> 
+        </TabPages>
+</dxtc:ASPxPageControl> 
+ <dxe:ASPxButton runat="server" ID="button1" ClientInstanceName="button1" Text="Personalizar Ventana" Visible="false"
+        UseSubmitBehavior="false" AutoPostBack="false">
+        <ClientSideEvents Click="button1_Click" />
+    </dxe:ASPxButton>
+</td></tr>
+</table>
+ <dxwgv:aspxgridview ID="ASPxGridInfoGes"  
+    ClientInstanceName="ASPxGridInfoGes" runat="server" KeyFieldName="EXPEDIENTE" ContentPlaceHolderID="ContentHolder"
+    AutoGenerateColumns="False"  UseSubmitBehavior="False" EnablePagingGestures="False"
+    OnCustomCallback="Grid_CustomCallback" OnLoad="LoadInfo_Exp_x_Gasto"
+    Font-Size="X-Small"
+    Width="100%">
+<GroupSummary>
+    <dxwgv:ASPxSummaryItem FieldName="EJECUCION" ShowInGroupFooterColumn="EJECUCION" SummaryType="Sum" DisplayFormat="c"/>
+</GroupSummary>
+<TotalSummary>
+   <dxwgv:ASPxSummaryItem FieldName="EJECUCION" ShowInGroupFooterColumn="EJECUCION" SummaryType="Sum" DisplayFormat="c"/>
+</TotalSummary>
+<Columns>
+<dxwgv:GridViewDataTextColumn FieldName="EXPEDIENTE" VisibleIndex="0"  Caption="EXP." Width="70%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" />
+<dxwgv:GridViewDataTextColumn FieldName="EXPEDIENTE_SECUENCIA" VisibleIndex="1"  Caption="SEC." Width="35%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" />
+<dxwgv:GridViewDataTextColumn FieldName="EXPEDIENTE_CORRELATIVO" VisibleIndex="2"  Caption="CORRE" Width="40%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" />
+<dxwgv:GridViewDataColumn  FieldName="CICLO" VisibleIndex="3"  Caption="C" Width="20%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" />
+<dxwgv:GridViewDataTextColumn FieldName="FASE" VisibleIndex="3"  Caption="F" Width="20%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" />
+<dxwgv:GridViewDataTextColumn FieldName="FASE_CONTRACTUAL" VisibleIndex="3"  Caption="FASE CONTRAC." Width="60%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" HeaderStyle-Wrap="True" />
+<dxwgv:GridViewDataTextColumn FieldName="ACT_PROY" VisibleIndex="4"  Caption="PROYECTO" Width="60%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" />
+<dxwgv:GridViewDataTextColumn FieldName="FUENTE_FINANC" VisibleIndex="4"  Caption="RUBRO" Width="60%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" />
+<dxwgv:GridViewDataTextColumn FieldName="TIPO_OPERACION" VisibleIndex="5"  Caption="TO" Width="30%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" />
+<dxwgv:GridViewDataTextColumn FieldName="TIPO_RECURSO" VisibleIndex="5"  Caption="TR" Width="30%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" />
+<dxwgv:GridViewBandColumn Caption="DOCUMENTO A" HeaderStyle-Font-Bold="true" HeaderStyle-HorizontalAlign="Center" VisibleIndex="6">
+<Columns>
+    <dxwgv:GridViewDataTextColumn FieldName="COD_DOC" VisibleIndex="1" Caption="COD." Width="40%" HeaderStyle-HorizontalAlign="Center"  Settings-AutoFilterCondition="Contains"/> 
+    <dxwgv:GridViewDataTextColumn FieldName="NUM_DOC" VisibleIndex="2" Caption="NUM." Width="40%" HeaderStyle-HorizontalAlign="Center"  Settings-AutoFilterCondition="Contains"/>
+    <dxwgv:GridViewDataDateColumn FieldName="FECHA" VisibleIndex="3" Caption="FECHA" Width="50%" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains"/>
+    <dxwgv:GridViewDataTextColumn FieldName="MES_EJE" VisibleIndex="4" Caption="MES" Width="50%" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains"/>
+    </Columns>
+</dxwgv:GridViewBandColumn>
+<dxwgv:GridViewBandColumn Caption="CTA CTE" HeaderStyle-Font-Bold="true" HeaderStyle-HorizontalAlign="Center" VisibleIndex="6">
+<Columns>
+    <dxwgv:GridViewDataTextColumn FieldName="ANO_CTA_CTE"  VisibleIndex="1" Caption="AÑO" Width="40%" HeaderStyle-HorizontalAlign="Center"  Settings-AutoFilterCondition="Contains"/> 
+    <dxwgv:GridViewDataTextColumn FieldName="BANCO" VisibleIndex="2" Caption="BCO" Width="40%" HeaderStyle-HorizontalAlign="Center"  Settings-AutoFilterCondition="Contains"/>
+    <dxwgv:GridViewDataTextColumn FieldName="CTA_CTE" VisibleIndex="3" Caption="CTA" Width="40%" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains"/>
+    </Columns>
+</dxwgv:GridViewBandColumn>
+
+<dxwgv:GridViewDataTextColumn Settings-AllowHeaderFilter="False" FieldName="DOCUMENTOB" VisibleIndex="7" Caption="DOC. B" Width="70%" HeaderStyle-HorizontalAlign="Center"  Settings-AutoFilterCondition="Contains"/> 
+<dxwgv:GridViewDataTextColumn  FieldName="CERTIFICADO" VisibleIndex="8"  Caption="CERT." Width="50%" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"/>
+<dxwgv:GridViewDataTextColumn  FieldName="ESPECIFICA_DET" VisibleIndex="9"  Caption="CLASIF." Width="50%" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True" />
+<dxwgv:GridViewDataTextColumn  FieldName="SEC_FUNC" VisibleIndex="10"   Caption="SEC. FUNC." Width="45%" HeaderStyle-HorizontalAlign="Center"  HeaderStyle-Wrap="True" />
+<dxwgv:GridViewDataTextColumn  FieldName="NOMBRE_RUC" VisibleIndex="11"   Caption=" NOMBRE" Width="80%" HeaderStyle-HorizontalAlign="Center"  HeaderStyle-Wrap="True" Settings-AllowDragDrop="False" Settings-AllowSort="False" Settings-AutoFilterCondition="Contains"  Visible="false"/>
+<dxwgv:GridViewDataTextColumn  FieldName="RUC_NOMBRE" VisibleIndex="11" Caption="RUC" Width="100%" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains"/>
+<dxwgv:GridViewDataTextColumn  FieldName="NOTAS" VisibleIndex="12"   Caption="NOTAS" Width="130%" HeaderStyle-HorizontalAlign="Center"  HeaderStyle-Wrap="True" Settings-AllowDragDrop="False" Settings-AllowSort="False" Settings-AutoFilterCondition="Contains"/>
+<dxwgv:GridViewDataTextColumn  FieldName="EJECUCION" VisibleIndex="13" UnboundType="Decimal"  Caption="EJECUCION" Width="60%" HeaderStyle-HorizontalAlign="Center" PropertiesTextEdit-DisplayFormatString="c" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False"/>
+<dxwgv:GridViewDataTextColumn  FieldName="ESTADO" VisibleIndex="14"  Caption="E" Width="30%" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"/>
+<dxwgv:GridViewDataTextColumn  FieldName="ESTADO_ENVIO" VisibleIndex="15"  Caption="ER." Width="30%" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"/>
+
+</Columns>
+
+<Templates>
+    <PagerBar>
+        <table class="OptionsTable" style="width: 100%">
+            <tr>
+                <td>
+                    <dxe:ASPxButton runat="server" ID="FirstButton" Text="First" Enabled="<%# ASPxGridInfoGes.PageIndex > 0 %>"
+                        AutoPostBack="false" UseSubmitBehavior="false">
+                        <ClientSideEvents Click="function() { ASPxGridInfoGes.GotoPage(0) }" />
+                    </dxe:ASPxButton>
+                </td>
+                <td>
+                    <dxe:ASPxButton runat="server" ID="PrevButton" Text="Prev" Enabled="<%# ASPxGridInfoGes.PageIndex > 0 %>"
+                        AutoPostBack="false" UseSubmitBehavior="false">
+                        <ClientSideEvents Click="function() { ASPxGridInfoGes.PrevPage() }" />
+                    </dxe:ASPxButton>
+                </td>
+                <td>
+                    <dxe:ASPxTextBox runat="server" ID="GotoBox" Width="30">
+                        <ClientSideEvents Init="CustomPager.gotoBox_Init" ValueChanged="CustomPager.gotoBox_ValueChanged"
+                            KeyPress="CustomPager.gotoBox_KeyPress" />
+                    </dxe:ASPxTextBox>
+                </td>
+                <td>
+                    <span style="white-space: nowrap">
+                        of <%# ASPxGridInfoGes.PageCount %>
+                    </span>
+                </td>
+                <td>
+                    <dxe:ASPxButton runat="server" ID="NextButton" Text="Next" Enabled="<%# ASPxGridInfoGes.PageIndex < ASPxGridInfoGes.PageCount - 1 %>"
+                        AutoPostBack="false" UseSubmitBehavior="false">
+                        <ClientSideEvents Click="function() { ASPxGridInfoGes.NextPage() }" />
+                    </dxe:ASPxButton>
+                </td>
+                <td>
+                    <dxe:ASPxButton runat="server" ID="LastButton" Text="Last" Enabled="<%# ASPxGridInfoGes.PageIndex < ASPxGridInfoGes.PageCount - 1 %>"
+                        AutoPostBack="false" UseSubmitBehavior="false">
+                        <ClientSideEvents Click="function() { ASPxGridInfoGes.GotoPage(ASPxGridInfoGes.GetPageCount() - 1); }" />
+                    </dxe:ASPxButton>
+                </td>
+                <td style="width: 100%"></td>
+                <td style="white-space: nowrap">
+                    <span style="white-space: nowrap">
+                        Records per page:
+                    </span>
+                </td>
+                <td>
+                    <dxe:ASPxComboBox runat="server" ID="Combo" Width="50" DropDownWidth="50" ValueType="System.Int32"
+                        OnLoad="PagerCombo_Load">
+                        <Items>
+                            <dxe:ListEditItem Value="60" />
+                            <dxe:ListEditItem Value="90" />
+                            <dxe:ListEditItem Value="120" />
+                        </Items>
+                        <ClientSideEvents SelectedIndexChanged="CustomPager.combo_SelectedIndexChanged" />
+                    </dxe:ASPxComboBox>
+                </td>
+            </tr>
+        </table>
+    </PagerBar>
+</Templates>
+
+    <Settings ShowFooter="True" ShowFilterRow="True" ShowGroupFooter="VisibleAlways"
+        ShowHeaderFilterButton="true" ShowTitlePanel="true"  
+        ShowVerticalScrollBar="True" VerticalScrollableHeight="300"/>
+
+
+    <SettingsBehavior AllowFocusedRow="True" />
+    <SettingsPager Mode="ShowPager" PageSize="60"></SettingsPager>
+    <SettingsText Title="CONSULTA EXPEDIENTE"  />
+    <Settings ShowFilterBar="Visible" />
+    
+    <Settings ShowGroupPanel="True" />
+    <SettingsLoadingPanel Mode="ShowAsPopup" />
+    <SettingsBehavior EnableCustomizationWindow="true" />
+    <ClientSideEvents CustomizationWindowCloseUp="grid_CustomizationWindowCloseUp" />
+
+
+    <Styles CssFilePath="~/App_Themes/Glass/GridView/styles.css" CssPostfix="Glass">
+        <CommandColumn Paddings-Padding="1">
+            <Paddings Padding="1px" />
+        </CommandColumn>
+    </Styles>
+</dxwgv:aspxgridview> 
+
+<dxwgv:ASPxGridViewExporter ID="gridExport" runat="server" GridViewID="ASPxGridInfoGes"></dxwgv:ASPxGridViewExporter>
+           
+    </div>
+    </form>
+</body>
+</html>

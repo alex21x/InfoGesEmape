@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report1" Landscape="true" Margins="100, 101, 1, 0" PageWidth="1100" PageHeight="850" Version="17.1" DataMember="infoges_dashboard_resumen_encargo" DataSource="#Ref-0">
+  <CalculatedFields>
+    <Item1 Ref="2" Name="Saldo" FieldType="Decimal" Expression="[ENCARGO]-[DEVOLUCION]-[DEVENGADO]" DataMember="infoges_dashboard_resumen_encargo" />
+  </CalculatedFields>
+  <Bands>
+    <Item1 Ref="3" ControlType="TopMarginBand" Name="TopMargin" HeightF="1" />
+    <Item2 Ref="4" ControlType="DetailBand" Name="Detail" HeightF="14.9999933">
+      <Controls>
+        <Item1 Ref="5" ControlType="XRTable" Name="table1" TextAlignment="MiddleRight" SizeF="898,14.9999933" LocationFloat="0, 0" Font="Arial, 8pt" Borders="None">
+          <Rows>
+            <Item1 Ref="6" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="7" ControlType="XRTableCell" Name="tableCell1" Weight="1.8141676516045151" Text="tableCell1" TextAlignment="MiddleLeft">
+                  <DataBindings>
+                    <Item1 Ref="8" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.DESCRIPCION" />
+                  </DataBindings>
+                  <StylePriority Ref="9" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="10" ControlType="XRTableCell" Name="tableCell2" Weight="0.8645834304499731" Text="tableCell2" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="11" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.ENCARGO" />
+                  </DataBindings>
+                  <StylePriority Ref="12" UsePadding="false" />
+                </Item2>
+                <Item3 Ref="13" ControlType="XRTableCell" Name="tableCell3" Weight="0.968749253297155" Text="tableCell3" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="14" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.DEVOLUCION" />
+                  </DataBindings>
+                  <StylePriority Ref="15" UsePadding="false" />
+                </Item3>
+                <Item4 Ref="16" ControlType="XRTableCell" Name="tableCell4" Weight="0.87499939297070906" Text="tableCell4" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="17" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.ENCARGO" />
+                  </DataBindings>
+                  <StylePriority Ref="18" UsePadding="false" />
+                </Item4>
+                <Item5 Ref="19" ControlType="XRTableCell" Name="tableCell5" Weight="0.96875153133698233" Text="tableCell5" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="20" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.COMPROMISO" />
+                  </DataBindings>
+                  <StylePriority Ref="21" UsePadding="false" />
+                </Item5>
+                <Item6 Ref="22" ControlType="XRTableCell" Name="tableCell6" Weight="0.83333328484376268" Text="tableCell6" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="23" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.DEVENGADO" />
+                  </DataBindings>
+                  <StylePriority Ref="24" UsePadding="false" />
+                </Item6>
+                <Item7 Ref="25" ControlType="XRTableCell" Name="tableCell7" Weight="0.79166702412892254" Text="tableCell7" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="26" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.GIRADO" />
+                  </DataBindings>
+                  <StylePriority Ref="27" UsePadding="false" />
+                </Item7>
+                <Item8 Ref="28" ControlType="XRTableCell" Name="tableCell8" Weight="0.90624954627052157" Text="tableCell8" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="29" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.PAGADO" />
+                  </DataBindings>
+                  <StylePriority Ref="30" UsePadding="false" />
+                </Item8>
+                <Item9 Ref="31" ControlType="XRTableCell" Name="tableCell9" Weight="0.957499089674386" Text="tableCell9" Padding="0,2,0,0,100">
+                  <DataBindings>
+                    <Item1 Ref="32" FormatString="{0:n}" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.Saldo" />
+                  </DataBindings>
+                  <StylePriority Ref="33" UsePadding="false" />
+                </Item9>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="34" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="35" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="0" />
+    <Item4 Ref="36" ControlType="PageHeaderBand" Name="PageHeader" HeightF="0" />
+    <Item5 Ref="37" ControlType="ReportFooterBand" Name="ReportFooter" HeightF="0" />
+    <Item6 Ref="38" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="50">
+      <GroupFields>
+        <Item1 Ref="39" FieldName="ANO_EJE" />
+      </GroupFields>
+      <Controls>
+        <Item1 Ref="40" ControlType="XRTable" Name="table3" TextAlignment="MiddleCenter" SizeF="898,25" LocationFloat="4.76837158E-05, 25" Font="Arial, 8pt, style=Bold" Borders="All">
+          <Rows>
+            <Item1 Ref="41" ControlType="XRTableRow" Name="tableRow3" Weight="1">
+              <Cells>
+                <Item1 Ref="42" ControlType="XRTableCell" Name="tableCell12" Weight="1.8141678839682356" Text="AREA" BackColor="PowderBlue">
+                  <StylePriority Ref="43" UseBackColor="false" />
+                </Item1>
+                <Item2 Ref="44" ControlType="XRTableCell" Name="tableCell13" Weight="0.86458360274225876" Text="ENCARGO" BackColor="PowderBlue">
+                  <StylePriority Ref="45" UseBackColor="false" />
+                </Item2>
+                <Item3 Ref="46" ControlType="XRTableCell" Name="tableCell14" Weight="0.96874989395726885" Text="DEV." BackColor="PowderBlue">
+                  <StylePriority Ref="47" UseBackColor="false" />
+                </Item3>
+                <Item4 Ref="48" ControlType="XRTableCell" Name="tableCell15" Weight="0.87499956750469743" Text="ENC. NETO" BackColor="PowderBlue">
+                  <StylePriority Ref="49" UseBackColor="false" />
+                </Item4>
+                <Item5 Ref="50" ControlType="XRTableCell" Name="tableCell16" Weight="0.968751104705591" Text="COMPROMISO" BackColor="PowderBlue">
+                  <StylePriority Ref="51" UseBackColor="false" />
+                </Item5>
+                <Item6 Ref="52" ControlType="XRTableCell" Name="tableCell17" Weight="0.83333330270720918" Text="DEVENGADO" BackColor="PowderBlue">
+                  <StylePriority Ref="53" UseBackColor="false" />
+                </Item6>
+                <Item7 Ref="54" ControlType="XRTableCell" Name="tableCell18" Weight="0.7916664275580847" Text="GIRADO" BackColor="PowderBlue">
+                  <StylePriority Ref="55" UseBackColor="false" />
+                </Item7>
+                <Item8 Ref="56" ControlType="XRTableCell" Name="tableCell19" Weight="0.90625018163026816" Text="PAGADO" BackColor="PowderBlue">
+                  <StylePriority Ref="57" UseBackColor="false" />
+                </Item8>
+                <Item9 Ref="58" ControlType="XRTableCell" Name="tableCell20" Weight="0.95749927229206611" Text="SALDO" BackColor="PowderBlue">
+                  <StylePriority Ref="59" UseBackColor="false" />
+                </Item9>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="60" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="61" ControlType="XRTable" Name="table2" TextAlignment="MiddleCenter" SizeF="898.000061,25" LocationFloat="0, 0" Font="Arial, 9.75pt, style=Bold" Borders="All">
+          <Rows>
+            <Item1 Ref="62" ControlType="XRTableRow" Name="tableRow2" Weight="1">
+              <Cells>
+                <Item1 Ref="63" ControlType="XRTableCell" Name="tableCell10" Weight="4.5224996464169509" Text="TRANSFERENCIAS DE RECURSOS FINANCIEROS" Font="Arial, 9pt, style=Bold" BackColor="PowderBlue">
+                  <StylePriority Ref="64" UseFont="false" UseBackColor="false" />
+                </Item1>
+                <Item2 Ref="65" ControlType="XRTableCell" Name="tableCell11" Weight="4.4575006683058795" Text="FASES DE LA EJECUCION DEL GASTO" Font="Arial, 9pt, style=Bold" BackColor="PowderBlue">
+                  <StylePriority Ref="66" UseFont="false" UseBackColor="false" />
+                </Item2>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="67" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+      </Controls>
+    </Item6>
+    <Item7 Ref="68" ControlType="GroupFooterBand" Name="GroupFooter1" HeightF="616.6666">
+      <Controls>
+        <Item1 Ref="69" ControlType="XRChart" Name="chart2" SizeF="728.124939,146.874969" LocationFloat="74.1251, 367.708344" BorderColor="Black" Borders="None">
+          <Chart Ref="70">
+            <DataContainer Ref="71">
+              <SeriesSerializable>
+                <Item1 Ref="72" Name="POR EJECUTAR" ArgumentDataMember="infoges_dashboard_resumen_encargo.DESCRIPCION" ValueDataMembersSerializable="infoges_dashboard_resumen_encargo.Saldo">
+                  <View Ref="73" TypeNameSerializable="FullStackedBarSeriesView" />
+                  <Label Ref="74" TypeNameSerializable="FullStackedBarSeriesLabel" TextPattern="{VP:0.00%} {V:n}" />
+                </Item1>
+                <Item2 Ref="75" Name="EJECUCIÓN" ArgumentDataMember="infoges_dashboard_resumen_encargo.DESCRIPCION" ValueDataMembersSerializable="infoges_dashboard_resumen_encargo.DEVENGADO">
+                  <View Ref="76" TypeNameSerializable="FullStackedBarSeriesView" />
+                  <Label Ref="77" TypeNameSerializable="FullStackedBarSeriesLabel" TextPattern="{VP:0.00%} {V:n}" />
+                </Item2>
+              </SeriesSerializable>
+            </DataContainer>
+            <OptionsPrint Ref="78" ImageFormat="Metafile" />
+            <Diagram Ref="79" Rotated="true" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="80" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="81" VisibleInPanesSerializable="-1">
+                <Title Ref="82" Visibility="Default" />
+                <Label Ref="83" Visible="false" />
+              </AxisY>
+              <DefaultPane Ref="84" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item1>
+        <Item2 Ref="85" ControlType="XRChart" Name="chart1" SizeF="728.125,314.583344" LocationFloat="74.1251, 37.08334" BorderColor="Black" Borders="None">
+          <Chart Ref="86">
+            <DataContainer Ref="87">
+              <SeriesSerializable>
+                <Item1 Ref="88" Name="GIRADO" ArgumentDataMember="infoges_dashboard_resumen_encargo.DESCRIPCION" ValueDataMembersSerializable="infoges_dashboard_resumen_encargo.GIRADO">
+                  <Label Ref="89" TypeNameSerializable="SideBySideBarSeriesLabel" TextPattern="{V:n}" />
+                </Item1>
+                <Item2 Ref="90" Name="DEVENGADO" ArgumentDataMember="infoges_dashboard_resumen_encargo.DESCRIPCION" ValueDataMembersSerializable="infoges_dashboard_resumen_encargo.DEVENGADO">
+                  <Label Ref="91" TypeNameSerializable="SideBySideBarSeriesLabel" TextPattern="{V:n}" />
+                </Item2>
+                <Item3 Ref="92" Name="COMPROMISO" ArgumentDataMember="infoges_dashboard_resumen_encargo.DESCRIPCION" ValueDataMembersSerializable="infoges_dashboard_resumen_encargo.COMPROMISO">
+                  <Label Ref="93" TypeNameSerializable="SideBySideBarSeriesLabel" TextPattern="{V:n}" />
+                </Item3>
+                <Item4 Ref="94" Name="ENCARGO" ArgumentDataMember="infoges_dashboard_resumen_encargo.DESCRIPCION" ValueDataMembersSerializable="infoges_dashboard_resumen_encargo.ENCARGO">
+                  <Label Ref="95" TypeNameSerializable="SideBySideBarSeriesLabel" TextPattern="{V:n}" />
+                </Item4>
+              </SeriesSerializable>
+            </DataContainer>
+            <OptionsPrint Ref="96" ImageFormat="Metafile" />
+            <Diagram Ref="97" Rotated="true" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="98" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="99" Visibility="False" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="100" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item2>
+        <Item3 Ref="101" ControlType="XRTable" Name="table4" TextAlignment="MiddleRight" SizeF="716.583252,25" LocationFloat="181.4168, 0" Font="Arial, 8pt, style=Bold" Borders="Top, Bottom">
+          <Rows>
+            <Item1 Ref="102" ControlType="XRTableRow" Name="tableRow4" Weight="1">
+              <Cells>
+                <Item1 Ref="103" ControlType="XRTableCell" Name="tableCell21" Weight="0.86458282470703129" Padding="0,3,0,0,100">
+                  <Summary Ref="104" FormatString="{0:n}" Running="Report" />
+                  <DataBindings>
+                    <Item1 Ref="105" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.ENCARGO" />
+                  </DataBindings>
+                  <StylePriority Ref="106" UsePadding="false" />
+                </Item1>
+                <Item2 Ref="107" ControlType="XRTableCell" Name="tableCell22" Weight="0.96875091552734371" />
+                <Item3 Ref="108" ControlType="XRTableCell" Name="tableCell23" Weight="0.874998779296875" Padding="0,2,0,0,100">
+                  <Summary Ref="109" FormatString="{0:n}" Running="Report" />
+                  <DataBindings>
+                    <Item1 Ref="110" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.ENCARGO" />
+                  </DataBindings>
+                  <StylePriority Ref="111" UsePadding="false" />
+                </Item3>
+                <Item4 Ref="112" ControlType="XRTableCell" Name="tableCell24" Weight="0.874998779296875" Padding="0,2,0,0,100">
+                  <Summary Ref="113" FormatString="{0:n}" Running="Report" />
+                  <DataBindings>
+                    <Item1 Ref="114" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.COMPROMISO" />
+                  </DataBindings>
+                  <StylePriority Ref="115" UsePadding="false" />
+                </Item4>
+                <Item5 Ref="116" ControlType="XRTableCell" Name="tableCell25" Weight="0.874998779296875" Padding="0,2,0,0,100">
+                  <Summary Ref="117" FormatString="{0:n}" Running="Report" />
+                  <DataBindings>
+                    <Item1 Ref="118" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.DEVENGADO" />
+                  </DataBindings>
+                  <StylePriority Ref="119" UsePadding="false" />
+                </Item5>
+                <Item6 Ref="120" ControlType="XRTableCell" Name="tableCell26" Weight="0.874998779296875" Padding="0,2,0,0,100">
+                  <Summary Ref="121" FormatString="{0:n}" Running="Report" />
+                  <DataBindings>
+                    <Item1 Ref="122" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.GIRADO" />
+                  </DataBindings>
+                  <StylePriority Ref="123" UsePadding="false" />
+                </Item6>
+                <Item7 Ref="124" ControlType="XRTableCell" Name="tableCell28" Weight="0.875003662109375" Padding="0,2,0,0,100">
+                  <Summary Ref="125" FormatString="{0:n}" Running="Report" />
+                  <DataBindings>
+                    <Item1 Ref="126" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.PAGADO" />
+                  </DataBindings>
+                  <StylePriority Ref="127" UsePadding="false" />
+                </Item7>
+                <Item8 Ref="128" ControlType="XRTableCell" Name="tableCell27" Weight="0.9575" Padding="0,2,0,0,100">
+                  <Summary Ref="129" FormatString="{0:n}" Running="Report" />
+                  <DataBindings>
+                    <Item1 Ref="130" PropertyName="Text" DataMember="infoges_dashboard_resumen_encargo.Saldo" />
+                  </DataBindings>
+                  <StylePriority Ref="131" UsePadding="false" />
+                </Item8>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="132" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+      </Controls>
+    </Item7>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X3NpYWZfNTAwMTk2X0Nvbm5lY3Rpb24iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28iPjxUYWJsZXM+PFRhYmxlIE5hbWU9ImluZm9nZXNfZGFzaGJvYXJkX3Jlc3VtZW5fZW5jYXJnbyIgLz48L1RhYmxlcz48Q29sdW1ucz48Q29sdW1uIFRhYmxlPSJpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28iIE5hbWU9IkFOT19FSkUiIC8+PENvbHVtbiBUYWJsZT0iaW5mb2dlc19kYXNoYm9hcmRfcmVzdW1lbl9lbmNhcmdvIiBOYW1lPSJTRUNfRUpFQyIgLz48Q29sdW1uIFRhYmxlPSJpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28iIE5hbWU9IkRFU0NSSVBDSU9OIiAvPjxDb2x1bW4gVGFibGU9ImluZm9nZXNfZGFzaGJvYXJkX3Jlc3VtZW5fZW5jYXJnbyIgTmFtZT0iQ09NUFJPTUlTTyIgLz48Q29sdW1uIFRhYmxlPSJpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28iIE5hbWU9IkRFVkVOR0FETyIgLz48Q29sdW1uIFRhYmxlPSJpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28iIE5hbWU9IkdJUkFETyIgLz48Q29sdW1uIFRhYmxlPSJpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28iIE5hbWU9IlBBR0FETyIgLz48Q29sdW1uIFRhYmxlPSJpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28iIE5hbWU9IlJFTkRJRE8iIC8+PENvbHVtbiBUYWJsZT0iaW5mb2dlc19kYXNoYm9hcmRfcmVzdW1lbl9lbmNhcmdvIiBOYW1lPSJFTkNBUkdPIiAvPjxDb2x1bW4gVGFibGU9ImluZm9nZXNfZGFzaGJvYXJkX3Jlc3VtZW5fZW5jYXJnbyIgTmFtZT0iQ0VSVElGSUNBRE8iIC8+PENvbHVtbiBUYWJsZT0iaW5mb2dlc19kYXNoYm9hcmRfcmVzdW1lbl9lbmNhcmdvIiBOYW1lPSJQT1JDRU5UQUpFIiAvPjxDb2x1bW4gVGFibGU9ImluZm9nZXNfZGFzaGJvYXJkX3Jlc3VtZW5fZW5jYXJnbyIgTmFtZT0iQ0FOVElEQUQiIC8+PENvbHVtbiBUYWJsZT0iaW5mb2dlc19kYXNoYm9hcmRfcmVzdW1lbl9lbmNhcmdvIiBOYW1lPSJERVZPTFVDSU9OIiAvPjxDb2x1bW4gVGFibGU9ImluZm9nZXNfZGFzaGJvYXJkX3Jlc3VtZW5fZW5jYXJnbyIgTmFtZT0iVVNVQVJJTyIgLz48L0NvbHVtbnM+PEZpbHRlcj5TdGFydHNXaXRoKFtpbmZvZ2VzX2Rhc2hib2FyZF9yZXN1bWVuX2VuY2FyZ28uQU5PX0VKRV0sICcyMDIxJyk8L0ZpbHRlcj48R3JvdXBGaWx0ZXI+PC9Hcm91cEZpbHRlcj48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9ImluZm9nZXNfZGFzaGJvYXJkX3Jlc3VtZW5fZW5jYXJnbyI+PEZpZWxkIE5hbWU9IkFOT19FSkUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iU0VDX0VKRUMiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iREVTQ1JJUENJT04iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ09NUFJPTUlTTyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iREVWRU5HQURPIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJHSVJBRE8iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IlBBR0FETyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iUkVORElETyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iRU5DQVJHTyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iQ0VSVElGSUNBRE8iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IlBPUkNFTlRBSkUiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IkNBTlRJREFEIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJERVZPTFVDSU9OIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJVU1VBUklPIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiBDb21tYW5kVGltZW91dD0iMCIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

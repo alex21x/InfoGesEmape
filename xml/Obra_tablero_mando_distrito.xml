@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_obras_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="obras" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="view_avance">
+        <Tables>
+          <Table Name="view_avance" />
+        </Tables>
+        <Columns>
+          <Column Table="view_avance" Name="CUI" />
+          <Column Table="view_avance" Name="NOMBRE_PROYECTO" />
+          <Column Table="view_avance" Name="ABREVIATURA" />
+          <Column Table="view_avance" Name="DISTRITO" />
+          <Column Table="view_avance" Name="DESCRIPCION" />
+          <Column Table="view_avance" Name="IDCONTRATO" />
+          <Column Table="view_avance" Name="CONTRATO_NUMERO" />
+          <Column Table="view_avance" Name="IDACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="ACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="IDTIPO_PROYECTO" />
+          <Column Table="view_avance" Name="TIPO_PROYECTO" />
+          <Column Table="view_avance" Name="IDPAQUETE" />
+          <Column Table="view_avance" Name="PAQUETE" />
+          <Column Table="view_avance" Name="fecha_inicio_obra_maximo" />
+          <Column Table="view_avance" Name="plazo_ejecucion_obra" />
+          <Column Table="view_avance" Name="Objetivo" />
+          <Column Table="view_avance" Name="monto_obra" />
+          <Column Table="view_avance" Name="FECHA_FIN" />
+          <Column Table="view_avance" Name="CRONOGRAMA_FECHA" />
+          <Column Table="view_avance" Name="CRONOGRAMA_SEMANA" />
+          <Column Table="view_avance" Name="AVANCE" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="view_avance">
+            <Field Name="CUI" Type="String" />
+            <Field Name="NOMBRE_PROYECTO" Type="String" />
+            <Field Name="ABREVIATURA" Type="String" />
+            <Field Name="DISTRITO" Type="String" />
+            <Field Name="DESCRIPCION" Type="String" />
+            <Field Name="IDCONTRATO" Type="Int32" />
+            <Field Name="CONTRATO_NUMERO" Type="String" />
+            <Field Name="IDACTIVIDAD_PROYECTO" Type="Int32" />
+            <Field Name="ACTIVIDAD_PROYECTO" Type="String" />
+            <Field Name="IDTIPO_PROYECTO" Type="Int32" />
+            <Field Name="TIPO_PROYECTO" Type="String" />
+            <Field Name="IDPAQUETE" Type="Int32" />
+            <Field Name="PAQUETE" Type="String" />
+            <Field Name="fecha_inicio_obra_maximo" Type="DateTime" />
+            <Field Name="plazo_ejecucion_obra" Type="Decimal" />
+            <Field Name="Objetivo" Type="Int32" />
+            <Field Name="monto_obra" Type="Decimal" />
+            <Field Name="FECHA_FIN" Type="DateTime" />
+            <Field Name="CRONOGRAMA_FECHA" Type="DateTime" />
+            <Field Name="CRONOGRAMA_SEMANA" Type="String" />
+            <Field Name="AVANCE" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="Monto_Financiero" Expression="[AVANCE] * [monto_obra] / 100" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="Saldo_x_ejecutar" Expression="[monto_obra] - [Monto_Financiero]" DataType="Auto" DataMember="view_avance" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="FILTRO POR ACTIVIDADES REALIZADAS" DataSource="dashboardSqlDataSource1" DataMember="view_avance" ComboBoxType="Checked">
+      <InteractivityOptions IgnoreMasterFilters="false" />
+      <DataItems>
+        <Measure DataMember="Saldo_x_ejecutar" Name="Pendiente" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Monto_Financiero" Name="Avance" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="ACTIVIDAD_PROYECTO" DefaultId="DataItem2" />
+      </DataItems>
+      <HiddenMeasures>
+        <Measure DefaultId="DataItem0" />
+        <Measure DefaultId="DataItem1" />
+      </HiddenMeasures>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem2" />
+      </FilterDimensions>
+    </ComboBox>
+    <Grid ComponentName="gridDashboardItem1" Name="LISTAS DE INVERSION POR DISTRITO" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Measure DataMember="monto_obra" DefaultId="DataItem5">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="DISTRITO" DefaultId="DataItem0" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="73.462566844919792">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="SUMATORIA DE LOS IMPORTE DEL CONTRATO" Weight="74.8663101604278">
+          <Measure DefaultId="DataItem5" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions WordWrap="true" />
+    </Grid>
+    <Pie ComponentName="pieDashboardItem2" Name="DISTRIBUCION DE LA INVERSION  EN TIPO DE PROYECTO" DataSource="dashboardSqlDataSource1" DataMember="view_avance" LabelContentType="ArgumentValueAndPercent" ContentArrangementMode="FixedColumnCount">
+      <DataItems>
+        <Measure DataMember="monto_obra" Name="IMP. DE OBRA" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Grid ComponentName="gridDashboardItem2" Name="LISTA INVERSION POR CUI" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="DESCRIPCION" DefaultId="DataItem0" />
+        <Dimension DataMember="FECHA_FIN" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem2" />
+        <Dimension DataMember="fecha_inicio_obra_maximo" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem1" />
+        <Measure DataMember="monto_obra" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="AVANCE" DefaultId="DataItem4">
+          <NumericFormat FormatType="Number" Unit="Ones" />
+        </Measure>
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="136.875">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="INICIO" Weight="64.375">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="FIN" Weight="43.125">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="IMPORTE DEL CONTRATO" Weight="76.25">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="AVANCE %" Weight="54.375">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutItem DashboardItem="comboBoxDashboardItem1" Weight="6.3040791100123608" />
+      <LayoutGroup Weight="93.695920889987633">
+        <LayoutItem DashboardItem="pieDashboardItem2" Weight="53.482786228983187" />
+        <LayoutGroup Orientation="Vertical" Weight="46.517213771016813">
+          <LayoutItem DashboardItem="gridDashboardItem1" Weight="39.182058047493406" />
+          <LayoutItem DashboardItem="gridDashboardItem2" Weight="60.817941952506594" />
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

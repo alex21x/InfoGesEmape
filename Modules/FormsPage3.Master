@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FormsPage3.Master.cs" Inherits="InfoGes.Modules.FormsPage" %>
+<%@ Register src="../Includes/Footer.ascx" tagname="Footer" tagprefix="uc2" %>
+<%@ Register src="../Includes/Header.ascx" tagname="Header" tagprefix="uc3" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<script src="<%=ResolveUrl("~")%>Javascript/j001_general.js" type="text/javascript"></script>    
+<head runat="server">
+    <link href="~/Styles/style01.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="width: 30%; text-align: center">
+    <div class="bsitTopLevel">
+       <div style="width: 773px">
+    
+        <uc3:Header ID="Header1" runat="server" />
+    
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+    
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <!-- AREA DE CONTENIDO DE FORMULARIOS -->
+        
+        </asp:ContentPlaceHolder>
+    
+        <br />
+        <uc2:Footer ID="Footer1" runat="server" />
+         
+        </div>
+  
+    </div>
+    </div>    
+    </form>
+    
+</body>
+</html>

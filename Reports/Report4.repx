@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report1" SnapGridSize="25" ReportUnit="TenthsOfAMillimeter" Margins="117, 107, 234, 254" PaperKind="A4" PageWidth="2100" PageHeight="2970" Version="17.1" DataMember="gso_estado_situacional" DataSource="#Ref-0" Dpi="254" Font="Tahoma, 8.25pt, charSet=0">
+  <FormattingRuleSheet>
+    <Item1 Ref="2" Name="formattingRule1">
+      <Formatting Ref="3" BorderStyle="Inset" StringFormat="Near;Near;0;None;Character;Default" />
+    </Item1>
+  </FormattingRuleSheet>
+  <Bands>
+    <Item1 Ref="4" ControlType="TopMarginBand" Name="TopMargin" HeightF="234" Dpi="254" />
+    <Item2 Ref="5" ControlType="DetailBand" Name="Detail" PageBreak="AfterBand" HeightF="508" Dpi="254">
+      <Controls>
+        <Item1 Ref="6" ControlType="XRChart" Name="chart1" SizeF="762,508" LocationFloat="375.125031, 0" Dpi="254" BorderColor="Black" Borders="None">
+          <Chart Ref="7">
+            <DataContainer Ref="8">
+              <SeriesSerializable>
+                <Item1 Ref="9" Name="Series 1" ArgumentDataMember="gso_estado_situacional.Fecha_inicio_obra" />
+              </SeriesSerializable>
+            </DataContainer>
+            <OptionsPrint Ref="10" ImageFormat="Metafile" />
+            <Diagram Ref="11" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="12" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="13" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="14" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="15" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="254" Dpi="254" />
+    <Item4 Ref="16" ControlType="PageHeaderBand" Name="PageHeader" HeightF="219" Dpi="254" />
+    <Item5 Ref="17" ControlType="PageFooterBand" Name="PageFooter" HeightF="254" Dpi="254" />
+    <Item6 Ref="18" ControlType="GroupHeaderBand" Name="GroupHeader1" RepeatEveryPage="true" HeightF="771.229065" Dpi="254">
+      <GroupFields>
+        <Item1 Ref="19" FieldName="act_proy" />
+      </GroupFields>
+      <Controls>
+        <Item1 Ref="20" ControlType="XRLabel" Name="label2" Text="label2" TextAlignment="MiddleLeft" SizeF="254,58.42" LocationFloat="1361.28137, 25.0000076" Dpi="254" Padding="2,2,0,0,96">
+          <DataBindings>
+            <Item1 Ref="21" PropertyName="Text" DataMember="gso_estado_situacional.abreviatura" />
+          </DataBindings>
+          <StylePriority Ref="22" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="23" ControlType="XRLabel" Name="label22" Text="label22" TextAlignment="MiddleLeft" SizeF="254,58.42" LocationFloat="121.125038, 25.0000076" Dpi="254" Padding="2,2,0,0,96">
+          <DataBindings>
+            <Item1 Ref="24" PropertyName="Text" DataMember="gso_estado_situacional.act_proy" />
+          </DataBindings>
+          <StylePriority Ref="25" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="26" ControlType="XRLabel" Name="label31" Text="OBRA" TextAlignment="TopCenter" SizeF="253.999969,58.4199829" LocationFloat="117.422386, 268.2875" Dpi="254" Font="Times New Roman, 9.75pt, style=Bold" Padding="5,5,0,0,254">
+          <StylePriority Ref="27" UseFont="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="28" ControlType="XRPanel" Name="panel2" SizeF="607.9067,431.2709" LocationFloat="650.1871, 326.7075" Dpi="254">
+          <Controls>
+            <Item1 Ref="29" ControlType="XRLabel" Name="label7" Text="PLAZO" TextAlignment="MiddleRight" SizeF="277.8126,58.42" LocationFloat="0, 233.680191" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="30" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item1>
+            <Item2 Ref="31" ControlType="XRLabel" Name="label5" Text="CULMINACION" TextAlignment="MiddleRight" SizeF="277.8126,58.4199829" LocationFloat="0, 292.100281" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="32" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item2>
+            <Item3 Ref="33" ControlType="XRLabel" Name="label6" Text="INICIO" TextAlignment="MiddleRight" SizeF="277.8126,58.42" LocationFloat="0, 175.260117" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="34" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item3>
+            <Item4 Ref="35" ControlType="XRLabel" Name="label8" Text="FECHA" TextAlignment="MiddleRight" SizeF="277.8126,58.41999" LocationFloat="0, 116.84008" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="36" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item4>
+            <Item5 Ref="37" ControlType="XRLabel" Name="label9" Text="CONTRATO" TextAlignment="MiddleRight" SizeF="277.812531,58.4200439" LocationFloat="0, 58.4200439" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="38" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item5>
+            <Item6 Ref="39" ControlType="XRLabel" Name="label10" Text="CONTRACTUAL" TextAlignment="MiddleRight" SizeF="277.8126,58.42" LocationFloat="0, 0" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="40" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item6>
+          </Controls>
+        </Item4>
+        <Item5 Ref="41" ControlType="XRLabel" Name="label15" AutoWidth="true" Text="DATOS GENERALES DE LA OBRA" TextAlignment="TopCenter" SizeF="992.610535,58.4199524" LocationFloat="469.635437, 175.260239" Dpi="254" Font="Times New Roman, 16pt, style=Bold" Padding="5,5,0,0,254">
+          <StylePriority Ref="42" UseFont="false" UseTextAlignment="false" />
+        </Item5>
+        <Item6 Ref="43" ControlType="XRLabel" Name="label1" Multiline="true" Text="CUI : &#xD;&#xA;" TextAlignment="MiddleRight" SizeF="121.125038,58.41996" LocationFloat="0, 24.9999657" Dpi="254" Font="Tahoma, 9pt, style=Bold" ForeColor="Black" BackColor="White" Padding="5,5,0,0,254" Borders="None">
+          <StylePriority Ref="44" UseFont="false" UseForeColor="false" UseBackColor="false" UseBorders="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="45" ControlType="XRPanel" Name="panel1" SizeF="607.906738,431.2709" LocationFloat="6.61458349, 326.7075" Dpi="254">
+          <Controls>
+            <Item1 Ref="46" ControlType="XRLabel" Name="label21" Text="label21" SizeF="254,58.4200134" LocationFloat="277.8125, 292.10022" Dpi="254" Padding="5,5,0,0,254">
+              <DataBindings>
+                <Item1 Ref="47" PropertyName="Text" DataMember="gso_estado_situacional.plazo_ejecucion" />
+              </DataBindings>
+            </Item1>
+            <Item2 Ref="48" ControlType="XRLabel" Name="label13" Text="label13" SizeF="254,58.42" LocationFloat="277.8125, 233.680191" Dpi="254" Padding="5,5,0,0,254">
+              <DataBindings>
+                <Item1 Ref="49" PropertyName="Text" DataMember="gso_estado_situacional.Fecha_inicio_obra" />
+              </DataBindings>
+            </Item2>
+            <Item3 Ref="50" ControlType="XRLabel" Name="label12" Text="label12" SizeF="254,58.42" LocationFloat="277.8125, 175.260162" Dpi="254" Padding="5,5,0,0,254">
+              <DataBindings>
+                <Item1 Ref="51" PropertyName="Text" DataMember="gso_estado_situacional.Fecha_entrega_terreno" />
+              </DataBindings>
+            </Item3>
+            <Item4 Ref="52" ControlType="XRLabel" Name="label24" Text="CULMINACION" TextAlignment="MiddleRight" SizeF="277.8126,58.4200134" LocationFloat="0, 350.520264" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="53" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item4>
+            <Item5 Ref="54" ControlType="XRLabel" Name="label20" Text="PLAZO DE EJECUCION" TextAlignment="MiddleRight" SizeF="277.8126,58.4200134" LocationFloat="0, 292.10022" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="55" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item5>
+            <Item6 Ref="56" ControlType="XRLabel" Name="label19" Text="INICIO" TextAlignment="MiddleRight" SizeF="277.8126,58.4200134" LocationFloat="0, 233.680176" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="57" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item6>
+            <Item7 Ref="58" ControlType="XRLabel" Name="label18" Text="ENT. DE TERRENO:" TextAlignment="MiddleRight" SizeF="277.8126,58.42" LocationFloat="0, 175.260132" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="59" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item7>
+            <Item8 Ref="60" ControlType="XRLabel" Name="label17" Text="FECHA:" TextAlignment="MiddleRight" SizeF="277.8126,58.4199829" LocationFloat="0, 116.840088" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="61" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item8>
+            <Item9 Ref="62" ControlType="XRLabel" Name="label16" Text="CONTRATO:" TextAlignment="MiddleRight" SizeF="277.8126,58.42" LocationFloat="0, 58.4200439" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="63" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item9>
+            <Item10 Ref="64" ControlType="XRLabel" Name="label4" Text="CONTRACTUAL :" TextAlignment="MiddleRight" SizeF="277.8126,58.42" LocationFloat="0, 0" Dpi="254" Font="Tahoma, 8pt, style=Bold" BackColor="White" Padding="5,5,0,0,254">
+              <StylePriority Ref="65" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item10>
+          </Controls>
+        </Item7>
+        <Item8 Ref="66" ControlType="XRLabel" Name="label14" Text="SUPERVISION" TextAlignment="TopCenter" SizeF="254.000061,58.4199829" LocationFloat="797.2956, 268.2875" Dpi="254" Font="Times New Roman, 9.75pt, style=Bold" Padding="5,5,0,0,254">
+          <StylePriority Ref="67" UseFont="false" UseTextAlignment="false" />
+        </Item8>
+        <Item9 Ref="68" ControlType="XRPanel" Name="panel3" SizeF="545.041,431.2709" LocationFloat="1318.94849, 326.7075" Dpi="254">
+          <Controls>
+            <Item1 Ref="69" ControlType="XRLabel" Name="label11" Text="PLAZO DE EJECUCION" TextAlignment="MiddleJustify" SizeF="277.8126,58.4200134" LocationFloat="0, 292.10022" Dpi="254" Font="Tahoma, 8.25pt, charSet=0" BackColor="SkyBlue" Padding="5,5,0,0,254">
+              <StylePriority Ref="70" UseFont="false" UseBackColor="false" UseTextAlignment="false" />
+            </Item1>
+          </Controls>
+        </Item9>
+        <Item10 Ref="71" ControlType="XRLabel" Name="label3" Multiline="true" Text="PROYECTO :" TextAlignment="MiddleRight" SizeF="277.8125,58.42004" LocationFloat="1083.46887, 24.9999657" Dpi="254" Font="Tahoma, 9pt, style=Bold" BackColor="White" Padding="5,5,0,0,254" Borders="None">
+          <StylePriority Ref="72" UseFont="false" UseBackColor="false" UseBorders="false" UseTextAlignment="false" />
+        </Item10>
+      </Controls>
+    </Item6>
+  </Bands>
+  <DefaultPrinterSettingsUsing Ref="73" UsePaperKind="true" />
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X29icmFzX0Nvbm5lY3Rpb24iIFByb3ZpZGVyS2V5PSJNeVNxbCI+PFBhcmFtZXRlcnM+PFBhcmFtZXRlciBOYW1lPSJzZXJ2ZXIiIFZhbHVlPSJsb2NhbGhvc3QiIC8+PFBhcmFtZXRlciBOYW1lPSJkYXRhYmFzZSIgVmFsdWU9Im9icmFzIiAvPjxQYXJhbWV0ZXIgTmFtZT0icmVhZCBvbmx5IiBWYWx1ZT0iMSIgLz48UGFyYW1ldGVyIE5hbWU9ImdlbmVyYXRlQ29ubmVjdGlvbkhlbHBlciIgVmFsdWU9ImZhbHNlIiAvPjxQYXJhbWV0ZXIgTmFtZT0iUG9ydCIgVmFsdWU9IjMzMDYiIC8+PFBhcmFtZXRlciBOYW1lPSJ1c2VyaWQiIFZhbHVlPSIiIC8+PFBhcmFtZXRlciBOYW1lPSJwYXNzd29yZCIgVmFsdWU9IiIgLz48L1BhcmFtZXRlcnM+PC9Db25uZWN0aW9uPjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgRGlzdGluY3Q9InRydWUiPjxUYWJsZXM+PFRhYmxlIE5hbWU9Imdzb19lc3RhZG9fc2l0dWFjaW9uYWwiIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0ib2lkIiAvPjxDb2x1bW4gVGFibGU9Imdzb19lc3RhZG9fc2l0dWFjaW9uYWwiIE5hbWU9IklER1NPU0lUVUFDSU9OIiAvPjxDb2x1bW4gVGFibGU9Imdzb19lc3RhZG9fc2l0dWFjaW9uYWwiIE5hbWU9InBhcXVldGUiIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0iZGVzY3JpcGNpb24iIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0iYWN0X3Byb3kiIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0iYWJyZXZpYXR1cmEiIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0iZGlzdHJpdG8iIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0iYWN0aXZpZGFkIiAvPjxDb2x1bW4gVGFibGU9Imdzb19lc3RhZG9fc2l0dWFjaW9uYWwiIE5hbWU9IkZlY2hhX2VudHJlZ2FfdGVycmVubyIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJGZWNoYV9pbmljaW9fb2JyYSIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJFc3RhZG9fb2JyYSIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJwbGF6b19lamVjdWNpb24iIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0iZmVjaGFfY3VsbWluYWNpb24iIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0iYW5vX2VqZSIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJzZWNfZWplYyIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJvcHRpbWlzdGljTG9ja0ZpZWxkIiAvPjxDb2x1bW4gVGFibGU9Imdzb19lc3RhZG9fc2l0dWFjaW9uYWwiIE5hbWU9IkdDUmVjb3JkIiAvPjxDb2x1bW4gVGFibGU9Imdzb19lc3RhZG9fc2l0dWFjaW9uYWwiIE5hbWU9IkFWQU5DRSIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJzZW1hbmEiIC8+PENvbHVtbiBUYWJsZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCIgTmFtZT0icmFuZ29fZGlhcyIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJUSVBPX0FWQU5DRSIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJmZWNoYSIgLz48Q29sdW1uIFRhYmxlPSJnc29fZXN0YWRvX3NpdHVhY2lvbmFsIiBOYW1lPSJsYXRpdHVkIiAvPjxDb2x1bW4gVGFibGU9Imdzb19lc3RhZG9fc2l0dWFjaW9uYWwiIE5hbWU9ImxvbmdpdHVkIiAvPjwvQ29sdW1ucz48TWV0YSBYPSIyMCIgWT0iMjAiIFdpZHRoPSIxMDAiIEhlaWdodD0iNDQ1IiAvPjwvUXVlcnk+PFJlc3VsdFNjaGVtYT48RGF0YVNldCBOYW1lPSJzcWxEYXRhU291cmNlMSI+PFZpZXcgTmFtZT0iZ3NvX2VzdGFkb19zaXR1YWNpb25hbCI+PEZpZWxkIE5hbWU9Im9pZCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IklER1NPU0lUVUFDSU9OIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0icGFxdWV0ZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJkZXNjcmlwY2lvbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJhY3RfcHJveSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJhYnJldmlhdHVyYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJkaXN0cml0byIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJhY3RpdmlkYWQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRmVjaGFfZW50cmVnYV90ZXJyZW5vIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iRmVjaGFfaW5pY2lvX29icmEiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJFc3RhZG9fb2JyYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJwbGF6b19lamVjdWNpb24iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJmZWNoYV9jdWxtaW5hY2lvbiIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImFub19lamUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic2VjX2VqZWMiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ib3B0aW1pc3RpY0xvY2tGaWVsZCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkdDUmVjb3JkIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQVZBTkNFIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJzZW1hbmEiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icmFuZ29fZGlhcyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJUSVBPX0FWQU5DRSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJmZWNoYSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImxhdGl0dWQiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9ImxvbmdpdHVkIiBUeXBlPSJEZWNpbWFsIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgQ29tbWFuZFRpbWVvdXQ9IjAiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

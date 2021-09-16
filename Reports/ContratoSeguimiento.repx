@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report3" Margins="100, 546, 0, 0" PageWidth="850" PageHeight="1100" Version="17.1" DataMember="contrato_seguimiento" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Visible="false" Description="Parameter1" ValueInfo="0" Name="pIdContrato" Type="#Ref-2" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="4" ControlType="TopMarginBand" Name="TopMargin" HeightF="0" />
+    <Item2 Ref="5" ControlType="DetailBand" Name="Detail" HeightF="18.75">
+      <Controls>
+        <Item1 Ref="6" ControlType="XRTable" Name="table3" SizeF="204.166687,16.0416584" LocationFloat="0, 0" Font="Tahoma, 7pt">
+          <Rows>
+            <Item1 Ref="7" ControlType="XRTableRow" Name="tableRow3" Weight="11.5">
+              <Cells>
+                <Item1 Ref="8" ControlType="XRTableCell" Name="tableCell9" Weight="0.078895465918546612" Text="tableCell2" TextAlignment="MiddleCenter">
+                  <DataBindings>
+                    <Item1 Ref="9" FormatString="{0:#,#}" PropertyName="Text" DataMember="contrato_seguimiento.CRONOGRAMA" />
+                  </DataBindings>
+                  <StylePriority Ref="10" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="11" ControlType="XRTableCell" Name="tableCell10" Weight="0.10848127195821004" TextAlignment="MiddleCenter">
+                  <DataBindings>
+                    <Item1 Ref="12" FormatString="{0:d/MM/yyyy}" PropertyName="Text" DataMember="contrato_seguimiento.SEGUIMIENTO_FECHA" />
+                  </DataBindings>
+                  <StylePriority Ref="13" UseTextAlignment="false" />
+                </Item2>
+                <Item3 Ref="14" ControlType="XRTableCell" Name="tableCell11" Weight="0.082840229463295112" TextAlignment="MiddleCenter">
+                  <DataBindings>
+                    <Item1 Ref="15" FormatString="{0:#,#}" PropertyName="Text" DataMember="contrato_seguimiento.SEGUIMIENTO_SEMANA" />
+                  </DataBindings>
+                  <StylePriority Ref="16" UseTextAlignment="false" />
+                </Item3>
+                <Item4 Ref="17" ControlType="XRTableCell" Name="tableCell12" Weight="0.11637084238627959" Text="tableCell5" TextAlignment="MiddleRight">
+                  <DataBindings>
+                    <Item1 Ref="18" FormatString="{0:#.00}" PropertyName="Text" DataMember="contrato_seguimiento.avance" />
+                  </DataBindings>
+                  <StylePriority Ref="19" UseTextAlignment="false" />
+                </Item4>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="20" UseFont="false" />
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="21" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="0" />
+    <Item4 Ref="22" ControlType="GroupHeaderBand" Name="GroupHeader1" RepeatEveryPage="true" HeightF="48.9583359">
+      <Controls>
+        <Item1 Ref="23" ControlType="XRTable" Name="table2" TextAlignment="TopCenter" SizeF="204.166687,25" LocationFloat="0, 23.0000172" Font="Tahoma, 7pt" Borders="All">
+          <Rows>
+            <Item1 Ref="24" ControlType="XRTableRow" Name="tableRow2" Weight="1" Font="Tahoma, 7pt, style=Bold" BackColor="PowderBlue">
+              <Cells>
+                <Item1 Ref="25" ControlType="XRTableCell" Name="tableCell1" Weight="0.41666667938232427" Text="CRONO" TextAlignment="BottomCenter" BackColor="0,0,0,0">
+                  <StylePriority Ref="26" UseBackColor="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="27" ControlType="XRTableCell" Name="tableCell6" Weight="0.57291675567626932" Text="FECHA" TextAlignment="BottomCenter" BackColor="0,0,0,0">
+                  <StylePriority Ref="28" UseBackColor="false" UseTextAlignment="false" />
+                </Item2>
+                <Item3 Ref="29" ControlType="XRTableCell" Name="tableCell7" Weight="0.4375" Text="SEM." TextAlignment="BottomCenter" BackColor="0,0,0,0">
+                  <StylePriority Ref="30" UseBackColor="false" UseTextAlignment="false" />
+                </Item3>
+                <Item4 Ref="31" ControlType="XRTableCell" Name="tableCell8" Weight="0.6145834350585937" Text="AVANCE" TextAlignment="BottomCenter" BackColor="White">
+                  <StylePriority Ref="32" UseBackColor="false" UseTextAlignment="false" />
+                </Item4>
+              </Cells>
+              <StylePriority Ref="33" UseFont="false" UseBackColor="false" />
+            </Item1>
+          </Rows>
+          <StylePriority Ref="34" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="35" ControlType="XRLabel" Name="label4" Text="COORDINADOR" TextAlignment="MiddleCenter" SizeF="204.999985,23.0000019" LocationFloat="0, 0" Font="Times New Roman, 9.75pt, style=Bold" BackColor="PowderBlue" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="36" UseFont="false" UseBackColor="false" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+      </Controls>
+    </Item4>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X29icmFzX0Nvbm5lY3Rpb24iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJjb250cmF0b19zZWd1aW1pZW50byI+PFBhcmFtZXRlciBOYW1lPSJwSWRDb250cmF0byIgVHlwZT0iRGV2RXhwcmVzcy5EYXRhQWNjZXNzLkV4cHJlc3Npb24iPihTeXN0ZW0uSW50MzIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoW1BhcmFtZXRlcnMucElkQ29udHJhdG9dKTwvUGFyYW1ldGVyPjxUYWJsZXM+PFRhYmxlIE5hbWU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiAvPjxUYWJsZSBOYW1lPSJjb250cmF0byIgLz48VGFibGUgTmFtZT0icHJveWVjdG9fY29tcG9uZW50ZSIgLz48VGFibGUgTmFtZT0icHJveWVjdG8iIC8+PFJlbGF0aW9uIFR5cGU9IklubmVyIiBQYXJlbnQ9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOZXN0ZWQ9ImNvbnRyYXRvIj48S2V5Q29sdW1uIFBhcmVudD0iaWRjb250cmF0byIgTmVzdGVkPSJpZGNvbnRyYXRvIiAvPjwvUmVsYXRpb24+PFJlbGF0aW9uIFR5cGU9IklubmVyIiBQYXJlbnQ9ImNvbnRyYXRvIiBOZXN0ZWQ9InByb3llY3RvX2NvbXBvbmVudGUiPjxLZXlDb2x1bW4gUGFyZW50PSJpZFByb3llY3RvQ29tcG9uZW50ZSIgTmVzdGVkPSJpZFByb3llY3RvQ29tcG9uZW50ZSIgLz48L1JlbGF0aW9uPjxSZWxhdGlvbiBUeXBlPSJJbm5lciIgUGFyZW50PSJwcm95ZWN0b19jb21wb25lbnRlIiBOZXN0ZWQ9InByb3llY3RvIj48S2V5Q29sdW1uIFBhcmVudD0iaWRwcm95ZWN0byIgTmVzdGVkPSJpZFByb3llY3RvIiAvPjwvUmVsYXRpb24+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG8iIE5hbWU9IklEQ09OVFJBVE9TRUdVSU1JRU5UTyIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0iaWRjb250cmF0byIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0iU0VHVUlNSUVOVE9fRkVDSEEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG8iIE5hbWU9ImF2YW5jZSIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0iU0VHVUlNSUVOVE9fU0VNQU5BIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJTRUdVSU1JRU5UT19DUk9OT0dSQU1BIiAvPjwvQ29sdW1ucz48RmlsdGVyPlN0YXJ0c1dpdGgoW3Byb3llY3RvLkNVSV0sID9wSWRDb250cmF0byk8L0ZpbHRlcj48R3JvdXBGaWx0ZXI+PC9Hcm91cEZpbHRlcj48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIj48RmllbGQgTmFtZT0iSURDT05UUkFUT1NFR1VJTUlFTlRPIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iaWRjb250cmF0byIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlNFR1VJTUlFTlRPX0ZFQ0hBIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iYXZhbmNlIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJTRUdVSU1JRU5UT19TRU1BTkEiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iU0VHVUlNSUVOVE9fQ1JPTk9HUkFNQSIgVHlwZT0iSW50MzIiIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiBDb21tYW5kVGltZW91dD0iMCIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v17.1" Ref="2" Content="System.Int32" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

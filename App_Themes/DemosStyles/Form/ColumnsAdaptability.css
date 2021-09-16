@@ -1,0 +1,21 @@
+﻿#form {
+    padding: 10px;
+}
+
+.options {
+    padding: 20px;
+    background-color: #f5f5f5;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.caption {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.option {
+    margin-top: 10px;
+}

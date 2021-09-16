@@ -1,0 +1,26 @@
+<table><tr>
+<td valign="top">
+<dx:ASPxMenu ID="menu" ClientInstanceName="menu" runat="server" AllowSelectItem="True"
+            Orientation="Vertical" EnableViewState="False" Width="100%">
+            <ItemStyle HorizontalAlign="Left" />
+            <ClientSideEvents Init="InitMenu" ItemClick="MenuItemClick"></ClientSideEvents>
+            <Items>
+                <dx:MenuItem Name="ACUMULADOS" Text="ACUMULADOS"  />
+                <dx:MenuItem Name="FTE. FTO" Text="FTE. FTO"/>
+                <dx:MenuItem Name="GENERICA" Text="GENERICA"  />
+                <dx:MenuItem Name="FUNCION" Text="AFUNCION" />
+                <dx:MenuItem Name="PROVEEDOR" Text="PROVEEDOR"/>
+                <dx:MenuItem Name="PROYECCION" Text="PROYECION"/>
+            </Items>
+        </dx:ASPxMenu>
+
+</td>
+<td  width="100%">
+<dx:ASPxDashboardViewer  ID="ASPxDashboard1" runat="server" Width="100%" 
+        DashboardXmlFile = "~/xml/xmlDashboardPresupuesto.xml" HandleServerErrors="true" 
+        OnConfigureDataConnection="ASPxDashboardViewer1_ConfigureDataConnection" 
+        Height="1000px" >
+</dx:ASPxDashboardViewer>
+</td>
+</tr>
+</table>

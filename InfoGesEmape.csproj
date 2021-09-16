@@ -1,0 +1,733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14FA5767-24DF-464E-B41A-F2715474CDD6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoGesRegional</RootNamespace>
+    <AssemblyName>InfoGesRegional</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.Designer.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Map.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Bootstrap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.Resources.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PdfViewer.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v17.1.Presets, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.MySql, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntLibContrib.Data.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.1\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mobile">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\dx.android5.light.css" />
+    <Content Include="App_Themes\dx.common.css" />
+    <Content Include="App_Themes\dx.contrast.compact.css" />
+    <Content Include="App_Themes\dx.contrast.css" />
+    <Content Include="App_Themes\dx.dark.compact.css" />
+    <Content Include="App_Themes\dx.dark.css" />
+    <Content Include="App_Themes\dx.ios7.default.css" />
+    <Content Include="App_Themes\dx.light.compact.css" />
+    <Content Include="App_Themes\dx.light.css" />
+    <Content Include="App_Themes\dx.spa.css" />
+    <Content Include="App_Themes\dx.win10.black.css" />
+    <Content Include="App_Themes\dx.win10.white.css" />
+    <Content Include="css\dx.common.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\FondoEmape.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\radio_normal.png" />
+    <Content Include="Images\radio_select.png" />
+    <Content Include="Images\siaf_000902.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\SIAF_000936.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\SIAF_300232.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Includes\HeaderPeriodo.ascx" />
+    <Content Include="Includes\MenuTreeMovil.ascx" />
+    <Content Include="Includes\HeaderSecond.ascx" />
+    <Content Include="Includes\MenuTree.ascx" />
+    <Content Include="Modules\Account\Roles.aspx" />
+    <Content Include="Modules\Account\RolesEdit.aspx" />
+    <Content Include="Modules\Account\Users.aspx" />
+    <Content Include="Modules\Account\UsersCreate.aspx" />
+    <Content Include="Modules\Account\UsersEdit.aspx" />
+    <Content Include="Modules\Content.aspx" />
+    <Content Include="Modules\ContentDashBoard.aspx" />
+    <Content Include="Modules\Forms\Consulta\InfoGesDashBoardObrasGG.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOPresupuesto.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPolinomica.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSAmortizacion.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSCurvaS.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSResumen.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSRptGG.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyectoGG.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyectoCoordinador.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistro.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroCoordinador.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPdf.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSReports2.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyecto.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSCoordinadores.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSReports.aspx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfogesGSOSSupervisores.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesObraPrototipo.aspx" />
+    <Content Include="Modules\MasterPage.Master" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\ConeccionString2.cs" />
+    <Compile Include="Code\Data\Accounts\Permission.cs" />
+    <Compile Include="Code\Data\Accounts\PermissionCategory.cs" />
+    <Compile Include="Code\Data\Accounts\Role.cs" />
+    <Compile Include="Code\Data\Accounts\User.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\Componente.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\ConfiguracionTransmision.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\ConsultaAmigable.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\ConsultaEjecutoraClasificador.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\Cuadro3.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\Cuadro2.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\Cuadro1.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\Cuadro.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\DinamicaRuc.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\DinamicaSiaf.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\Ejecutora.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\GSO_Obras.cs" />
+    <Compile Include="Code\Data\Forms\Consulta\MaestroDetalle.cs" />
+    <Compile Include="Code\Data\Forms\Graficos\Curva_S_Avance_Obra.cs" />
+    <Compile Include="Code\Data\Forms\Input\GSO_CheckList.cs" />
+    <Compile Include="Code\Data\Forms\Input\GSO_Situacion.cs" />
+    <Compile Include="Code\Data\Forms\Seguimiento\GsoProyectoCheckList.cs" />
+    <Compile Include="Code\Data\Forms\Seguimiento\GsoProyectoRegistro.cs" />
+    <Compile Include="Code\Data\Forms\Seguimiento\GsoProyecto.cs" />
+    <Compile Include="Code\Logic\Accounts\Role.cs" />
+    <Compile Include="Code\Logic\Accounts\SiteIdentity.cs" />
+    <Compile Include="Code\Logic\Accounts\SitePrincipal.cs" />
+    <Compile Include="Code\Logic\Accounts\User.cs" />
+    <Compile Include="Code\Logic\Forms\Consulta\Cuadro.cs" />
+    <Compile Include="Code\Logic\Forms\Consulta\Cuadro3.cs" />
+    <Compile Include="Code\Logic\Forms\Consulta\DinamicaRuc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Logic\Forms\Consulta\Ejecutora.cs" />
+    <Compile Include="Code\Logic\Forms\Consulta\GSO_Obras.cs" />
+    <Compile Include="Code\Logic\Forms\Consulta\MaestroDetalle.cs" />
+    <Compile Include="Code\Logic\Forms\Input\GSO_CheckList.cs" />
+    <Compile Include="Code\Logic\Forms\Input\GSO_Situacion.cs" />
+    <Compile Include="Code\Logic\Forms\Mantenimientos\Common.cs" />
+    <Compile Include="Code\Logic\Forms\Seguimiento\GsoProyectoCheckList.cs" />
+    <Compile Include="Code\Logic\Forms\Seguimiento\GsoProyectoRegistro.cs" />
+    <Compile Include="Code\Logic\Forms\Seguimiento\GsoProyecto.cs" />
+    <Compile Include="Code\PersistenObjects\PersistenObjectsCertificado.cs" />
+    <Compile Include="Code\PersistenObjects\PersistenObjects.cs" />
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\HeaderPeriodo.ascx.cs">
+      <DependentUpon>HeaderPeriodo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\HeaderPeriodo.ascx.designer.cs">
+      <DependentUpon>HeaderPeriodo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\MenuTreeMovil.ascx.cs">
+      <DependentUpon>MenuTreeMovil.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\MenuTreeMovil.ascx.designer.cs">
+      <DependentUpon>MenuTreeMovil.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\HeaderSecond.ascx.cs">
+      <DependentUpon>HeaderSecond.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\HeaderSecond.ascx.designer.cs">
+      <DependentUpon>HeaderSecond.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\MenuTree.ascx.cs">
+      <DependentUpon>MenuTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\MenuTree.ascx.designer.cs">
+      <DependentUpon>MenuTree.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\TitleContent.ascx.cs">
+      <DependentUpon>TitleContent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\TitleContent.ascx.designer.cs">
+      <DependentUpon>TitleContent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\RolesEdit.aspx.cs">
+      <DependentUpon>RolesEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\RolesEdit.aspx.designer.cs">
+      <DependentUpon>RolesEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\UsersCreate.aspx.cs">
+      <DependentUpon>UsersCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\UsersCreate.aspx.designer.cs">
+      <DependentUpon>UsersCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\UsersEdit.aspx.cs">
+      <DependentUpon>UsersEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\UsersEdit.aspx.designer.cs">
+      <DependentUpon>UsersEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Content.aspx.cs">
+      <DependentUpon>Content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Content.aspx.designer.cs">
+      <DependentUpon>Content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ContentDashBoard.aspx.cs">
+      <DependentUpon>ContentDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\ContentDashBoard.aspx.designer.cs">
+      <DependentUpon>ContentDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Consulta\InfoGesDashBoardObrasGG.aspx.cs">
+      <DependentUpon>InfoGesDashBoardObrasGG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Consulta\InfoGesDashBoardObrasGG.aspx.designer.cs">
+      <DependentUpon>InfoGesDashBoardObrasGG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOPresupuesto.aspx.cs">
+      <DependentUpon>frmInfoGesGSOPresupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOPresupuesto.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOPresupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPolinomica.aspx.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroPolinomica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPolinomica.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroPolinomica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSAmortizacion.aspx.cs">
+      <DependentUpon>frmInfoGesGSOSAmortizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSAmortizacion.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOSAmortizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSCurvaS.aspx.cs">
+      <DependentUpon>frmInfoGesGSOSCurvaS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSCurvaS.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOSCurvaS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSResumen.aspx.cs">
+      <DependentUpon>frmInfoGesGSOSResumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSResumen.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOSResumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSRptGG.aspx.cs">
+      <DependentUpon>frmInfoGesGSOSRptGG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSRptGG.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOSRptGG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyectoGG.aspx.cs">
+      <DependentUpon>frmInfoGesGSOProyectoGG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyectoGG.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOProyectoGG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyectoCoordinador.aspx.cs">
+      <DependentUpon>frmInfoGesGSOProyectoCoordinador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyectoCoordinador.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOProyectoCoordinador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistro.aspx.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistro.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroCoordinador.aspx.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroCoordinador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroCoordinador.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroCoordinador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPdf.aspx.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPdf.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSReports2.aspx.cs">
+      <DependentUpon>frmInfoGesGSOSReports2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSReports2.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOSReports2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyecto.aspx.cs">
+      <DependentUpon>frmInfoGesGSOProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOProyecto.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOProyecto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSCoordinadores.aspx.cs">
+      <DependentUpon>frmInfoGesGSOSCoordinadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSCoordinadores.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOSCoordinadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSReports.aspx.cs">
+      <DependentUpon>frmInfoGesGSOSReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOSReports.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGSOSReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Logic\Forms\Graficos\Curva_S_Avance_Obra.cs" />
+    <Compile Include="Modules\Forms\Seguimiento\frmInfogesGSOSSupervisores.aspx.cs">
+      <DependentUpon>frmInfogesGSOSSupervisores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfogesGSOSSupervisores.aspx.designer.cs">
+      <DependentUpon>frmInfogesGSOSSupervisores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesObraPrototipo.aspx.cs">
+      <DependentUpon>frmInfoGesObraPrototipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesObraPrototipo.aspx.designer.cs">
+      <DependentUpon>frmInfoGesObraPrototipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SecondMasterPage.Master.cs">
+      <DependentUpon>SecondMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\SecondMasterPage.Master.designer.cs">
+      <DependentUpon>SecondMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\ajax-loader0.gif" />
+    <Content Include="Images\ajax-loader00.gif" />
+    <Content Include="Images\ajax-loader4.gif" />
+    <Content Include="Images\bgError.png" />
+    <Content Include="Images\box_add.jpg" />
+    <Content Include="Images\box_into.jpg" />
+    <Content Include="Images\businessman.jpg" />
+    <Content Include="Images\Calendar_scheduleHS.png" />
+    <Content Include="Images\content_space.gif" />
+    <Content Include="Images\eliminar.bmp" />
+    <Content Include="Images\featuredLoader.gif" />
+    <Content Include="Images\iconError.png" />
+    <Content Include="Images\img_div_close.gif" />
+    <Content Include="Images\img_div_open.gif" />
+    <Content Include="Images\logo_action.png" />
+    <Content Include="Images\separator_white.gif" />
+    <Content Include="Images\TabbedMenu\ItemArrow.gif" />
+    <Content Include="Images\TabbedMenu\ItemBackground.gif" />
+    <Content Include="Images\TabbedMenu\ItemBackgroundHover.gif" />
+    <Content Include="Images\TabbedMenu\ItemBackgroundSelected.gif" />
+    <Content Include="Images\TabbedMenu\LeftSideSeparators.gif" />
+    <Content Include="Images\TabbedMenu\RootItemSeparator.gif" />
+    <Content Include="Images\TabbedMenu\rpBottomLeft.png" />
+    <Content Include="Images\TabbedMenu\rpBottomRight.png" />
+    <Content Include="Images\TabbedMenu\rpTopLeft.png" />
+    <Content Include="Images\TabbedMenu\rpTopRight.png" />
+    <Content Include="Images\user1_add.jpg" />
+    <Content Include="Images\user1_find.jpg" />
+    <Content Include="Includes\Footer.ascx" />
+    <Content Include="Includes\Header.ascx" />
+    <Content Include="Includes\TitleContent.ascx" />
+    <Content Include="Styles\bck_style01.css" />
+    <Content Include="Styles\style01.css" />
+    <Content Include="Styles\style02.css" />
+    <Content Include="Styles\TabbedMenu.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Themes\Theme1\" />
+    <Folder Include="Code\Data\Accounts\App_Data\" />
+    <Folder Include="Code\Data\Forms\Mantenimientos\" />
+    <Folder Include="Modules\ascx\" />
+    <Folder Include="Modules\Forms\Input\" />
+    <Folder Include="Modules\Forms\Mantenimientos\" />
+    <Folder Include="Modules\Forms\Reports\" />
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modules\SecondMasterPage.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile3.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile4.pubxml" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

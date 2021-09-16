@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report1" PageWidth="850" PageHeight="1100" Version="17.1" DataMember="contrato" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" ValueInfo="1" Name="pProyectoEtapa1" Type="#Ref-2" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="4" ControlType="TopMarginBand" Name="TopMargin" HeightF="100" />
+    <Item2 Ref="5" ControlType="DetailBand" Name="Detail" HeightF="200">
+      <Controls>
+        <Item1 Ref="6" ControlType="XRChart" Name="chart1" SizeF="359.375,200" LocationFloat="0, 0" BorderColor="Black" Borders="None">
+          <Chart Ref="7">
+            <DataContainer Ref="8">
+              <SeriesSerializable>
+                <Item1 Ref="9" Name="Series 1" ArgumentDataMember="contrato_seguimiento.semana" ValueDataMembersSerializable="contrato_seguimiento.avance">
+                  <View Ref="10" TypeNameSerializable="LineSeriesView" />
+                </Item1>
+              </SeriesSerializable>
+            </DataContainer>
+            <Legend Ref="11" TextVisible="false" Name="Default Legend" />
+            <OptionsPrint Ref="12" ImageFormat="Metafile" />
+            <Diagram Ref="13" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="14" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="15" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="16" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="17" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="100" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X29icmFzX0Nvbm5lY3Rpb24iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJjb250cmF0byIgVG9wPSIxIj48UGFyYW1ldGVyIE5hbWU9InBQcm95ZWN0b0V0YXBhIiBUeXBlPSJEZXZFeHByZXNzLkRhdGFBY2Nlc3MuRXhwcmVzc2lvbiI+KFN5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSkoW1BhcmFtZXRlcnMucFByb3llY3RvRXRhcGExXSk8L1BhcmFtZXRlcj48VGFibGVzPjxUYWJsZSBOYW1lPSJjb250cmF0byIgLz48VGFibGUgTmFtZT0iY29udHJhdG9fc2VndWltaWVudG8iIC8+PFJlbGF0aW9uIFR5cGU9IklubmVyIiBQYXJlbnQ9ImNvbnRyYXRvIiBOZXN0ZWQ9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIj48S2V5Q29sdW1uIFBhcmVudD0iaWRjb250cmF0byIgTmVzdGVkPSJpZGNvbnRyYXRvIiAvPjwvUmVsYXRpb24+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG8iIE5hbWU9IkZFQ0hBX0lORk9STUUiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG8iIE5hbWU9Im9ic2VydmFjaW9uIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJzb2x1Y2lvbiIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0iYXZhbmNlIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJpbXBvcnRlIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJzZW1hbmEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9ImlkY29udHJhdG8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9ImlkUHJveWVjdG9FdGFwYSIgLz48L0NvbHVtbnM+PEZpbHRlcj5bY29udHJhdG8uaWRQcm95ZWN0b0V0YXBhXSA9ID9wUHJveWVjdG9FdGFwYTwvRmlsdGVyPjxHcm91cEZpbHRlcj48L0dyb3VwRmlsdGVyPjxNZXRhIFg9IjIwIiBZPSIyMCIgV2lkdGg9IjEwMCIgSGVpZ2h0PSIxNzMiIC8+PC9RdWVyeT48UXVlcnkgVHlwZT0iU2VsZWN0UXVlcnkiIE5hbWU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIj48VGFibGVzPjxUYWJsZSBOYW1lPSJjb250cmF0b19zZWd1aW1pZW50byIgLz48L1RhYmxlcz48Q29sdW1ucz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0iRkVDSEFfSU5GT1JNRSIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0ib2JzZXJ2YWNpb24iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG8iIE5hbWU9ImF2YW5jZSIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0ic2VtYW5hIiAvPjwvQ29sdW1ucz48TWV0YSBYPSIxNDAiIFk9IjIwIiBXaWR0aD0iMTAwIiBIZWlnaHQ9IjEwNSIgLz48L1F1ZXJ5PjxSZWxhdGlvbiBNYXN0ZXI9ImNvbnRyYXRvIiBEZXRhaWw9ImNvbnRyYXRvX2V2ZW50byI+PEtleUNvbHVtbiBNYXN0ZXI9ImlkY29udHJhdG8iIERldGFpbD0iaWRDb250cmF0byIgLz48L1JlbGF0aW9uPjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9ImNvbnRyYXRvIj48RmllbGQgTmFtZT0iRkVDSEFfSU5GT1JNRSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9Im9ic2VydmFjaW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InNvbHVjaW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImF2YW5jZSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iaW1wb3J0ZSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0ic2VtYW5hIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImlkY29udHJhdG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpZFByb3llY3RvRXRhcGEiIFR5cGU9IkludDMyIiAvPjwvVmlldz48VmlldyBOYW1lPSJjb250cmF0b19zZWd1aW1pZW50byI+PEZpZWxkIE5hbWU9IkZFQ0hBX0lORk9STUUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJvYnNlcnZhY2lvbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJhdmFuY2UiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9InNlbWFuYSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgQ29tbWFuZFRpbWVvdXQ9IjAiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v17.1" Ref="2" Content="System.Int32" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

@@ -1,0 +1,73 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmSeguimientosLiquidacionEncargo.aspx.cs" Inherits="InfoGesRegional.Modules.Forms.Consulta.frmSeguimientosLiquidacionEncargo" %>
+
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dxwgv" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dxe" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dxcp" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dxe" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView.Export" TagPrefix="dxwgv" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Consulta Expediente Administrativo SIAF</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+   
+
+<table>
+<tr>
+<td style="padding-right: 4px">
+<dxe:ASPxButton ID="btnXlsExport" runat="server" Text="Export to XLS" UseSubmitBehavior="False"
+                    OnClick="btnXlsExport_Click" /> </td>
+<td><dxe:ASPxButton runat="server" ID="btnCollapse" Text="Collapse All Rows" UseSubmitBehavior="false"
+    AutoPostBack="false">
+    <ClientSideEvents Click="function() { ASPxGridview1.CollapseAll() }" />
+</dxe:ASPxButton>
+</td>
+<td>
+<dxe:ASPxButton runat="server" ID="btnExpand" Text="Expand All Rows" UseSubmitBehavior="false"
+    AutoPostBack="false">
+    <ClientSideEvents Click="function() { ASPxGridview1.ExpandAll() }" />
+</dxe:ASPxButton>
+</td>
+</tr>
+</table>
+
+        <dxwgv:ASPxGridView ID="ASPxGridview1"  runat="server" Width="95%" 
+            ClientInstanceName="ASPxGridview1"
+            OnLoad="LoadASPxGridview" 
+            AutoGenerateColumns="false"  Font-Size="X-Small">
+        <Columns>
+            <dxwgv:GridViewDataTextColumn FieldName="ANO_EJE" Caption="Periodo" VisibleIndex="1"  width="80px" />                            
+            <dxwgv:GridViewDataTextColumn FieldName="FUENTE_FINANC_NOMBRE" Caption="Fte. Fto." VisibleIndex="3"  width="120px" />                            
+            <dxwgv:GridViewDataTextColumn FieldName="ESPECIFICA_DET_NOMBRE" Caption="Partida" VisibleIndex="4"   width="200px"/>                            
+            <dxwgv:GridViewDataTextColumn FieldName="EXPEDIENTE" Caption="Exp." VisibleIndex="5"   width="60px"/>                            
+            <dxwgv:GridViewBandColumn  Caption="DOCUMENTO" HeaderStyle-Font-Bold="true" HeaderStyle-HorizontalAlign="Center" VisibleIndex="6">
+            <Columns>
+                <dxwgv:GridViewDataDateColumn FieldName="COD_DOC" Caption="Cod." VisibleIndex="6"    width="40px"/>
+                <dxwgv:GridViewDataTextColumn FieldName="NUM_DOC" Caption="Num." VisibleIndex="7" width="60px"/>
+                <dxwgv:GridViewDataDateColumn FieldName="FECHA_DOC" Caption="Fecha" VisibleIndex="8" width="60px"/>
+            </Columns>
+            </dxwgv:GridViewBandColumn>
+            <dxwgv:GridViewDataTextColumn FieldName="EJECUCION" Caption="Ejecución" VisibleIndex="9" width="80px">
+                <PropertiesTextEdit DisplayFormatString="c">
+                 </PropertiesTextEdit>            
+            </dxwgv:GridViewDataTextColumn>
+            <dxwgv:GridViewDataTextColumn FieldName="RUC" Caption="Ruc" VisibleIndex="10" Width="60px" />
+            <dxwgv:GridViewDataTextColumn FieldName="NOMBRE_RUC" Caption="Nombre Ruc" VisibleIndex="11" Width="120px" />
+            <dxwgv:GridViewDataTextColumn FieldName="NOTAS" Caption="Notas" VisibleIndex="12" Width="300px" />
+        </Columns> 
+            <SettingsPager Mode="ShowAllRecords"></SettingsPager>
+            <Settings  ShowGroupPanel="True" ShowFooter="true" ShowGroupFooter="VisibleAlways" VerticalScrollBarMode="Visible"  VerticalScrollableHeight="360"/>    
+            <Styles CssFilePath="~/App_Themes/Glass/GridView/styles.css" CssPostfix="Glass">
+            </Styles>
+     </dxwgv:ASPxGridView>
+      <dxwgv:ASPxGridViewExporter ID="gridExport" runat="server" GridViewID="ASPxGridview1"></dxwgv:ASPxGridViewExporter>                  
+    </div>
+    </form>
+</body>
+</html>

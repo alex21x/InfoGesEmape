@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="" IncludeMasterFilterState="false" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_siaf_301851_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_301851" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="root" />
+          <Parameter Name="password" Value="7654321" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_recaudado">
+        <Tables>
+          <Table Name="infoges_dashboard_recaudado" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_recaudado" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_recaudado" Name="FECHA_DOC" />
+          <Column Table="infoges_dashboard_recaudado" Name="EJECUCION_G" />
+          <Column Table="infoges_dashboard_recaudado" Name="EJECUCION_GA" />
+          <Column Table="infoges_dashboard_recaudado" Name="EJECUCION_R" />
+          <Column Table="infoges_dashboard_recaudado" Name="EJECUCION_RA" />
+          <Column Table="infoges_dashboard_recaudado" Name="RECAUDADO_SALDO" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="infoges_dashboard_recaudado">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="FECHA_DOC" Type="String" />
+            <Field Name="EJECUCION_G" Type="Decimal" />
+            <Field Name="EJECUCION_GA" Type="Decimal" />
+            <Field Name="EJECUCION_R" Type="Decimal" />
+            <Field Name="EJECUCION_RA" Type="Decimal" />
+            <Field Name="RECAUDADO_SALDO" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+    <SqlDataSource ComponentName="dashboardSqlDataSource2">
+      <Name>Origen de datos SQL 2</Name>
+      <Connection Name="localhost_siaf_301851_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_301851" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="root" />
+          <Parameter Name="password" Value="7654321" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_cashflow_acum">
+        <Tables>
+          <Table Name="infoges_dashboard_cashflow_acum" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_cashflow_acum" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="FUENTE_FINANC" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="FTE_FTO_NOMBRE" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="DESCRIPCION" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="EJECUCION_G" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="EJECUCION_R" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="EJECUCION_GT" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="EJECUCION_G1" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="EJECUCION_RT" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="EJECUCION_R1" />
+          <Column Table="infoges_dashboard_cashflow_acum" Name="EJECUCION_RT_GT" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 2">
+          <View Name="infoges_dashboard_cashflow_acum">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="FUENTE_FINANC" Type="String" />
+            <Field Name="FTE_FTO_NOMBRE" Type="String" />
+            <Field Name="DESCRIPCION" Type="String" />
+            <Field Name="EJECUCION_G" Type="Decimal" />
+            <Field Name="EJECUCION_R" Type="Decimal" />
+            <Field Name="EJECUCION_GT" Type="Decimal" />
+            <Field Name="EJECUCION_G1" Type="Decimal" />
+            <Field Name="EJECUCION_RT" Type="Decimal" />
+            <Field Name="EJECUCION_R1" Type="Decimal" />
+            <Field Name="EJECUCION_RT_GT" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+    <SqlDataSource ComponentName="dashboardSqlDataSource3">
+      <Name>Origen de datos SQL 3</Name>
+      <Connection Name="localhost_siaf_301851_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_301851" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="root" />
+          <Parameter Name="password" Value="7654321" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_presupuesto_graf">
+        <Tables>
+          <Table Name="infoges_dashboard_presupuesto_graf" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="SEC_EJEC" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PIA" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="MODIFICACION" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PIM" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="COMPROMISO" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="DEVENGADO" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PORCENTAJE_EJECUCION" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="GIRADO" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="SALDO_PIM" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PORCENTAJE_PIM" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PROMEDIO_MENSUAL" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PORCENTAJE_MENSUAL" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="SALDO_PROYECTADO" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PORCENTAJE_PROYECTADO" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="CERTIFICADO" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="COMPROMISO_ANUAL" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="PIM_CERTI" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="CERTI_CA" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="CA_COMP" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="COMP_DEV" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="DEV_GIRA" />
+          <Column Table="infoges_dashboard_presupuesto_graf" Name="TOTAL_X_EJECUTAR" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 3">
+          <View Name="infoges_dashboard_presupuesto_graf">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="SEC_EJEC" Type="String" />
+            <Field Name="PIA" Type="Decimal" />
+            <Field Name="MODIFICACION" Type="Decimal" />
+            <Field Name="PIM" Type="Decimal" />
+            <Field Name="COMPROMISO" Type="Decimal" />
+            <Field Name="DEVENGADO" Type="Decimal" />
+            <Field Name="PORCENTAJE_EJECUCION" Type="Decimal" />
+            <Field Name="GIRADO" Type="Decimal" />
+            <Field Name="SALDO_PIM" Type="Decimal" />
+            <Field Name="PORCENTAJE_PIM" Type="Decimal" />
+            <Field Name="PROMEDIO_MENSUAL" Type="Double" />
+            <Field Name="PORCENTAJE_MENSUAL" Type="Double" />
+            <Field Name="SALDO_PROYECTADO" Type="Double" />
+            <Field Name="PORCENTAJE_PROYECTADO" Type="Double" />
+            <Field Name="CERTIFICADO" Type="Decimal" />
+            <Field Name="COMPROMISO_ANUAL" Type="Decimal" />
+            <Field Name="PIM_CERTI" Type="Decimal" />
+            <Field Name="CERTI_CA" Type="Decimal" />
+            <Field Name="CA_COMP" Type="Decimal" />
+            <Field Name="COMP_DEV" Type="Decimal" />
+            <Field Name="DEV_GIRA" Type="Decimal" />
+            <Field Name="TOTAL_X_EJECUTAR" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+    <SqlDataSource ComponentName="dashboardSqlDataSource5">
+      <Name>Origen de datos SQL 5</Name>
+      <Connection Name="localhost_siaf_301851_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_301851" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="root" />
+          <Parameter Name="password" Value="7654321" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_funcion">
+        <Parameter Name="lcAnoEje" Type="System.String">2019</Parameter>
+        <Tables>
+          <Table Name="infoges_dashboard_funcion" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_funcion" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_funcion" Name="SEC_EJEC" />
+          <Column Table="infoges_dashboard_funcion" Name="FUNCION_NOMBRE" />
+          <Column Table="infoges_dashboard_funcion" Name="PIA" />
+          <Column Table="infoges_dashboard_funcion" Name="MODIFICACION" />
+          <Column Table="infoges_dashboard_funcion" Name="PIM" />
+          <Column Table="infoges_dashboard_funcion" Name="COMPROMISO" />
+          <Column Table="infoges_dashboard_funcion" Name="DEVENGADO" />
+          <Column Table="infoges_dashboard_funcion" Name="PORCENTAJE_EJECUCION" />
+          <Column Table="infoges_dashboard_funcion" Name="GIRADO" />
+          <Column Table="infoges_dashboard_funcion" Name="SALDO_PIM" />
+          <Column Table="infoges_dashboard_funcion" Name="PORCENTAJE_PIM" />
+          <Column Table="infoges_dashboard_funcion" Name="PROMEDIO_MENSUAL" />
+          <Column Table="infoges_dashboard_funcion" Name="PORCENTAJE_MENSUAL" />
+          <Column Table="infoges_dashboard_funcion" Name="SALDO_PROYECTADO" />
+          <Column Table="infoges_dashboard_funcion" Name="PORCENTAJE_PROYECTADO" />
+        </Columns>
+        <Filter>[infoges_dashboard_funcion.ANO_EJE] = ?lcAnoEje</Filter>
+        <GroupFilter></GroupFilter>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 5">
+          <View Name="infoges_dashboard_funcion">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="SEC_EJEC" Type="String" />
+            <Field Name="FUNCION_NOMBRE" Type="String" />
+            <Field Name="PIA" Type="Decimal" />
+            <Field Name="MODIFICACION" Type="Decimal" />
+            <Field Name="PIM" Type="Decimal" />
+            <Field Name="COMPROMISO" Type="Decimal" />
+            <Field Name="DEVENGADO" Type="Decimal" />
+            <Field Name="PORCENTAJE_EJECUCION" Type="Decimal" />
+            <Field Name="GIRADO" Type="Decimal" />
+            <Field Name="SALDO_PIM" Type="Decimal" />
+            <Field Name="PORCENTAJE_PIM" Type="Decimal" />
+            <Field Name="PROMEDIO_MENSUAL" Type="Double" />
+            <Field Name="PORCENTAJE_MENSUAL" Type="Double" />
+            <Field Name="SALDO_PROYECTADO" Type="Double" />
+            <Field Name="PORCENTAJE_PROYECTADO" Type="Double" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+    <SqlDataSource ComponentName="dashboardSqlDataSource4">
+      <Name>Origen de datos SQL 4</Name>
+      <Connection Name="localhost_siaf_301851_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_301851" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="root" />
+          <Parameter Name="password" Value="7654321" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_generica">
+        <Parameter Name="lcAnoEje" Type="System.String">2019</Parameter>
+        <Tables>
+          <Table Name="infoges_dashboard_generica" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_generica" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_generica" Name="SEC_EJEC" />
+          <Column Table="infoges_dashboard_generica" Name="GENERICA" />
+          <Column Table="infoges_dashboard_generica" Name="PIA" />
+          <Column Table="infoges_dashboard_generica" Name="MODIFICACION" />
+          <Column Table="infoges_dashboard_generica" Name="PIM" />
+          <Column Table="infoges_dashboard_generica" Name="COMPROMISO" />
+          <Column Table="infoges_dashboard_generica" Name="DEVENGADO" />
+          <Column Table="infoges_dashboard_generica" Name="PORCENTAJE_EJECUCION" />
+          <Column Table="infoges_dashboard_generica" Name="GIRADO" />
+          <Column Table="infoges_dashboard_generica" Name="SALDO_PIM" />
+          <Column Table="infoges_dashboard_generica" Name="PORCENTAJE_PIM" />
+          <Column Table="infoges_dashboard_generica" Name="PROMEDIO_MENSUAL" />
+          <Column Table="infoges_dashboard_generica" Name="PORCENTAJE_MENSUAL" />
+          <Column Table="infoges_dashboard_generica" Name="SALDO_PROYECTADO" />
+          <Column Table="infoges_dashboard_generica" Name="PORCENTAJE_PROYECTADO" />
+        </Columns>
+        <Filter>[infoges_dashboard_generica.ANO_EJE] = ?lcAnoEje</Filter>
+        <GroupFilter></GroupFilter>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 4">
+          <View Name="infoges_dashboard_generica">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="SEC_EJEC" Type="String" />
+            <Field Name="GENERICA" Type="String" />
+            <Field Name="PIA" Type="Decimal" />
+            <Field Name="MODIFICACION" Type="Decimal" />
+            <Field Name="PIM" Type="Decimal" />
+            <Field Name="COMPROMISO" Type="Decimal" />
+            <Field Name="DEVENGADO" Type="Decimal" />
+            <Field Name="PORCENTAJE_EJECUCION" Type="Decimal" />
+            <Field Name="GIRADO" Type="Decimal" />
+            <Field Name="SALDO_PIM" Type="Decimal" />
+            <Field Name="PORCENTAJE_PIM" Type="Decimal" />
+            <Field Name="PROMEDIO_MENSUAL" Type="Double" />
+            <Field Name="PORCENTAJE_MENSUAL" Type="Double" />
+            <Field Name="SALDO_PROYECTADO" Type="Double" />
+            <Field Name="PORCENTAJE_PROYECTADO" Type="Double" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Gauge ComponentName="gaugeDashboardItem1" Name="FASES: % DEL OBJETIVO" ShowCaption="false" DataSource="dashboardSqlDataSource3" DataMember="infoges_dashboard_presupuesto_graf" ContentArrangementMode="FixedRowCount" ContentLineCount="7" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem5" />
+        <Measure DataMember="COMPROMISO" DefaultId="DataItem4" />
+        <Measure DataMember="COMPROMISO" DefaultId="DataItem6" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem7" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem8" />
+        <Measure DataMember="GIRADO" DefaultId="DataItem9" />
+        <Measure DataMember="CERTIFICADO" DefaultId="DataItem2" />
+        <Measure DataMember="CERTIFICADO" DefaultId="DataItem1" />
+        <Measure DataMember="PIM" DefaultId="DataItem0" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem3" />
+      </DataItems>
+      <GaugeElement Name="PIM vs CERTI">
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem1" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="CERTI vs CA">
+        <ActualValue DefaultId="DataItem2" />
+        <TargetValue DefaultId="DataItem3" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="CA vs COMP">
+        <ActualValue DefaultId="DataItem5" />
+        <TargetValue DefaultId="DataItem4" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="COMP vs DEV">
+        <ActualValue DefaultId="DataItem6" />
+        <TargetValue DefaultId="DataItem7" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="DEV vs GIRA">
+        <ActualValue DefaultId="DataItem8" />
+        <TargetValue DefaultId="DataItem9" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+    </Gauge>
+    <Chart ComponentName="chartDashboardItem1" Name="DEVENGADOS VS RECAUDADOS" ShowCaption="false" DataSource="dashboardSqlDataSource2" DataMember="infoges_dashboard_cashflow_acum">
+      <InteractivityOptions MasterFilterMode="Single" />
+      <DataItems>
+        <Dimension DataMember="DESCRIPCION" DefaultId="DataItem0" />
+        <Measure DataMember="EJECUCION_RT_GT" DefaultId="DataItem3" />
+        <Measure DataMember="EJECUCION_GT" DefaultId="DataItem1" />
+        <Measure DataMember="EJECUCION_RT" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="MILLONES" />
+          <Series>
+            <Simple Name="GIRADO">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" ShowForZeroValues="true" />
+            </Simple>
+            <Simple Name="RECAUDADO">
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" ShowForZeroValues="true" />
+            </Simple>
+            <Simple Name="SALDO">
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Grid ComponentName="gridDashboardItem1" Name="Saldos x Ejecutar" DataSource="dashboardSqlDataSource3" DataMember="infoges_dashboard_presupuesto_graf">
+      <DataItems>
+        <Measure DataMember="PIM_CERTI" DefaultId="DataItem0" />
+        <Measure DataMember="CERTI_CA" DefaultId="DataItem1" />
+        <Measure DataMember="CA_COMP" DefaultId="DataItem2" />
+        <Measure DataMember="COMP_DEV" DefaultId="DataItem3" />
+        <Measure DataMember="TOTAL_X_EJECUTAR" DefaultId="DataItem5" />
+        <Measure DataMember="PIM" DefaultId="DataItem6" />
+        <Measure DataMember="CERTIFICADO" DefaultId="DataItem7" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem8" />
+        <Measure DataMember="COMPROMISO" DefaultId="DataItem9" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem10" />
+      </DataItems>
+      <FormatRules>
+        <GridItemFormatRule Name="FormatRule 1" DataItem="DataItem5">
+          <FormatConditionBar>
+            <NegativeStyleSettings PredefinedColor="PaleRed" />
+            <StyleSettings PredefinedColor="Green" />
+            <BarOptions />
+          </FormatConditionBar>
+        </GridItemFormatRule>
+        <GridItemFormatRule Name="FormatRule 2" DataItem="DataItem5">
+          <FormatConditionBar>
+            <NegativeStyleSettings PredefinedColor="PaleRed" />
+            <StyleSettings PredefinedColor="PaleBlue" />
+            <BarOptions />
+          </FormatConditionBar>
+        </GridItemFormatRule>
+      </FormatRules>
+      <GridColumns>
+        <GridMeasureColumn Name="PIM (1)" Weight="40.617797980569669">
+          <Measure DefaultId="DataItem6" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="CERTIFICADO (2)" Weight="70.674968486191219">
+          <Measure DefaultId="DataItem7" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="C. ANUAL (3)" Weight="57.677273132408935">
+          <Measure DefaultId="DataItem8" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="COMPROMISO (4)" Weight="70.674968486191219">
+          <Measure DefaultId="DataItem9" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO (5)" Weight="65.800832728522877">
+          <Measure DefaultId="DataItem10" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="PIM NO CERTI (6)=(1)-(2)" Weight="94.23329131492163">
+          <Measure DefaultId="DataItem0" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="CERTI NO CA (7)=(2)-(3)" Weight="91.796223436087459">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="CA NO COMP (8)=(3)-(4)" Weight="90.983867476476064">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="COMP NO DEV (9)=(4)-(5)" Weight="94.23329131492163">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="SALDO (6)+(7)+(8)+(9)" Weight="86.9220876784191">
+          <Measure DefaultId="DataItem5" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions EnableBandedRows="true" ShowHorizontalLines="false" />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem3" Name="GENERICA" ShowCaption="false" DataSource="dashboardSqlDataSource4" DataMember="infoges_dashboard_generica">
+      <DataItems>
+        <Dimension DataMember="GENERICA" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem3" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem1" />
+        <Measure DataMember="SALDO_PIM" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" />
+          <Series>
+            <Simple Name="PIM">
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" />
+            </Simple>
+            <Simple Name="DEVENGADO">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" OverlappingMode="None" />
+            </Simple>
+            <Simple Name="SALDO">
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" Position="Inside" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem2" Name="FUNCION" ShowCaption="false" DataSource="dashboardSqlDataSource5" DataMember="infoges_dashboard_funcion">
+      <DataItems>
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem1" />
+        <Dimension DataMember="FUNCION_NOMBRE" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem3" />
+        <Measure DataMember="SALDO_PIM" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" />
+          <Series>
+            <Simple Name="PIM">
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" />
+            </Simple>
+            <Simple Name="DEVENGADO">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" ShowForZeroValues="true" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" ShowForZeroValues="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutItem DashboardItem="gridDashboardItem1" Weight="9.6812278630460451" />
+      <LayoutGroup Weight="90.318772136953953">
+        <LayoutGroup Orientation="Vertical" Weight="82.036888532477946">
+          <LayoutItem DashboardItem="chartDashboardItem2" Weight="30.718954248366014" />
+          <LayoutItem DashboardItem="chartDashboardItem3" Weight="30.196078431372548" />
+          <LayoutItem DashboardItem="chartDashboardItem1" Weight="39.084967320261441" />
+        </LayoutGroup>
+        <LayoutItem DashboardItem="gaugeDashboardItem1" Weight="17.963111467522054" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

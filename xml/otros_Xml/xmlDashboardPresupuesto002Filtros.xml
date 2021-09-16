@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_siaf_301851_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_301851" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="root" />
+          <Parameter Name="password" Value="7654321" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_acumulado">
+        <Parameter Name="lcAnoEje" Type="System.String">2019</Parameter>
+        <Tables>
+          <Table Name="infoges_dashboard_acumulado" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_acumulado" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_acumulado" Name="SEC_EJEC" />
+          <Column Table="infoges_dashboard_acumulado" Name="SEC_FUNC" />
+          <Column Table="infoges_dashboard_acumulado" Name="ID_CLASIFICADOR" />
+          <Column Table="infoges_dashboard_acumulado" Name="FUNCION" />
+          <Column Table="infoges_dashboard_acumulado" Name="PROGRAMA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUB_PROGRAMA" />
+          <Column Table="infoges_dashboard_acumulado" Name="ACT_PROY" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPONENTE" />
+          <Column Table="infoges_dashboard_acumulado" Name="PROGRAMA_PPTO" />
+          <Column Table="infoges_dashboard_acumulado" Name="FINALIDAD" />
+          <Column Table="infoges_dashboard_acumulado" Name="UNIDAD_MEDIDA" />
+          <Column Table="infoges_dashboard_acumulado" Name="GENERICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUBGENERICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUBGENERICA_DET" />
+          <Column Table="infoges_dashboard_acumulado" Name="ESPECIFICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="ESPECIFICA_DET" />
+          <Column Table="infoges_dashboard_acumulado" Name="FUENTE_FINANC" />
+          <Column Table="infoges_dashboard_acumulado" Name="TIPO_TRANSACCION" />
+          <Column Table="infoges_dashboard_acumulado" Name="CICLO" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIA_G" />
+          <Column Table="infoges_dashboard_acumulado" Name="MODIFICACION_G" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIM" />
+          <Column Table="infoges_dashboard_acumulado" Name="CERTIFICADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPROMISO_ANUAL" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPROMISO" />
+          <Column Table="infoges_dashboard_acumulado" Name="DEVENGADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="GIRADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIA_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="MODIFICACION_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIM_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="DETERMINADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="RECAUDADO" />
+        </Columns>
+        <Filter>StartsWith([infoges_dashboard_acumulado.ANO_EJE], ?lcAnoEje)</Filter>
+        <GroupFilter></GroupFilter>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="infoges_dashboard_acumulado">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="SEC_EJEC" Type="String" />
+            <Field Name="SEC_FUNC" Type="String" />
+            <Field Name="ID_CLASIFICADOR" Type="String" />
+            <Field Name="FUNCION" Type="String" />
+            <Field Name="PROGRAMA" Type="String" />
+            <Field Name="SUB_PROGRAMA" Type="String" />
+            <Field Name="ACT_PROY" Type="String" />
+            <Field Name="COMPONENTE" Type="String" />
+            <Field Name="PROGRAMA_PPTO" Type="String" />
+            <Field Name="FINALIDAD" Type="String" />
+            <Field Name="UNIDAD_MEDIDA" Type="String" />
+            <Field Name="GENERICA" Type="String" />
+            <Field Name="SUBGENERICA" Type="String" />
+            <Field Name="SUBGENERICA_DET" Type="String" />
+            <Field Name="ESPECIFICA" Type="String" />
+            <Field Name="ESPECIFICA_DET" Type="String" />
+            <Field Name="FUENTE_FINANC" Type="String" />
+            <Field Name="TIPO_TRANSACCION" Type="String" />
+            <Field Name="CICLO" Type="String" />
+            <Field Name="PIA_G" Type="Decimal" />
+            <Field Name="MODIFICACION_G" Type="Decimal" />
+            <Field Name="PIM" Type="Decimal" />
+            <Field Name="CERTIFICADO" Type="Decimal" />
+            <Field Name="COMPROMISO_ANUAL" Type="Decimal" />
+            <Field Name="COMPROMISO" Type="Decimal" />
+            <Field Name="DEVENGADO" Type="Decimal" />
+            <Field Name="GIRADO" Type="Decimal" />
+            <Field Name="PIA_I" Type="Decimal" />
+            <Field Name="MODIFICACION_I" Type="Decimal" />
+            <Field Name="PIM_I" Type="Decimal" />
+            <Field Name="DETERMINADO" Type="Decimal" />
+            <Field Name="RECAUDADO" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="PIM_SALDO" Expression="[PIM] - [DEVENGADO]" DataType="Auto" DataMember="infoges_dashboard_acumulado" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="FUNCION" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado" IsMasterFilterCrossDataSource="true">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="FUNCION" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem4" />
+        <Measure DataMember="PIM_SALDO" DefaultId="DataItem2" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="DESCRIPCION" Weight="135.14610389610391">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="PIM" Weight="51.13636363636364">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO" Weight="74.512987012987026">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="SALDO" Weight="86.931818181818187">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem2" Name="FUENTE DE FINANCIAMIENTO" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado" IsMasterFilterCrossDataSource="true">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="FUENTE_FINANC" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+        <Measure DataMember="PIM_SALDO" DefaultId="DataItem3" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="DESCRIPCION">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="PIM">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="SALDO">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem3" Name="GENERICA" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado" IsMasterFilterCrossDataSource="true">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="GENERICA" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+        <Measure DataMember="PIM_SALDO" DefaultId="DataItem3" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="DESCRIPCION">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="PIM">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="SALDO">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem4" Name="PROGRAMA" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado" IsMasterFilterCrossDataSource="true">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="PROGRAMA" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+        <Measure DataMember="PIM_SALDO" DefaultId="DataItem3" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="DESCRIPCION">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="PIM">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="SALDO">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem5" Name="ESPECIFICA" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado" IsMasterFilterCrossDataSource="true">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="ESPECIFICA_DET" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+        <Measure DataMember="PIM_SALDO" DefaultId="DataItem3" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="DESCRIPCION" Weight="158.26580226904378">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="PIM" Weight="36.466774716369535">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO" Weight="30.267423014586715">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="SALDO" Weight="75.000000000000014">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem6" Name="PROYECTO" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado" IsMasterFilterCrossDataSource="true">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="ACT_PROY" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+        <Measure DataMember="PIM_SALDO" DefaultId="DataItem3" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="DESCRIPCION" Weight="145.875">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="PIM" Weight="29.625">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO" Weight="49.5">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="SALDO">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical" Weight="49.9599679743795">
+        <LayoutGroup Weight="45.872641509433961">
+          <LayoutItem DashboardItem="gridDashboardItem2" Weight="74.839743589743591" />
+          <LayoutItem DashboardItem="gridDashboardItem1" Weight="25.160256410256409" />
+        </LayoutGroup>
+        <LayoutGroup Orientation="Vertical" Weight="54.127358490566039">
+          <LayoutItem DashboardItem="gridDashboardItem4" Weight="50.108932461873636" />
+          <LayoutItem DashboardItem="gridDashboardItem3" Weight="49.891067538126364" />
+        </LayoutGroup>
+      </LayoutGroup>
+      <LayoutGroup Weight="50.0400320256205">
+        <LayoutItem DashboardItem="gridDashboardItem5" Weight="50.08" />
+        <LayoutItem DashboardItem="gridDashboardItem6" Weight="49.92" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

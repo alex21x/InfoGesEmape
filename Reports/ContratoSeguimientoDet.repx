@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report2" Margins="100, 50, 0, 1" PageWidth="850" PageHeight="1100" Version="17.1" DataMember="contrato_seguimiento_det" DataSource="#Ref-0">
+  <Parameters>
+    <Item1 Ref="3" Description="pIdcontrato" ValueInfo="0" Name="pIdcontrato" Type="#Ref-2" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="4" ControlType="TopMarginBand" Name="TopMargin" HeightF="0" />
+    <Item2 Ref="5" ControlType="DetailBand" Name="Detail" HeightF="17.708334">
+      <Controls>
+        <Item1 Ref="6" ControlType="XRTable" Name="table1" SizeF="626.6667,16.666666" LocationFloat="73.33336, 0" Font="Tahoma, 9.75pt">
+          <Rows>
+            <Item1 Ref="7" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="8" ControlType="XRTableCell" Name="tableCell2" Weight="3.6692782259354724" Text="tableCell2" Font="Tahoma, 7pt">
+                  <DataBindings>
+                    <Item1 Ref="9" PropertyName="Text" DataMember="contrato_seguimiento_det.actividadRealizada" />
+                  </DataBindings>
+                  <StylePriority Ref="10" UseFont="false" />
+                </Item1>
+                <Item2 Ref="11" ControlType="XRTableCell" Name="tableCell7" Weight="1.9705692774888921" Text="tableCell7" Font="Tahoma, 7pt">
+                  <DataBindings>
+                    <Item1 Ref="12" PropertyName="Text" DataMember="contrato_seguimiento_det.Observacion" />
+                  </DataBindings>
+                  <StylePriority Ref="13" UseFont="false" />
+                </Item2>
+                <Item3 Ref="14" ControlType="XRTableCell" Name="tableCell3" Weight="0.62681885347885768" Text="tableCell3" Font="Tahoma, 7pt">
+                  <DataBindings>
+                    <Item1 Ref="15" PropertyName="Text" DataMember="contrato_seguimiento_det.IdCumplimiento" />
+                  </DataBindings>
+                  <StylePriority Ref="16" UseFont="false" />
+                </Item3>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="17" UseFont="false" />
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="18" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="1" />
+    <Item4 Ref="19" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="61.00003">
+      <Controls>
+        <Item1 Ref="20" ControlType="XRLabel" Name="label1" Text="label1" SizeF="73.33333,13.0000114" LocationFloat="0, 48.00002" Font="Tahoma, 7pt" Padding="2,2,0,0,96">
+          <DataBindings>
+            <Item1 Ref="21" FormatString="{0:d/MM/yyyy}" PropertyName="Text" DataMember="contrato_seguimiento_det.FechaActividadRealizada" />
+          </DataBindings>
+          <StylePriority Ref="22" UseFont="false" />
+        </Item1>
+        <Item2 Ref="23" ControlType="XRTable" Name="table2" TextAlignment="TopCenter" SizeF="700,24.9999981" LocationFloat="0, 23.0000172" Font="Tahoma, 7pt" Borders="All">
+          <Rows>
+            <Item1 Ref="24" ControlType="XRTableRow" Name="tableRow2" Weight="1" Font="Tahoma, 7pt, style=Bold" BackColor="PowderBlue">
+              <Cells>
+                <Item1 Ref="25" ControlType="XRTableCell" Name="tableCell4" Weight="0.66240074249146264" Text="FECHA DE ACTIVIDAD" TextAlignment="BottomCenter" BackColor="0,0,0,0">
+                  <StylePriority Ref="26" UseBackColor="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="27" ControlType="XRTableCell" Name="tableCell5" Weight="3.3143632998808035" Text="ACTIVIDAD REALIZADA" TextAlignment="BottomCenter" BackColor="0,0,0,0">
+                  <StylePriority Ref="28" UseBackColor="false" UseTextAlignment="false" />
+                </Item2>
+                <Item3 Ref="29" ControlType="XRTableCell" Name="tableCell1" Weight="1.779963793579084" Text="OBSERVACIONES" TextAlignment="BottomCenter" BackColor="0,0,0,0">
+                  <StylePriority Ref="30" UseBackColor="false" UseTextAlignment="false" />
+                </Item3>
+                <Item4 Ref="31" ControlType="XRTableCell" Name="tableCell6" Weight="0.566189023675419" Text="CUMPLIO" TextAlignment="BottomCenter" BackColor="0,0,0,0">
+                  <StylePriority Ref="32" UseBackColor="false" UseTextAlignment="false" />
+                </Item4>
+              </Cells>
+              <StylePriority Ref="33" UseFont="false" UseBackColor="false" />
+            </Item1>
+          </Rows>
+          <StylePriority Ref="34" UseFont="false" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="35" ControlType="XRLabel" Name="label4" Text="ACTIVIDAD" TextAlignment="MiddleCenter" SizeF="700,23.0000019" LocationFloat="0, 0" Font="Times New Roman, 9.75pt, style=Bold" BackColor="PowderBlue" Padding="2,2,0,0,100" Borders="All">
+          <StylePriority Ref="36" UseFont="false" UseBackColor="false" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+      </Controls>
+    </Item4>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X29icmFzX0Nvbm5lY3Rpb24iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJjb250cmF0b19zZWd1aW1pZW50b19kZXQiPjxQYXJhbWV0ZXIgTmFtZT0icElkY29udHJhdG8iIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLkludDMyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkpKFtQYXJhbWV0ZXJzLnBJZGNvbnRyYXRvXSk8L1BhcmFtZXRlcj48VGFibGVzPjxUYWJsZSBOYW1lPSJjb250cmF0b19zZWd1aW1pZW50b19kZXQiIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG9fZGV0IiBOYW1lPSJpZFNlZ3VpbWllbnRvRGV0IiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvX2RldCIgTmFtZT0iaWRBY3RpdmlkYWRSZWFsaXphZGEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG9fZGV0IiBOYW1lPSJGZWNoYUFjdGl2aWRhZFJlYWxpemFkYSIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50b19kZXQiIE5hbWU9IklkQ3VtcGxpbWllbnRvIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvX2RldCIgTmFtZT0iT2JzZXJ2YWNpb24iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG9fZGV0IiBOYW1lPSJSdXRhRm90b0N1bXBsaW1pZW50byIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50b19kZXQiIE5hbWU9IkRlc2NyaXBjaW9uU2VndXJpZGFkIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvX2RldCIgTmFtZT0iaWRjb250cmF0b1NlZ3VpbWllbnRvIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvX2RldCIgTmFtZT0iYWN0aXZpZGFkUmVhbGl6YWRhIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvX2RldCIgTmFtZT0iaWRjb250cmF0byIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50b19kZXQiIE5hbWU9IkFDVF9QUk9ZIiAvPjwvQ29sdW1ucz48RmlsdGVyPlN0YXJ0c1dpdGgoW2NvbnRyYXRvX3NlZ3VpbWllbnRvX2RldC5BQ1RfUFJPWV0sID9wSWRjb250cmF0byk8L0ZpbHRlcj48R3JvdXBGaWx0ZXI+PC9Hcm91cEZpbHRlcj48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvX2RldCI+PEZpZWxkIE5hbWU9ImlkU2VndWltaWVudG9EZXQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpZEFjdGl2aWRhZFJlYWxpemFkYSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkZlY2hhQWN0aXZpZGFkUmVhbGl6YWRhIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iSWRDdW1wbGltaWVudG8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iT2JzZXJ2YWNpb24iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUnV0YUZvdG9DdW1wbGltaWVudG8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRGVzY3JpcGNpb25TZWd1cmlkYWQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iaWRjb250cmF0b1NlZ3VpbWllbnRvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iYWN0aXZpZGFkUmVhbGl6YWRhIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImlkY29udHJhdG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJBQ1RfUFJPWSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgQ29tbWFuZFRpbWVvdXQ9IjAiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v17.1" Ref="2" Content="System.Int32" Type="System.Type" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

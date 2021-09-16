@@ -1,0 +1,108 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmInfogesConsultaOrdenDet.aspx.cs" Inherits="InfoGesRegional.Modules.Forms.Consulta.frmInfogesConsultaOrdenDet" %>
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dxwgv" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView.Export" tagprefix="dxwgv" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dxw" %>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Consulta Expediente Administrativo SIAF</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+
+     <table>
+     <tr>
+     <td>
+		<dxwgv:aspxgridview ID="ASPxGridInfoGesItem"  
+		ClientInstanceName="ASPxGridInfoGesItem" 
+		runat="server" KeyFieldName="NOMBRE_CLASE"
+		AutoGenerateColumns="False"  UseSubmitBehavior="False"
+		OnLoad="LoadSearchItems" 
+		Font-Size="X-Small"
+		Width="60%">
+
+		<TotalSummary>
+			<dxwgv:ASPxSummaryItem FieldName="CANT_ITEM_CCOSTO" SummaryType="Sum" />
+			<dxwgv:ASPxSummaryItem FieldName="PRECIO_UNIT" SummaryType="Sum" DisplayFormat="c"/>
+			<dxwgv:ASPxSummaryItem FieldName="VALOR_CCOSTO" SummaryType="Sum" DisplayFormat="c"/>
+		</TotalSummary>
+		<GroupSummary>
+			<dxwgv:ASPxSummaryItem FieldName="CANT_ITEM_CCOSTO" ShowInGroupFooterColumn="CANT_ITEM_CCOSTO" SummaryType="Sum" />
+			<dxwgv:ASPxSummaryItem FieldName="PRECIO_UNIT" ShowInGroupFooterColumn="CANT_ITEM_CCOSTO" SummaryType="Sum" DisplayFormat="{0:c}" />
+			<dxwgv:ASPxSummaryItem FieldName="VALOR_CCOSTO" ShowInGroupFooterColumn="CANT_ITEM_CCOSTO" SummaryType="Sum" DisplayFormat="{0:c}" />
+		</GroupSummary>
+		<Columns>
+		<dxwgv:GridViewDataTextColumn FieldName="ESPECIFICA" VisibleIndex="1"  Caption="ESPECIFICA" Width="12%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" HeaderStyle-Wrap="True" />
+		<dxwgv:GridViewBandColumn Caption="BIENES" HeaderStyle-Font-Bold="true" HeaderStyle-HorizontalAlign="Center" >
+		<Columns>
+			<dxwgv:GridViewDataTextColumn FieldName="NOMBRE_CLASE" VisibleIndex="1"  Caption="CLASE" Width="12%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" HeaderStyle-Wrap="True" />
+			<dxwgv:GridViewDataTextColumn FieldName="NOMBRE_FAM" VisibleIndex="2"  Caption="FAMILIA" Width="15%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn FieldName="NOMBRE_ITEM" VisibleIndex="3"  Caption="ITEM" Width="50%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn FieldName="UNIDAD_MEDIDA_ITEM" VisibleIndex="3"  Caption="CONCEPTO" Width="100%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+		</Columns>
+		</dxwgv:GridViewBandColumn>
+										  
+			<dxwgv:GridViewDataTextColumn  FieldName="CANT_ITEM_CCOSTO" VisibleIndex="5" UnboundType="Decimal"  Caption="CANTIDAD" Width="20%" HeaderStyle-HorizontalAlign="Center" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn  FieldName="PRECIO_UNIT" VisibleIndex="5" UnboundType="Decimal"  Caption="PRECIO UNIT." Width="20%" HeaderStyle-HorizontalAlign="Center" PropertiesTextEdit-DisplayFormatString="c" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn  FieldName="VALOR_CCOSTO" VisibleIndex="5" UnboundType="Decimal"  Caption="COSTO" Width="20%" HeaderStyle-HorizontalAlign="Center" PropertiesTextEdit-DisplayFormatString="c" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False"  HeaderStyle-Wrap="True"/>
+			</Columns>
+			<Settings ShowFooter="True" />
+		</dxwgv:aspxgridview>
+
+     </td>
+     <td>
+ 
+		<dxwgv:aspxgridview ID="ASPxGridInfoGesCertificacion"  
+		ClientInstanceName="ASPxGridInfoGesCertificacion" 
+		runat="server" KeyFieldName="CERTIFICADO"
+		AutoGenerateColumns="False" 
+		OnLoad="LoadSearchCertificacion"   
+		Font-Size="X-Small"
+		Width="60%">
+
+		<TotalSummary>
+			<dxwgv:ASPxSummaryItem FieldName="COMPROMETIDO_ANUAL" SummaryType="Sum" DisplayFormat="c"/>
+		</TotalSummary>
+		<GroupSummary>
+			<dxwgv:ASPxSummaryItem FieldName="COMPROMETIDO_ANUAL" ShowInGroupFooterColumn="CANT_ITEM_CCOSTO" SummaryType="Sum" DisplayFormat="{0:c}" />
+		</GroupSummary>
+		<Columns>
+		<dxwgv:GridViewDataTextColumn FieldName="CERTIFICADO" VisibleIndex="1"  Caption="CERTIFICADO" Width="12%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" HeaderStyle-Wrap="True" />
+		<dxwgv:GridViewDataTextColumn FieldName="CERTIFICADO_SECUENCIA" VisibleIndex="1"  Caption="SECUENCIA" Width="12%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" HeaderStyle-Wrap="True" />
+		<dxwgv:GridViewDataTextColumn FieldName="CICLO" VisibleIndex="1"  Caption="CICLO" Width="12%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" HeaderStyle-Wrap="True" />
+		<dxwgv:GridViewDataTextColumn FieldName="FASE" VisibleIndex="1"  Caption="FASE" Width="12%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" HeaderStyle-Wrap="True" />
+
+		<dxwgv:GridViewBandColumn Caption="DOCUMENTO" HeaderStyle-Font-Bold="true" HeaderStyle-HorizontalAlign="Center" >
+		<Columns>
+			<dxwgv:GridViewDataTextColumn FieldName="COD_DOC_NOMBRE" VisibleIndex="2"  Caption="CODIGO" Width="15%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn FieldName="NUM_DOC" VisibleIndex="2"  Caption="NUMERO" Width="15%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn FieldName="FECHA_DOC" VisibleIndex="2"  Caption="NUMERO" Width="15%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+
+		</Columns>
+		</dxwgv:GridViewBandColumn>
+		<dxwgv:GridViewDataTextColumn FieldName="NOTAS" VisibleIndex="1"  Caption="NOTAS" Width="12%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains" HeaderStyle-Wrap="True" />
+
+		<dxwgv:GridViewBandColumn Caption="CAD.FUNC." HeaderStyle-Font-Bold="true" HeaderStyle-HorizontalAlign="Center" >
+		<Columns>
+			<dxwgv:GridViewDataTextColumn FieldName="SEC_FUNC" VisibleIndex="2"  Caption="SEC.FUNC" Width="15%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn FieldName="FUENTE_FINANC" VisibleIndex="3"  Caption="FTE.FTO." Width="50%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+			<dxwgv:GridViewDataTextColumn FieldName="ESPECIFICA_DET_NOMBRE" VisibleIndex="3"  Caption="CLASIFICADOR" Width="100%"  HeaderStyle-HorizontalAlign="Center" FixedStyle="Left" CellStyle-BackColor="#ffffd6" Settings-AutoFilterCondition="Contains"  HeaderStyle-Wrap="True"/>
+		</Columns>
+		</dxwgv:GridViewBandColumn>
+		<dxwgv:GridViewDataTextColumn  FieldName="COMPROMETIDO_ANUAL" VisibleIndex="5" UnboundType="Decimal"  Caption="IMPORTE" Width="20%" HeaderStyle-HorizontalAlign="Center" PropertiesTextEdit-DisplayFormatString="c" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False"  HeaderStyle-Wrap="True"/>
+
+		</Columns>
+		</dxwgv:aspxgridview>        
+     </td>
+     </tr>
+     </table>
+
+
+         </div>
+    </form>
+</body>
+</html>
+

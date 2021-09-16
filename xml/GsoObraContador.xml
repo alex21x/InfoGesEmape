@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Cuadro  nro de Entrega" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_mysql_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="obras" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="gso_estado_situacional">
+        <Tables>
+          <Table Name="gso_estado_situacional" />
+        </Tables>
+        <Columns>
+          <Column Table="gso_estado_situacional" Name="oid" />
+          <Column Table="gso_estado_situacional" Name="IDGSOSITUACION" />
+          <Column Table="gso_estado_situacional" Name="paquete" />
+          <Column Table="gso_estado_situacional" Name="descripcion" />
+          <Column Table="gso_estado_situacional" Name="act_proy" />
+          <Column Table="gso_estado_situacional" Name="abreviatura" />
+          <Column Table="gso_estado_situacional" Name="distrito" />
+          <Column Table="gso_estado_situacional" Name="actividad" />
+          <Column Table="gso_estado_situacional" Name="Fecha_entrega_terreno" />
+          <Column Table="gso_estado_situacional" Name="Fecha_inicio_obra" />
+          <Column Table="gso_estado_situacional" Name="Estado_obra" />
+          <Column Table="gso_estado_situacional" Name="plazo_ejecucion" />
+          <Column Table="gso_estado_situacional" Name="fecha_culminacion" />
+          <Column Table="gso_estado_situacional" Name="ano_eje" />
+          <Column Table="gso_estado_situacional" Name="sec_ejec" />
+          <Column Table="gso_estado_situacional" Name="optimisticLockField" />
+          <Column Table="gso_estado_situacional" Name="GCRecord" />
+          <Column Table="gso_estado_situacional" Name="AVANCE" />
+          <Column Table="gso_estado_situacional" Name="semana" />
+          <Column Table="gso_estado_situacional" Name="rango_dias" />
+          <Column Table="gso_estado_situacional" Name="TIPO_AVANCE" />
+          <Column Table="gso_estado_situacional" Name="fecha" />
+          <Column Table="gso_estado_situacional" Name="latitud" />
+          <Column Table="gso_estado_situacional" Name="longitud" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="gso_estado_situacional">
+            <Field Name="oid" Type="Int32" />
+            <Field Name="IDGSOSITUACION" Type="Int32" />
+            <Field Name="paquete" Type="String" />
+            <Field Name="descripcion" Type="String" />
+            <Field Name="act_proy" Type="String" />
+            <Field Name="abreviatura" Type="String" />
+            <Field Name="distrito" Type="String" />
+            <Field Name="actividad" Type="String" />
+            <Field Name="Fecha_entrega_terreno" Type="DateTime" />
+            <Field Name="Fecha_inicio_obra" Type="DateTime" />
+            <Field Name="Estado_obra" Type="String" />
+            <Field Name="plazo_ejecucion" Type="Int32" />
+            <Field Name="fecha_culminacion" Type="DateTime" />
+            <Field Name="ano_eje" Type="String" />
+            <Field Name="sec_ejec" Type="String" />
+            <Field Name="optimisticLockField" Type="Int32" />
+            <Field Name="GCRecord" Type="Int32" />
+            <Field Name="AVANCE" Type="Decimal" />
+            <Field Name="semana" Type="String" />
+            <Field Name="rango_dias" Type="String" />
+            <Field Name="TIPO_AVANCE" Type="String" />
+            <Field Name="fecha" Type="DateTime" />
+            <Field Name="latitud" Type="Decimal" />
+            <Field Name="longitud" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem1" Name="" DataSource="dashboardSqlDataSource1" DataMember="gso_estado_situacional">
+      <DataItems>
+        <Dimension DataMember="abreviatura" SortOrder="Descending" DefaultId="DataItem0" />
+        <Dimension DataMember="fecha_culminacion" SortOrder="Descending" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+        <Measure DataMember="fecha_culminacion" SummaryType="Count" DefaultId="DataItem2" />
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem1" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem0" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem2" />
+      </Values>
+    </Pivot>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutItem DashboardItem="pivotDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

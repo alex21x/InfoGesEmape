@@ -1,0 +1,11 @@
+﻿.algorithm-option {
+    line-height: 36px;
+    margin-bottom: 10px;
+}
+
+.algorithm-option > .selectbox {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    line-height: normal;
+}

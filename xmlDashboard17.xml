@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_siaf_000770_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_000770" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="root" />
+          <Parameter Name="password" Value="7654321" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_acumulado">
+        <Tables>
+          <Table Name="infoges_dashboard_acumulado" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_acumulado" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_acumulado" Name="SEC_EJEC" />
+          <Column Table="infoges_dashboard_acumulado" Name="SEC_FUNC" />
+          <Column Table="infoges_dashboard_acumulado" Name="ID_CLASIFICADOR" />
+          <Column Table="infoges_dashboard_acumulado" Name="FUNCION" />
+          <Column Table="infoges_dashboard_acumulado" Name="PROGRAMA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUB_PROGRAMA" />
+          <Column Table="infoges_dashboard_acumulado" Name="ACT_PROY" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPONENTE" />
+          <Column Table="infoges_dashboard_acumulado" Name="PROGRAMA_PPTO" />
+          <Column Table="infoges_dashboard_acumulado" Name="FINALIDAD" />
+          <Column Table="infoges_dashboard_acumulado" Name="UNIDAD_MEDIDA" />
+          <Column Table="infoges_dashboard_acumulado" Name="GENERICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUBGENERICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUBGENERICA_DET" />
+          <Column Table="infoges_dashboard_acumulado" Name="ESPECIFICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="ESPECIFICA_DET" />
+          <Column Table="infoges_dashboard_acumulado" Name="FUENTE_FINANC" />
+          <Column Table="infoges_dashboard_acumulado" Name="TIPO_TRANSACCION" />
+          <Column Table="infoges_dashboard_acumulado" Name="CICLO" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIA_G" />
+          <Column Table="infoges_dashboard_acumulado" Name="MODIFICACION_G" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIM" />
+          <Column Table="infoges_dashboard_acumulado" Name="CERTIFICADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPROMISO_ANUAL" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPROMISO" />
+          <Column Table="infoges_dashboard_acumulado" Name="DEVENGADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="GIRADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIA_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="MODIFICACION_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIM_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="DETERMINADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="RECAUDADO" />
+        </Columns>
+        <Filter>[infoges_dashboard_acumulado.CICLO] = 'G'</Filter>
+        <GroupFilter></GroupFilter>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="infoges_dashboard_acumulado">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="SEC_EJEC" Type="String" />
+            <Field Name="SEC_FUNC" Type="String" />
+            <Field Name="ID_CLASIFICADOR" Type="String" />
+            <Field Name="FUNCION" Type="String" />
+            <Field Name="PROGRAMA" Type="String" />
+            <Field Name="SUB_PROGRAMA" Type="String" />
+            <Field Name="ACT_PROY" Type="String" />
+            <Field Name="COMPONENTE" Type="String" />
+            <Field Name="PROGRAMA_PPTO" Type="String" />
+            <Field Name="FINALIDAD" Type="String" />
+            <Field Name="UNIDAD_MEDIDA" Type="String" />
+            <Field Name="GENERICA" Type="String" />
+            <Field Name="SUBGENERICA" Type="String" />
+            <Field Name="SUBGENERICA_DET" Type="String" />
+            <Field Name="ESPECIFICA" Type="String" />
+            <Field Name="ESPECIFICA_DET" Type="String" />
+            <Field Name="FUENTE_FINANC" Type="String" />
+            <Field Name="TIPO_TRANSACCION" Type="String" />
+            <Field Name="CICLO" Type="String" />
+            <Field Name="PIA_G" Type="Decimal" />
+            <Field Name="MODIFICACION_G" Type="Decimal" />
+            <Field Name="PIM" Type="Decimal" />
+            <Field Name="CERTIFICADO" Type="Decimal" />
+            <Field Name="COMPROMISO_ANUAL" Type="Decimal" />
+            <Field Name="COMPROMISO" Type="Decimal" />
+            <Field Name="DEVENGADO" Type="Decimal" />
+            <Field Name="GIRADO" Type="Decimal" />
+            <Field Name="PIA_I" Type="Decimal" />
+            <Field Name="MODIFICACION_I" Type="Decimal" />
+            <Field Name="PIM_I" Type="Decimal" />
+            <Field Name="DETERMINADO" Type="Decimal" />
+            <Field Name="RECAUDADO" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="Parámetro1" Value="" />
+  </Parameters>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Rejilla 1" ShowCaption="false" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado">
+      <InteractivityOptions MasterFilterMode="Single" />
+      <DataItems>
+        <Dimension DataMember="FUENTE_FINANC" DefaultId="DataItem0" />
+        <Measure DataMember="CERTIFICADO" DefaultId="DataItem2" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem3" />
+        <Measure DataMember="COMPROMISO" DefaultId="DataItem4" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem5" />
+        <Measure DataMember="GIRADO" DefaultId="DataItem6" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="CERTIFICADO">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="COMPROMISO_ANUAL">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="COMPROMISO">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="DEVENGADO">
+          <Measure DefaultId="DataItem5" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="GIRADO">
+          <Measure DefaultId="DataItem6" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="AutoFitToContents" WordWrap="true" />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem1" Name="Gráfico 1" ShowCaption="false" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado">
+      <ColoringOptions UseGlobalColors="false" />
+      <InteractivityOptions TargetDimensions="Series" />
+      <DataItems>
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="CERTIFICADO" DefaultId="DataItem2" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem3" />
+        <Measure DataMember="COMPROMISO" DefaultId="DataItem4" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem5" />
+        <Measure DataMember="GIRADO" DefaultId="DataItem6" />
+        <Dimension DataMember="GENERICA" DefaultId="DataItem0" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" Logarithmic="true" />
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" OverlappingMode="Reposition" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" OverlappingMode="Reposition" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" OverlappingMode="Reposition" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem4" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" OverlappingMode="Reposition" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem5" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" OverlappingMode="Reposition" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem6" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" OverlappingMode="Reposition" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <AxisX EnableZooming="true" VisiblePointsCount="2" />
+    </Chart>
+    <Gauge ComponentName="gaugeDashboardItem2" Name="Indicadores de Objetivo" ShowCaption="false" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="COMPROMISO" DefaultId="DataItem4" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem2" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem5" />
+        <Measure DataMember="COMPROMISO" DefaultId="DataItem3" />
+        <Measure DataMember="PIM" DefaultId="DataItem6" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem1" />
+        <Measure DataMember="CERTIFICADO" DefaultId="DataItem0" />
+        <Measure DataMember="CERTIFICADO" DefaultId="DataItem7" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem8" />
+        <Measure DataMember="GIRADO" DefaultId="DataItem9" />
+        <Measure DataMember="PIM" DefaultId="DataItem10" />
+        <Measure DataMember="GIRADO" DefaultId="DataItem11" />
+      </DataItems>
+      <GaugeElement Name="CERTI vs PIM">
+        <ActualValue DefaultId="DataItem7" />
+        <TargetValue DefaultId="DataItem6" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="COMP.ANUAL vs CERTI">
+        <ActualValue DefaultId="DataItem1" />
+        <TargetValue DefaultId="DataItem0" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="COMP. vs COMP.ANUAL">
+        <ActualValue DefaultId="DataItem3" />
+        <TargetValue DefaultId="DataItem2" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="DEV vs COMP">
+        <ActualValue DefaultId="DataItem5" />
+        <TargetValue DefaultId="DataItem4" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="GIRADO vs DEV">
+        <ActualValue DefaultId="DataItem9" />
+        <TargetValue DefaultId="DataItem8" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="GIRADO vs PIM">
+        <ActualValue DefaultId="DataItem11" />
+        <TargetValue DefaultId="DataItem10" />
+        <DeltaOptions ValueType="PercentOfTarget" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+    </Gauge>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutItem DashboardItem="gridDashboardItem1" Weight="24.721878862793574" />
+      <LayoutItem DashboardItem="gaugeDashboardItem2" Weight="24.721878862793574" />
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="50.556242274412853" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

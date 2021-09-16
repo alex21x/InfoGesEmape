@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_obras_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="obras" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="view_avance">
+        <Tables>
+          <Table Name="view_avance" />
+        </Tables>
+        <Columns>
+          <Column Table="view_avance" Name="CUI" />
+          <Column Table="view_avance" Name="NOMBRE_PROYECTO" />
+          <Column Table="view_avance" Name="ABREVIATURA" />
+          <Column Table="view_avance" Name="DISTRITO" />
+          <Column Table="view_avance" Name="DESCRIPCION" />
+          <Column Table="view_avance" Name="IDCONTRATO" />
+          <Column Table="view_avance" Name="CONTRATO_NUMERO" />
+          <Column Table="view_avance" Name="IDACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="ACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="IDTIPO_PROYECTO" />
+          <Column Table="view_avance" Name="TIPO_PROYECTO" />
+          <Column Table="view_avance" Name="IDPAQUETE" />
+          <Column Table="view_avance" Name="PAQUETE" />
+          <Column Table="view_avance" Name="fecha_inicio_obra_maximo" />
+          <Column Table="view_avance" Name="plazo_ejecucion_obra" />
+          <Column Table="view_avance" Name="Objetivo" />
+          <Column Table="view_avance" Name="monto_obra" />
+          <Column Table="view_avance" Name="FECHA_FIN" />
+          <Column Table="view_avance" Name="CRONOGRAMA_FECHA" />
+          <Column Table="view_avance" Name="CRONOGRAMA_SEMANA" />
+          <Column Table="view_avance" Name="AVANCE" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="view_avance">
+            <Field Name="CUI" Type="String" />
+            <Field Name="NOMBRE_PROYECTO" Type="String" />
+            <Field Name="ABREVIATURA" Type="String" />
+            <Field Name="DISTRITO" Type="String" />
+            <Field Name="DESCRIPCION" Type="String" />
+            <Field Name="IDCONTRATO" Type="Int32" />
+            <Field Name="CONTRATO_NUMERO" Type="String" />
+            <Field Name="IDACTIVIDAD_PROYECTO" Type="Int32" />
+            <Field Name="ACTIVIDAD_PROYECTO" Type="String" />
+            <Field Name="IDTIPO_PROYECTO" Type="Int32" />
+            <Field Name="TIPO_PROYECTO" Type="String" />
+            <Field Name="IDPAQUETE" Type="Int32" />
+            <Field Name="PAQUETE" Type="String" />
+            <Field Name="fecha_inicio_obra_maximo" Type="DateTime" />
+            <Field Name="plazo_ejecucion_obra" Type="Decimal" />
+            <Field Name="Objetivo" Type="Int32" />
+            <Field Name="monto_obra" Type="Decimal" />
+            <Field Name="FECHA_FIN" Type="DateTime" />
+            <Field Name="CRONOGRAMA_FECHA" Type="DateTime" />
+            <Field Name="CRONOGRAMA_SEMANA" Type="String" />
+            <Field Name="AVANCE" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="Monto_Financiero" Expression="[AVANCE] * [monto_obra] / 100" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="Saldo_x_ejecutar" Expression="[monto_obra] - [Monto_Financiero]" DataType="Auto" DataMember="view_avance" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="GRAFICO  POR TIPO DE INVERSIÓN" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Measure DataMember="Monto_Financiero" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Saldo_x_ejecutar" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="PORCENTAJE" />
+          <Series>
+            <Simple Name="FINANCIERO" SeriesType="FullStackedBar">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" OverlappingMode="None" />
+            </Simple>
+            <Simple Name="PENDIENTE" SeriesType="FullStackedBar">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Grid ComponentName="gridDashboardItem2" Name="ACUMULADOS  POR ACTIVIDAD" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="ACTIVIDAD_PROYECTO" DefaultId="DataItem0" />
+        <Measure DataMember="monto_obra" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Monto_Financiero" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Saldo_x_ejecutar" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="ACTIVIDAD" Weight="131.94103194103195" FixedWidth="31.31">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="CONTRATO" Weight="56.019656019656018">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="FINANCIERO" Weight="53.071253071253068">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="PENDIENTE" Weight="58.968058968058969">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem3" Name="ACUMULADOS POR DISTRITO" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="DISTRITO" DefaultId="DataItem0" />
+        <Measure DataMember="monto_obra" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Monto_Financiero" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Saldo_x_ejecutar" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="CONTRATO">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="FINANCIERO">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="PENDIENTE">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem1" Name="ACUMULADOS POR TIPO DE PROYECTO" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Measure DataMember="monto_obra" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Monto_Financiero" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Saldo_x_ejecutar" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem0" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="CONTRATO">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="FINANCIERO">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="PENDIENTE">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem2" Name="GRAFICO  APILADO AL 100% (FINANCIERO VS IMPORTE CONTRATO)" DataSource="dashboardSqlDataSource1" DataMember="view_avance" Rotated="true">
+      <DataItems>
+        <Dimension DataMember="DISTRITO" DefaultId="DataItem2" />
+        <Measure DataMember="Monto_Financiero" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Saldo_x_ejecutar" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Title="PORCENTAJE" />
+          <Series>
+            <Simple Name="FINANCIERO" SeriesType="FullStackedBar">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions Visible="true" OverlappingMode="None" />
+            </Simple>
+            <Simple Name="PENDIENTE" SeriesType="FullStackedBar">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" OverlappingMode="None" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical" Weight="49.9599679743795">
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="19.901112484548825" />
+        <LayoutItem DashboardItem="gridDashboardItem2" Weight="37.948084054388133" />
+        <LayoutItem DashboardItem="gridDashboardItem3" Weight="42.150803461063042" />
+      </LayoutGroup>
+      <LayoutGroup Orientation="Vertical" Weight="50.0400320256205">
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="44.746600741656366" />
+        <LayoutItem DashboardItem="chartDashboardItem2" Weight="50.061804697156987" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

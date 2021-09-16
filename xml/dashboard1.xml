@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="New Dashboard" />
+  <DataSources>
+    <SqlDataSource ComponentName="DataSource1">
+      <Name>contrato1</Name>
+      <Connection Name="localhost_obras_Connection" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="contrato1">
+        <Tables>
+          <Table Name="contrato" />
+        </Tables>
+        <Columns>
+          <Column Table="contrato" Name="idProyectoComponente" />
+          <Column Table="contrato" Name="idcontrato" />
+          <Column Table="contrato" Name="idcomponente" />
+          <Column Table="contrato" Name="contrato_Numero" />
+          <Column Table="contrato" Name="ruc" />
+          <Column Table="contrato" Name="empresa" />
+          <Column Table="contrato" Name="fecha_contrato" />
+          <Column Table="contrato" Name="monto_obra" />
+          <Column Table="contrato" Name="fecha_adelanto_directo" />
+          <Column Table="contrato" Name="fecha_adelanto_directo_max" />
+          <Column Table="contrato" Name="Monto_adelanto_materiales" />
+          <Column Table="contrato" Name="fecha_adelanto_maximo_materiales" />
+          <Column Table="contrato" Name="fecha_adelanto_instalacion" />
+          <Column Table="contrato" Name="monto_adelanto_instalacion" />
+          <Column Table="contrato" Name="fecha_adelanto_maximo_instalacion" />
+          <Column Table="contrato" Name="fecha_entrega_terreno" />
+          <Column Table="contrato" Name="fecha_entrega_terreno_limite" />
+          <Column Table="contrato" Name="fecha_inicio_obra" />
+          <Column Table="contrato" Name="fecha_inicio_obra_maximo" />
+          <Column Table="contrato" Name="plazo_ejecucion_obra" />
+          <Column Table="contrato" Name="idEstado_Contrato" />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" DataSource="DataSource1" DataMember="contrato1">
+      <DataItems>
+        <Measure DataMember="empresa" SummaryType="Count" DefaultId="DataItem0" />
+      </DataItems>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Weight="100">
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="100" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

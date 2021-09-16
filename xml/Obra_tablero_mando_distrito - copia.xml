@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_obras_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="obras" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="view_avance">
+        <Tables>
+          <Table Name="view_avance" />
+        </Tables>
+        <Columns>
+          <Column Table="view_avance" Name="CUI" />
+          <Column Table="view_avance" Name="NOMBRE_PROYECTO" />
+          <Column Table="view_avance" Name="ABREVIATURA" />
+          <Column Table="view_avance" Name="DISTRITO" />
+          <Column Table="view_avance" Name="DESCRIPCION" />
+          <Column Table="view_avance" Name="IDCONTRATO" />
+          <Column Table="view_avance" Name="CONTRATO_NUMERO" />
+          <Column Table="view_avance" Name="IDACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="ACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="IDTIPO_PROYECTO" />
+          <Column Table="view_avance" Name="TIPO_PROYECTO" />
+          <Column Table="view_avance" Name="IDPAQUETE" />
+          <Column Table="view_avance" Name="PAQUETE" />
+          <Column Table="view_avance" Name="fecha_inicio_obra_maximo" />
+          <Column Table="view_avance" Name="plazo_ejecucion_obra" />
+          <Column Table="view_avance" Name="Objetivo" />
+          <Column Table="view_avance" Name="monto_obra" />
+          <Column Table="view_avance" Name="FECHA_FIN" />
+          <Column Table="view_avance" Name="CRONOGRAMA_FECHA" />
+          <Column Table="view_avance" Name="CRONOGRAMA_SEMANA" />
+          <Column Table="view_avance" Name="AVANCE" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="view_avance">
+            <Field Name="CUI" Type="String" />
+            <Field Name="NOMBRE_PROYECTO" Type="String" />
+            <Field Name="ABREVIATURA" Type="String" />
+            <Field Name="DISTRITO" Type="String" />
+            <Field Name="DESCRIPCION" Type="String" />
+            <Field Name="IDCONTRATO" Type="Int32" />
+            <Field Name="CONTRATO_NUMERO" Type="String" />
+            <Field Name="IDACTIVIDAD_PROYECTO" Type="Int32" />
+            <Field Name="ACTIVIDAD_PROYECTO" Type="String" />
+            <Field Name="IDTIPO_PROYECTO" Type="Int32" />
+            <Field Name="TIPO_PROYECTO" Type="String" />
+            <Field Name="IDPAQUETE" Type="Int32" />
+            <Field Name="PAQUETE" Type="String" />
+            <Field Name="fecha_inicio_obra_maximo" Type="DateTime" />
+            <Field Name="plazo_ejecucion_obra" Type="Decimal" />
+            <Field Name="Objetivo" Type="Int32" />
+            <Field Name="monto_obra" Type="Decimal" />
+            <Field Name="FECHA_FIN" Type="DateTime" />
+            <Field Name="CRONOGRAMA_FECHA" Type="DateTime" />
+            <Field Name="CRONOGRAMA_SEMANA" Type="String" />
+            <Field Name="AVANCE" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="Monto_Financiero" Expression="[AVANCE] * [monto_obra] / 100" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="Saldo_x_ejecutar" Expression="[monto_obra] - [Monto_Financiero]" DataType="Auto" DataMember="view_avance" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <TreeView ComponentName="treeViewDashboardItem1" Name="Tree View 1" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <InteractivityOptions IgnoreMasterFilters="false" />
+      <DataItems>
+        <Dimension DataMember="DISTRITO" DefaultId="DataItem0" />
+        <Dimension DataMember="ACTIVIDAD_PROYECTO" DefaultId="DataItem1" />
+        <Measure DataMember="monto_obra" DefaultId="DataItem2" />
+      </DataItems>
+      <HiddenMeasures>
+        <Measure DefaultId="DataItem2" />
+      </HiddenMeasures>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+        <Dimension DefaultId="DataItem1" />
+      </FilterDimensions>
+    </TreeView>
+    <Pie ComponentName="pieDashboardItem1" Name="Tartas 1" DataSource="dashboardSqlDataSource1" DataMember="view_avance" LabelContentType="ArgumentValueAndPercent" ContentArrangementMode="FixedRowCount">
+      <DataItems>
+        <Measure DataMember="Monto_Financiero" Name="Avance" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="ACTIVIDAD_PROYECTO" DefaultId="DataItem2" />
+        <Measure DataMember="Saldo_x_ejecutar" Name="Pendiente" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Values>
+        <Value DefaultId="DataItem0" />
+        <Value DefaultId="DataItem1" />
+      </Values>
+    </Pie>
+    <Grid ComponentName="gridDashboardItem1" Name="Rejilla 1" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="fecha_inicio_obra_maximo" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem1" />
+        <Dimension DataMember="FECHA_FIN" SortOrder="Descending" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem2" />
+        <Measure DataMember="AVANCE" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="monto_obra" DefaultId="DataItem5">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="Monto_Financiero" DefaultId="DataItem6">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="DESCRIPCION" DefaultId="DataItem4" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="73.462566844919792">
+          <Dimension DefaultId="DataItem4" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="Inicio de Obra" Weight="100.1336898395722">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="Fin de Obra" Weight="72.058823529411768">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="Avance %" Weight="39.3048128342246">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Imp. Obras" Weight="74.8663101604278">
+          <Measure DefaultId="DataItem5" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Imp. Financiero" Weight="75.80213903743315">
+          <Measure DefaultId="DataItem6" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions WordWrap="true" />
+    </Grid>
+    <Pie ComponentName="pieDashboardItem2" Name="DISTRIBUCION DE LA INVERSION  EN EL DISTRITO" DataSource="dashboardSqlDataSource1" DataMember="view_avance" LabelContentType="ArgumentValueAndPercent" ContentArrangementMode="FixedColumnCount">
+      <DataItems>
+        <Measure DataMember="monto_obra" Name="IMP. DE OBRA" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutGroup Weight="44.252163164400493">
+        <LayoutItem DashboardItem="treeViewDashboardItem1" Weight="25.700560448358686" />
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="74.299439551641314" />
+      </LayoutGroup>
+      <LayoutGroup Weight="55.747836835599507">
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="64.4515612489992" />
+        <LayoutItem DashboardItem="pieDashboardItem2" Weight="35.5484387510008" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

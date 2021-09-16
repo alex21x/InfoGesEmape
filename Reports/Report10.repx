@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report2" PageWidth="850" PageHeight="1100" Version="17.1" DataMember="contrato" DataSource="#Ref-0">
+  <Bands>
+    <Item1 Ref="2" ControlType="TopMarginBand" Name="TopMargin" HeightF="100" />
+    <Item2 Ref="3" ControlType="DetailBand" Name="Detail" HeightF="27.083334">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRTable" Name="table1" SizeF="650,25" LocationFloat="0, 0">
+          <Rows>
+            <Item1 Ref="5" ControlType="XRTableRow" Name="tableRow1" Weight="11.5">
+              <Cells>
+                <Item1 Ref="6" ControlType="XRTableCell" Name="tableCell1" Weight="0.15384615384615386" Text="tableCell1">
+                  <DataBindings>
+                    <Item1 Ref="7" PropertyName="Text" DataMember="contrato.contrato_Numero" />
+                  </DataBindings>
+                </Item1>
+                <Item2 Ref="8" ControlType="XRTableCell" Name="tableCell2" Weight="0.15384615384615386" Text="tableCell2">
+                  <DataBindings>
+                    <Item1 Ref="9" PropertyName="Text" DataMember="contrato.empresa" />
+                  </DataBindings>
+                </Item2>
+                <Item3 Ref="10" ControlType="XRTableCell" Name="tableCell3" Weight="0.15384615384615386" Text="tableCell3">
+                  <DataBindings>
+                    <Item1 Ref="11" PropertyName="Text" DataMember="contrato.fecha_adelanto_directo" />
+                  </DataBindings>
+                </Item3>
+                <Item4 Ref="12" ControlType="XRTableCell" Name="tableCell4" Weight="0.15384615384615386" Text="tableCell4">
+                  <DataBindings>
+                    <Item1 Ref="13" PropertyName="Text" DataMember="contrato.fecha_adelanto_instalacion" />
+                  </DataBindings>
+                </Item4>
+                <Item5 Ref="14" ControlType="XRTableCell" Name="tableCell5" Weight="0.15384615384615386" Text="tableCell5">
+                  <DataBindings>
+                    <Item1 Ref="15" PropertyName="Text" DataMember="contrato.fecha_adelanto_maximo_instalacion" />
+                  </DataBindings>
+                </Item5>
+                <Item6 Ref="16" ControlType="XRTableCell" Name="tableCell6" Weight="0.15384615384615386" Text="tableCell6">
+                  <DataBindings>
+                    <Item1 Ref="17" PropertyName="Text" DataMember="contrato.fecha_adelanto_maximo_materiales" />
+                  </DataBindings>
+                </Item6>
+                <Item7 Ref="18" ControlType="XRTableCell" Name="tableCell7" Weight="0.15384615384615386" Text="tableCell7">
+                  <DataBindings>
+                    <Item1 Ref="19" PropertyName="Text" DataMember="contrato.fecha_contrato" />
+                  </DataBindings>
+                </Item7>
+                <Item8 Ref="20" ControlType="XRTableCell" Name="tableCell8" Weight="0.15384615384615386" Text="tableCell8">
+                  <DataBindings>
+                    <Item1 Ref="21" PropertyName="Text" DataMember="contrato.fecha_entrega_terreno" />
+                  </DataBindings>
+                </Item8>
+                <Item9 Ref="22" ControlType="XRTableCell" Name="tableCell9" Weight="0.15384615384615386" Text="tableCell9">
+                  <DataBindings>
+                    <Item1 Ref="23" PropertyName="Text" DataMember="contrato.fecha_entrega_terreno_limite" />
+                  </DataBindings>
+                </Item9>
+                <Item10 Ref="24" ControlType="XRTableCell" Name="tableCell10" Weight="0.15384615384615386" Text="tableCell10">
+                  <DataBindings>
+                    <Item1 Ref="25" PropertyName="Text" DataMember="contrato.fecha_inicio_obra" />
+                  </DataBindings>
+                </Item10>
+                <Item11 Ref="26" ControlType="XRTableCell" Name="tableCell11" Weight="0.15384615384615386" Text="tableCell11">
+                  <DataBindings>
+                    <Item1 Ref="27" PropertyName="Text" DataMember="contrato.fecha_inicio_obra_maximo" />
+                  </DataBindings>
+                </Item11>
+                <Item12 Ref="28" ControlType="XRTableCell" Name="tableCell12" Weight="0.15384615384615386" Text="tableCell12">
+                  <DataBindings>
+                    <Item1 Ref="29" PropertyName="Text" DataMember="contrato.fecha_plazo_maximo_pago" />
+                  </DataBindings>
+                </Item12>
+                <Item13 Ref="30" ControlType="XRTableCell" Name="tableCell13" Weight="0.15384615384615386" Text="tableCell13">
+                  <DataBindings>
+                    <Item1 Ref="31" PropertyName="Text" DataMember="contrato.idcomponente" />
+                  </DataBindings>
+                </Item13>
+                <Item14 Ref="32" ControlType="XRTableCell" Name="tableCell14" Weight="0.15384615384615386" Text="tableCell14">
+                  <DataBindings>
+                    <Item1 Ref="33" PropertyName="Text" DataMember="contrato.idcontrato" />
+                  </DataBindings>
+                </Item14>
+                <Item15 Ref="34" ControlType="XRTableCell" Name="tableCell15" Weight="0.15384615384615386" Text="tableCell15">
+                  <DataBindings>
+                    <Item1 Ref="35" PropertyName="Text" DataMember="contrato.idEstado_Contrato" />
+                  </DataBindings>
+                </Item15>
+                <Item16 Ref="36" ControlType="XRTableCell" Name="tableCell16" Weight="0.15384615384615386" Text="tableCell16">
+                  <DataBindings>
+                    <Item1 Ref="37" PropertyName="Text" DataMember="contrato.idProyecto" />
+                  </DataBindings>
+                </Item16>
+                <Item17 Ref="38" ControlType="XRTableCell" Name="tableCell17" Weight="0.15384615384615386" Text="tableCell17">
+                  <DataBindings>
+                    <Item1 Ref="39" PropertyName="Text" DataMember="contrato.monto_adelanto_instalacion" />
+                  </DataBindings>
+                </Item17>
+                <Item18 Ref="40" ControlType="XRTableCell" Name="tableCell18" Weight="0.15384615384615386" Text="tableCell18">
+                  <DataBindings>
+                    <Item1 Ref="41" PropertyName="Text" DataMember="contrato.Monto_adelanto_materiales" />
+                  </DataBindings>
+                </Item18>
+                <Item19 Ref="42" ControlType="XRTableCell" Name="tableCell19" Weight="0.15384615384615386" Text="tableCell19">
+                  <DataBindings>
+                    <Item1 Ref="43" PropertyName="Text" DataMember="contrato.monto_obra" />
+                  </DataBindings>
+                </Item19>
+                <Item20 Ref="44" ControlType="XRTableCell" Name="tableCell20" Weight="0.15384615384615386" Text="tableCell20">
+                  <DataBindings>
+                    <Item1 Ref="45" PropertyName="Text" DataMember="contrato.plazo_ejecucion_obra" />
+                  </DataBindings>
+                </Item20>
+                <Item21 Ref="46" ControlType="XRTableCell" Name="tableCell21" Weight="0.15384615384615386" Text="tableCell21">
+                  <DataBindings>
+                    <Item1 Ref="47" PropertyName="Text" DataMember="contrato.ruc" />
+                  </DataBindings>
+                </Item21>
+              </Cells>
+            </Item1>
+          </Rows>
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="48" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="100" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X29icmFzX0Nvbm5lY3Rpb24iIFByb3ZpZGVyS2V5PSJNeVNxbCI+PFBhcmFtZXRlcnM+PFBhcmFtZXRlciBOYW1lPSJzZXJ2ZXIiIFZhbHVlPSJsb2NhbGhvc3QiIC8+PFBhcmFtZXRlciBOYW1lPSJkYXRhYmFzZSIgVmFsdWU9Im9icmFzIiAvPjxQYXJhbWV0ZXIgTmFtZT0icmVhZCBvbmx5IiBWYWx1ZT0iMSIgLz48UGFyYW1ldGVyIE5hbWU9ImdlbmVyYXRlQ29ubmVjdGlvbkhlbHBlciIgVmFsdWU9ImZhbHNlIiAvPjxQYXJhbWV0ZXIgTmFtZT0iUG9ydCIgVmFsdWU9IjMzMDYiIC8+PC9QYXJhbWV0ZXJzPjwvQ29ubmVjdGlvbj48UXVlcnkgVHlwZT0iU2VsZWN0UXVlcnkiIE5hbWU9ImNvbnRyYXRvIj48VGFibGVzPjxUYWJsZSBOYW1lPSJjb250cmF0byIgLz48L1RhYmxlcz48Q29sdW1ucz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iaWRQcm95ZWN0byIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iaWRjb250cmF0byIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iaWRjb21wb25lbnRlIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvIiBOYW1lPSJjb250cmF0b19OdW1lcm8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9InJ1YyIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iZW1wcmVzYSIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iZmVjaGFfY29udHJhdG8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9Im1vbnRvX29icmEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9ImZlY2hhX2FkZWxhbnRvX2RpcmVjdG8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9ImZlY2hhX3BsYXpvX21heGltb19wYWdvIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvIiBOYW1lPSJNb250b19hZGVsYW50b19tYXRlcmlhbGVzIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvIiBOYW1lPSJmZWNoYV9hZGVsYW50b19tYXhpbW9fbWF0ZXJpYWxlcyIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iZmVjaGFfYWRlbGFudG9faW5zdGFsYWNpb24iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9Im1vbnRvX2FkZWxhbnRvX2luc3RhbGFjaW9uIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvIiBOYW1lPSJmZWNoYV9hZGVsYW50b19tYXhpbW9faW5zdGFsYWNpb24iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9ImZlY2hhX2VudHJlZ2FfdGVycmVubyIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iZmVjaGFfZW50cmVnYV90ZXJyZW5vX2xpbWl0ZSIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0iZmVjaGFfaW5pY2lvX29icmEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9ImZlY2hhX2luaWNpb19vYnJhX21heGltbyIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0byIgTmFtZT0icGxhem9fZWplY3VjaW9uX29icmEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG8iIE5hbWU9ImlkRXN0YWRvX0NvbnRyYXRvIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iY29udHJhdG9fY3Jvbm9ncmFtYSI+PFRhYmxlcz48VGFibGUgTmFtZT0iY29udHJhdG9fY3Jvbm9ncmFtYSIgLz48L1RhYmxlcz48Q29sdW1ucz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19jcm9ub2dyYW1hIiBOYW1lPSJJRENPTlRSQVRPQ1JPTk9HUkFNQSIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19jcm9ub2dyYW1hIiBOYW1lPSJJRENPTlRSQVRPIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX2Nyb25vZ3JhbWEiIE5hbWU9IklEQ09OVFJBVE9VQklHRU8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fY3Jvbm9ncmFtYSIgTmFtZT0iQ1JPTk9HUkFNQV9TRU1BTkEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fY3Jvbm9ncmFtYSIgTmFtZT0iQVZBTkNFIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iY29udHJhdG9fZXZlbnRvIj48VGFibGVzPjxUYWJsZSBOYW1lPSJjb250cmF0b19ldmVudG8iIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fZXZlbnRvIiBOYW1lPSJpZENvbnRyYXRvX0V2ZW50byIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19ldmVudG8iIE5hbWU9ImlkQ29udHJhdG8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fZXZlbnRvIiBOYW1lPSJGZWNoYV9wYXJhbGl6YWNpb25fb2JyYXMiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fZXZlbnRvIiBOYW1lPSJmZWNoYV9yZWluaWNpb19vYnJhIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX2V2ZW50byIgTmFtZT0ib2JzZXJ2YWNpb24iIC8+PC9Db2x1bW5zPjwvUXVlcnk+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJjb250cmF0b19zZWd1aW1pZW50byI+PFRhYmxlcz48VGFibGUgTmFtZT0iY29udHJhdG9fc2VndWltaWVudG8iIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG8iIE5hbWU9ImlkY29udHJhdG9JbmZvcm1lIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJpZGNvbnRyYWRvIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJpbmZvcm1lZmVjaGEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fc2VndWltaWVudG8iIE5hbWU9Im9ic2VydmFjaW9uIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJzb2x1Y2lvbiIgLz48Q29sdW1uIFRhYmxlPSJjb250cmF0b19zZWd1aW1pZW50byIgTmFtZT0iYXZhbmNlIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJpbXBvcnRlIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIiBOYW1lPSJzZW1hbmEiIC8+PC9Db2x1bW5zPjwvUXVlcnk+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJjb250cmF0b191YmlnZW8iPjxUYWJsZXM+PFRhYmxlIE5hbWU9ImNvbnRyYXRvX3ViaWdlbyIgLz48L1RhYmxlcz48Q29sdW1ucz48Q29sdW1uIFRhYmxlPSJjb250cmF0b191YmlnZW8iIE5hbWU9IklkQ29udHJhdG8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fdWJpZ2VvIiBOYW1lPSJpZENvbnRyYXRvVWJpZ2VvIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3ViaWdlbyIgTmFtZT0idWJpZ2VvIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iY29udHJhdG9fdmFsb3JpemFjaW9uIj48VGFibGVzPjxUYWJsZSBOYW1lPSJjb250cmF0b192YWxvcml6YWNpb24iIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fdmFsb3JpemFjaW9uIiBOYW1lPSJpZGNvbnRyYXRvdmFsb3JpemFjaW8iIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fdmFsb3JpemFjaW9uIiBOYW1lPSJpZGNvbnRyYXRvIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3ZhbG9yaXphY2lvbiIgTmFtZT0idmFsb3JpemFjaW9uZmVjaGEiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fdmFsb3JpemFjaW9uIiBOYW1lPSJ2YWxvcml6YWNpb25fbnVtZXJvIiAvPjxDb2x1bW4gVGFibGU9ImNvbnRyYXRvX3ZhbG9yaXphY2lvbiIgTmFtZT0idmFsb3JpemFjaW9uX2ltcG9ydGUiIC8+PENvbHVtbiBUYWJsZT0iY29udHJhdG9fdmFsb3JpemFjaW9uIiBOYW1lPSJ2YWxvcml6YWNpb25fRXN0YWRvIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iY29vcmRpbmFkb3IiPjxUYWJsZXM+PFRhYmxlIE5hbWU9ImNvb3JkaW5hZG9yIiAvPjwvVGFibGVzPjxDb2x1bW5zPjxDb2x1bW4gVGFibGU9ImNvb3JkaW5hZG9yIiBOYW1lPSJpZGNvb3JkaW5hZG9yIiAvPjxDb2x1bW4gVGFibGU9ImNvb3JkaW5hZG9yIiBOYW1lPSJET0NfQ09PUkRJTkFET1IiIC8+PENvbHVtbiBUYWJsZT0iY29vcmRpbmFkb3IiIE5hbWU9Ik5PTUJSRV9DT09SRElOQURPIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9ImNvbnRyYXRvIj48RmllbGQgTmFtZT0iaWRQcm95ZWN0byIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9ImlkY29udHJhdG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpZGNvbXBvbmVudGUiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJjb250cmF0b19OdW1lcm8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icnVjIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImVtcHJlc2EiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iZmVjaGFfY29udHJhdG8iIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJtb250b19vYnJhIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJmZWNoYV9hZGVsYW50b19kaXJlY3RvIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iZmVjaGFfcGxhem9fbWF4aW1vX3BhZ28iIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJNb250b19hZGVsYW50b19tYXRlcmlhbGVzIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJmZWNoYV9hZGVsYW50b19tYXhpbW9fbWF0ZXJpYWxlcyIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImZlY2hhX2FkZWxhbnRvX2luc3RhbGFjaW9uIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0ibW9udG9fYWRlbGFudG9faW5zdGFsYWNpb24iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9ImZlY2hhX2FkZWxhbnRvX21heGltb19pbnN0YWxhY2lvbiIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImZlY2hhX2VudHJlZ2FfdGVycmVubyIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImZlY2hhX2VudHJlZ2FfdGVycmVub19saW1pdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJmZWNoYV9pbmljaW9fb2JyYSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImZlY2hhX2luaWNpb19vYnJhX21heGltbyIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9InBsYXpvX2VqZWN1Y2lvbl9vYnJhIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJpZEVzdGFkb19Db250cmF0byIgVHlwZT0iSW50MzIiIC8+PC9WaWV3PjxWaWV3IE5hbWU9ImNvbnRyYXRvX2Nyb25vZ3JhbWEiPjxGaWVsZCBOYW1lPSJJRENPTlRSQVRPQ1JPTk9HUkFNQSIgVHlwZT0iVUludDMyIiAvPjxGaWVsZCBOYW1lPSJJRENPTlRSQVRPIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iSURDT05UUkFUT1VCSUdFTyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkNST05PR1JBTUFfU0VNQU5BIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkFWQU5DRSIgVHlwZT0iRGVjaW1hbCIgLz48L1ZpZXc+PFZpZXcgTmFtZT0iY29udHJhdG9fZXZlbnRvIj48RmllbGQgTmFtZT0iaWRDb250cmF0b19FdmVudG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpZENvbnRyYXRvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iRmVjaGFfcGFyYWxpemFjaW9uX29icmFzIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iZmVjaGFfcmVpbmljaW9fb2JyYSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9Im9ic2VydmFjaW9uIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjxWaWV3IE5hbWU9ImNvbnRyYXRvX3NlZ3VpbWllbnRvIj48RmllbGQgTmFtZT0iaWRjb250cmF0b0luZm9ybWUiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpZGNvbnRyYWRvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iaW5mb3JtZWZlY2hhIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0ib2JzZXJ2YWNpb24iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic29sdWNpb24iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iYXZhbmNlIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJpbXBvcnRlIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJzZW1hbmEiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PFZpZXcgTmFtZT0iY29udHJhdG9fdWJpZ2VvIj48RmllbGQgTmFtZT0iSWRDb250cmF0byIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9ImlkQ29udHJhdG9VYmlnZW8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJ1YmlnZW8iIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PFZpZXcgTmFtZT0iY29udHJhdG9fdmFsb3JpemFjaW9uIj48RmllbGQgTmFtZT0iaWRjb250cmF0b3ZhbG9yaXphY2lvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iaWRjb250cmF0byIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9InZhbG9yaXphY2lvbmZlY2hhIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0idmFsb3JpemFjaW9uX251bWVybyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9InZhbG9yaXphY2lvbl9pbXBvcnRlIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJ2YWxvcml6YWNpb25fRXN0YWRvIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjxWaWV3IE5hbWU9ImNvb3JkaW5hZG9yIj48RmllbGQgTmFtZT0iaWRjb29yZGluYWRvciIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkRPQ19DT09SRElOQURPUiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOT01CUkVfQ09PUkRJTkFETyIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgQ29tbWFuZFRpbWVvdXQ9IjAiIC8+PC9TcWxEYXRhU291cmNlPg==" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

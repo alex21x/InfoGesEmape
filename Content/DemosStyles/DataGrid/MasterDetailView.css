@@ -1,0 +1,13 @@
+#gridContainer {
+    height: 440px;
+}
+
+.internal-grid-container {
+    padding: 10px 0 10px 0;
+}
+
+.internal-grid-container > div:first-child {
+    padding: 0 0 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}

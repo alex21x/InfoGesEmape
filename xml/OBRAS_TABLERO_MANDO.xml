@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="TABLERO DE CONTROL OBRAS" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_obras_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="obras" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="view_avance">
+        <Tables>
+          <Table Name="view_avance" />
+        </Tables>
+        <Columns>
+          <Column Table="view_avance" Name="CUI" />
+          <Column Table="view_avance" Name="NOMBRE_PROYECTO" />
+          <Column Table="view_avance" Name="ABREVIATURA" />
+          <Column Table="view_avance" Name="DISTRITO" />
+          <Column Table="view_avance" Name="DESCRIPCION" />
+          <Column Table="view_avance" Name="IDCONTRATO" />
+          <Column Table="view_avance" Name="CONTRATO_NUMERO" />
+          <Column Table="view_avance" Name="IDACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="ACTIVIDAD_PROYECTO" />
+          <Column Table="view_avance" Name="IDTIPO_PROYECTO" />
+          <Column Table="view_avance" Name="TIPO_PROYECTO" />
+          <Column Table="view_avance" Name="IDPAQUETE" />
+          <Column Table="view_avance" Name="PAQUETE" />
+          <Column Table="view_avance" Name="fecha_inicio_obra_maximo" />
+          <Column Table="view_avance" Name="plazo_ejecucion_obra" />
+          <Column Table="view_avance" Name="Objetivo" />
+          <Column Table="view_avance" Name="monto_obra" />
+          <Column Table="view_avance" Name="FECHA_FIN" />
+          <Column Table="view_avance" Name="CRONOGRAMA_FECHA" />
+          <Column Table="view_avance" Name="CRONOGRAMA_SEMANA" />
+          <Column Table="view_avance" Name="AVANCE" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="view_avance">
+            <Field Name="CUI" Type="String" />
+            <Field Name="NOMBRE_PROYECTO" Type="String" />
+            <Field Name="ABREVIATURA" Type="String" />
+            <Field Name="DISTRITO" Type="String" />
+            <Field Name="DESCRIPCION" Type="String" />
+            <Field Name="IDCONTRATO" Type="Int32" />
+            <Field Name="CONTRATO_NUMERO" Type="String" />
+            <Field Name="IDACTIVIDAD_PROYECTO" Type="Int32" />
+            <Field Name="ACTIVIDAD_PROYECTO" Type="String" />
+            <Field Name="IDTIPO_PROYECTO" Type="Int32" />
+            <Field Name="TIPO_PROYECTO" Type="String" />
+            <Field Name="IDPAQUETE" Type="Int32" />
+            <Field Name="PAQUETE" Type="String" />
+            <Field Name="fecha_inicio_obra_maximo" Type="DateTime" />
+            <Field Name="plazo_ejecucion_obra" Type="Decimal" />
+            <Field Name="Objetivo" Type="Int32" />
+            <Field Name="monto_obra" Type="Decimal" />
+            <Field Name="FECHA_FIN" Type="DateTime" />
+            <Field Name="CRONOGRAMA_FECHA" Type="DateTime" />
+            <Field Name="CRONOGRAMA_SEMANA" Type="String" />
+            <Field Name="AVANCE" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="avance&lt;100" Expression="Iif([AVANCE] &lt; 100, 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="obra&lt;100" Expression="Iif([AVANCE] &lt; 100, [monto_obra], 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance=100" Expression="Iif([AVANCE] &lt;&gt; 100, 0, 1)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="obra=100" Expression="Iif([AVANCE] = 100, [monto_obra], 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="DIA" Expression="Iif(GetWeekOfYear([CRONOGRAMA_FECHA]) = GetWeekOfYear(Now()) - 1 And [AVANCE] &lt;&gt; 100, 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="NDIA" Expression="Iif(GetWeekOfYear([CRONOGRAMA_FECHA]) &lt; GetWeekOfYear(Now()) - 1 And [AVANCE] &lt;&gt; 100, 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance_20" Expression="Iif([AVANCE] &gt; 0.0 And [AVANCE] &lt; 21, 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance_40" Expression="Iif([AVANCE] &gt; 20 And [AVANCE] &lt; 41, 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance_60" Expression="Iif([AVANCE] Between(40, 61), 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance_80" Expression="Iif([AVANCE] Between(60, 81), 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance_99" Expression="Iif([AVANCE] Between(80, 99), 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance_100" Expression="Iif([AVANCE] = 100, 1, 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="ff_abreviatura" Expression="Iif([FECHA_FIN] &lt; Now() And [AVANCE] &lt; 100, [ABREVIATURA], '')" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="ff_cui" Expression="Iif([FECHA_FIN] &lt; Now() And [AVANCE] &lt; 100, [CUI], '')" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="ff_avance" Expression="Iif([FECHA_FIN] &lt; Now() And [AVANCE] &lt; 100, [AVANCE], 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="ff_monto_obra" Expression="Iif([FECHA_FIN] &lt; Now() And [AVANCE] &lt; 100, [monto_obra], 0)" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="ff_fecha_fin" Expression="Iif([FECHA_FIN] &lt; Now() And [AVANCE] &lt; 100, [FECHA_FIN], '')" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="obra_inicio_semana" Expression="GetWeekOfYear([fecha_inicio_obra_maximo])" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="obra_fin_semana" Expression="GetWeekOfYear([FECHA_FIN])" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="obra_fin_periodo" Expression="GetYear([FECHA_FIN])" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="obra_inicio_periodo" Expression="GetYear([fecha_inicio_obra_maximo])" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="ff_cronograma_fecha" Expression="ToStr([CRONOGRAMA_FECHA])" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="ff_cronograma_Semana" Expression="GetWeekOfYear([CRONOGRAMA_FECHA])" DataType="Auto" DataMember="view_avance" />
+        <CalculatedField Name="avance_total" Expression="Iif([AVANCE] &lt;&gt; 0, 1, 0)" DataType="Auto" DataMember="view_avance" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Card ComponentName="cardDashboardItem1" Name="OBRAS ACTIVA" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem0" />
+        <Measure DataMember="avance&lt;100" DefaultId="DataItem1" />
+        <Measure DataMember="obra&lt;100" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem1" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+        <LayoutTemplate Type="Stretched">
+          <TopValue ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue ValueType="Title" DimensionIndex="0" />
+          <SubValue ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 ValueType="AbsoluteVariation" DimensionIndex="0" />
+        </LayoutTemplate>
+      </Card>
+      <Card>
+        <ActualValue DefaultId="DataItem2" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+        <LayoutTemplate Type="Stretched">
+          <TopValue ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue ValueType="Title" DimensionIndex="0" />
+          <SubValue ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 ValueType="AbsoluteVariation" DimensionIndex="0" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+    <Grid ComponentName="gridDashboardItem2" Name="OBRAS FINALIZADAS" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem0" />
+        <Measure DataMember="obra=100" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="avance=100" DefaultId="DataItem1" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="TIPO DE OBRA" Weight="131.85598204875396">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="CANTIDAD" Weight="61.044436133682389">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="MONTO OBRA" Weight="79.764729881344977">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem3" Name="ESTADO SITUACIONAL DE AVANCE" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Measure DataMember="DIA" DefaultId="DataItem1" />
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem0" />
+        <Measure DataMember="NDIA" DefaultId="DataItem2" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="TIPO DE OBRAS" Weight="112.21518987341773">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="PEND. INFOR. SEM." Weight="66.64556962025317" AlwaysShowZeroLevel="true">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="AL DIA" Weight="46.139240506329116">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem1" Name="GRAFICOS DE BARRAS DE INVERSION POR DISTRITO" DataSource="dashboardSqlDataSource1" DataMember="view_avance" Rotated="true">
+      <InteractivityOptions TargetDimensions="Series" />
+      <DataItems>
+        <Measure DataMember="monto_obra" Name=" " DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="DISTRITO" DefaultId="DataItem0" />
+        <Dimension DataMember="DISTRITO" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Visible="false" />
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend Visible="false" />
+    </Chart>
+    <Grid ComponentName="gridDashboardItem4" Name="OBRAS POR AVANCE" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Measure DataMember="avance_20" DefaultId="DataItem1" />
+        <Measure DataMember="avance_40" DefaultId="DataItem2" />
+        <Measure DataMember="avance_80" DefaultId="DataItem4">
+          <NumericFormat FormatType="Number" />
+        </Measure>
+        <Measure DataMember="avance_99" DefaultId="DataItem5" />
+        <Measure DataMember="avance_100" DefaultId="DataItem6" />
+        <Measure DataMember="avance_60" DefaultId="DataItem3" />
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem0" />
+        <Measure DataMember="avance_total" DefaultId="DataItem7" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="108.7254222305542">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="20%" Weight="30.379162093831326">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="40%" Weight="30.379162093831326">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="60%" Weight="37.574226800265059">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="80%" Weight="44.769291506698792">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="99%" Weight="35.975323532168673">
+          <Measure DefaultId="DataItem5" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="100%" Weight="59.958872553614455">
+          <Measure DefaultId="DataItem6" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Total" Weight="49.680208687280548">
+          <Measure DefaultId="DataItem7" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem5" Name="OBRAS CON FECHA VENCIDAS Y AVANCE &lt; 100%" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="ff_abreviatura" DefaultId="DataItem0" />
+        <Dimension DataMember="ff_cui" DefaultId="DataItem3" />
+        <Measure DataMember="ff_avance" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" />
+        </Measure>
+        <Measure DataMember="ff_monto_obra" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="ff_fecha_fin" DefaultId="DataItem4" />
+      </DataItems>
+      <FormatRules>
+        <GridItemFormatRule Name="FormatRule 1" Enabled="false">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="PaleRed" />
+            <Value1 Type="System.String" Value="NADA" />
+          </FormatConditionValue>
+        </GridItemFormatRule>
+        <GridItemFormatRule Name="FormatRule 2" Enabled="false">
+          <FormatConditionValue Condition="NotEqual">
+            <AppearanceSettings AppearanceType="PaleRed" />
+            <Value1 Type="System.String" Value="NADA" />
+          </FormatConditionValue>
+        </GridItemFormatRule>
+        <GridItemFormatRule Name="FormatRule 3" Enabled="false">
+          <FormatConditionExpression Expression="[DataItem0] = 'NADA'">
+            <AppearanceSettings AppearanceType="PaleRed" />
+          </FormatConditionExpression>
+        </GridItemFormatRule>
+        <GridItemFormatRule Name="FormatRule 4" DataItem="DataItem1">
+          <FormatConditionRangeSet ValueType="Percent">
+            <RangeSet>
+              <Ranges>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="0" />
+                  <AppearanceSettings AppearanceType="Red" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="90" />
+                  <AppearanceSettings AppearanceType="Green" />
+                </RangeInfo>
+              </Ranges>
+            </RangeSet>
+          </FormatConditionRangeSet>
+        </GridItemFormatRule>
+      </FormatRules>
+      <GridColumns>
+        <GridDimensionColumn Name="CUI" Weight="56.046195652173914">
+          <Dimension DefaultId="DataItem3" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="ABREVIATURA" Weight="115.14945652173913">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="FEC. TERMI." Weight="71.331521739130437">
+          <Dimension DefaultId="DataItem4" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="AVANCE %" Weight="65.217391304347828" FixedWidth="12.489837729241691">
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="S/. CONTRA" Weight="67.2554347826087">
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <Pivot ComponentName="pivotDashboardItem1" Name="INICIO DE OBRAS POR SEMANA" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="obra_inicio_semana" DefaultId="DataItem1" />
+        <Dimension DataMember="ACTIVIDAD_PROYECTO" DefaultId="DataItem0" />
+        <Measure DataMember="ACTIVIDAD_PROYECTO" SummaryType="Count" DefaultId="DataItem2" />
+        <Dimension DataMember="obra_inicio_periodo" SortOrder="Descending" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Dimension>
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem1" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem0" />
+        <Row DefaultId="DataItem3" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem2" />
+      </Values>
+      <AutoExpandRowGroups>true</AutoExpandRowGroups>
+    </Pivot>
+    <Pivot ComponentName="pivotDashboardItem2" Name="FINALIZACION DE OBRAS POR SEMANA" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Measure DataMember="ACTIVIDAD_PROYECTO" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="ACTIVIDAD_PROYECTO" DefaultId="DataItem1" />
+        <Dimension DataMember="obra_fin_periodo" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" />
+        </Dimension>
+        <Dimension DataMember="obra_fin_semana" DefaultId="DataItem2" />
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem2" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem1" />
+        <Row DefaultId="DataItem3" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+      <AutoExpandRowGroups>true</AutoExpandRowGroups>
+    </Pivot>
+    <Grid ComponentName="gridDashboardItem6" Name="INFORME SEMANAL" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="CUI" DefaultId="DataItem0" />
+        <Dimension DataMember="ABREVIATURA" DefaultId="DataItem1" />
+        <Measure DataMember="AVANCE" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" />
+        </Measure>
+        <Dimension DataMember="ff_cronograma_fecha" DefaultId="DataItem2" />
+        <Measure DataMember="ff_cronograma_Semana" DefaultId="DataItem4" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="70.786763094455438">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="163.92724085031784">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="ULT. F" Weight="94.382350792607241">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="SEM" Weight="49.67492146979329">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="%" Weight="57.126159690262277">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem1" Name="ALEXANDER" DataSource="dashboardSqlDataSource1" DataMember="view_avance">
+      <DataItems>
+        <Dimension DataMember="TIPO_PROYECTO" DefaultId="DataItem0" />
+        <Measure DataMember="monto_obra" DefaultId="DataItem1" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutGroup Weight="88.380716934487026">
+        <LayoutGroup Orientation="Vertical" Weight="30.104083266613291">
+          <LayoutItem DashboardItem="gridDashboardItem5" Weight="36.503496503496507" />
+          <LayoutItem DashboardItem="gridDashboardItem6" Weight="31.748251748251747" />
+        </LayoutGroup>
+        <LayoutGroup Orientation="Vertical" Weight="69.895916733386713">
+          <LayoutGroup Weight="60.55944055944056">
+            <LayoutGroup Orientation="Vertical" Weight="51.088201603665524">
+              <LayoutItem DashboardItem="gridDashboardItem4" Weight="24.711316397228636" />
+              <LayoutItem DashboardItem="gridDashboardItem3" Weight="25.173210161662819" />
+              <LayoutItem DashboardItem="gridDashboardItem2" Weight="23.556581986143186" />
+              <LayoutItem DashboardItem="cardDashboardItem1" Weight="26.558891454965359" />
+            </LayoutGroup>
+            <LayoutGroup Orientation="Vertical" Weight="48.911798396334476">
+              <LayoutItem DashboardItem="chartDashboardItem1" Weight="48.911798396334476" />
+              <LayoutItem DashboardItem="gridDashboardItem1" Weight="48.911798396334476" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Orientation="Vertical" Weight="39.44055944055944">
+            <LayoutItem DashboardItem="pivotDashboardItem1" Weight="53.546099290780141" />
+            <LayoutItem DashboardItem="pivotDashboardItem2" Weight="46.453900709219859" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

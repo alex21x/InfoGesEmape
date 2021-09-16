@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Visible="false" Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_obras_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="obras" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="proyecto">
+        <Tables>
+          <Table Name="proyecto" />
+          <Table Name="proyecto_componente" />
+          <Table Name="contrato" />
+          <Table Name="contrato_cronograma" />
+          <Table Name="contrato_seguimiento" />
+          <Table Name="contrato_valorizacion" />
+          <Relation Type="Inner" Parent="proyecto" Nested="proyecto_componente">
+            <KeyColumn Parent="idProyecto" Nested="idproyecto" />
+          </Relation>
+          <Relation Type="Inner" Parent="proyecto_componente" Nested="contrato">
+            <KeyColumn Parent="idProyectoComponente" Nested="idProyectoComponente" />
+          </Relation>
+          <Relation Type="Inner" Parent="contrato" Nested="contrato_cronograma">
+            <KeyColumn Parent="idcontrato" Nested="IDCONTRATO" />
+          </Relation>
+          <Relation Type="Inner" Parent="contrato" Nested="contrato_seguimiento">
+            <KeyColumn Parent="idcontrato" Nested="idcontrato" />
+          </Relation>
+          <Relation Type="Inner" Parent="contrato" Nested="contrato_valorizacion">
+            <KeyColumn Parent="idcontrato" Nested="idcontrato" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <Column Table="proyecto" Name="descripcion" />
+          <Column Table="proyecto" Name="CUI" />
+          <Column Table="proyecto" Name="abreviatura" />
+          <Column Table="proyecto" Name="encargo" />
+          <Column Table="proyecto" Name="devolucion" />
+          <Column Table="proyecto" Name="compromiso" />
+          <Column Table="proyecto" Name="devengado" />
+          <Column Table="proyecto" Name="girado" />
+          <Column Table="contrato" Name="monto_obra" />
+          <Column Table="contrato_cronograma" Name="CRONOGRAMA_FECHA" />
+          <Column Table="contrato_cronograma" Name="AVANCE" />
+          <Column Table="contrato_seguimiento" Name="SEGUIMIENTO_FECHA" />
+          <Column Table="contrato_seguimiento" Name="avance" />
+          <Column Table="contrato_valorizacion" Name="valorizacion_fecha" />
+          <Column Table="contrato_valorizacion" Name="AVANCE" Alias="contrato_valorizacion_AVANCE" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="proyecto">
+            <Field Name="descripcion" Type="String" />
+            <Field Name="CUI" Type="String" />
+            <Field Name="abreviatura" Type="String" />
+            <Field Name="encargo" Type="Decimal" />
+            <Field Name="devolucion" Type="Decimal" />
+            <Field Name="compromiso" Type="Decimal" />
+            <Field Name="devengado" Type="Decimal" />
+            <Field Name="girado" Type="Decimal" />
+            <Field Name="monto_obra" Type="Decimal" />
+            <Field Name="CRONOGRAMA_FECHA" Type="DateTime" />
+            <Field Name="AVANCE" Type="Decimal" />
+            <Field Name="SEGUIMIENTO_FECHA" Type="DateTime" />
+            <Field Name="avance" Type="Decimal" />
+            <Field Name="valorizacion_fecha" Type="DateTime" />
+            <Field Name="contrato_valorizacion_AVANCE" Type="Int32" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="SaldoEncargo" Expression="[encargo] - [devolucion]" DataType="Auto" DataMember="proyecto" />
+        <CalculatedField Name="CronogramaMonto" Expression="[monto_obra] * [AVANCE] / 100" DataType="Auto" DataMember="proyecto" />
+        <CalculatedField Name="SupervisionMonto" Expression="[monto_obra] * [avance] / 100" DataType="Auto" DataMember="proyecto" />
+        <CalculatedField Name="ValorizacionMonto" Expression="[monto_obra] * [contrato_valorizacion_AVANCE] / 100" DataType="Auto" DataMember="proyecto" />
+        <CalculatedField Name="avance_cronograma" Expression="[AVANCE] / 100" DataType="Auto" DataMember="proyecto" />
+        <CalculatedField Name="avance_supervision" Expression="[avance] / 100" DataType="Auto" DataMember="proyecto" />
+        <CalculatedField Name="avance_Valorizacion" Expression="[contrato_valorizacion_AVANCE] / 100" DataType="Auto" DataMember="proyecto" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Rejilla 1" ShowCaption="false" DataSource="dashboardSqlDataSource1" DataMember="proyecto">
+      <InteractivityOptions MasterFilterMode="Single" />
+      <DataItems>
+        <Dimension DataMember="CUI" DefaultId="DataItem0" />
+        <Dimension DataMember="abreviatura" DefaultId="DataItem1" />
+        <Dimension DataMember="descripcion" DefaultId="DataItem2" />
+        <Measure DataMember="encargo" SummaryType="Min" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="compromiso" SummaryType="Max" DefaultId="DataItem4">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="devengado" SummaryType="Max" DefaultId="DataItem5">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="girado" SummaryType="Max" DefaultId="DataItem6">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="monto_obra" SummaryType="Max" DefaultId="DataItem7">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="devolucion" SummaryType="Max" DefaultId="DataItem8">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="SaldoEncargo" SummaryType="Max" DefaultId="DataItem9">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="38.678485092667188">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="Descripción" Weight="287.06688154713925">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Name="Abreviatura" Weight="61.643835616438331">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="Encargo" Weight="58.62207896857371">
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Devolución" Weight="37.469782433521338">
+          <Measure DefaultId="DataItem8" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Saldo Encargo" Weight="64.061240934730037">
+          <Measure DefaultId="DataItem9" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Importe Obra" Weight="59.226430298146632">
+          <Measure DefaultId="DataItem7" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Compromiso" Weight="50.765511684125684">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Devengado" Weight="42.908944399677665">
+          <Measure DefaultId="DataItem5" />
+        </GridMeasureColumn>
+        <GridMeasureColumn Name="Girado" Weight="49.556809024979835">
+          <Measure DefaultId="DataItem6" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <Gauge ComponentName="gaugeDashboardItem1" Name="Indicador 1" DataSource="dashboardSqlDataSource1" DataMember="proyecto" ViewType="LinearHorizontal">
+      <DataItems>
+        <Measure DataMember="monto_obra" SummaryType="Max" DefaultId="DataItem0" />
+        <Measure DataMember="SaldoEncargo" SummaryType="Max" DefaultId="DataItem1" />
+        <Measure DataMember="monto_obra" SummaryType="Max" DefaultId="DataItem2" />
+        <Measure DataMember="devengado" SummaryType="Max" DefaultId="DataItem3" />
+        <Measure DataMember="compromiso" DefaultId="DataItem4" />
+        <Measure DataMember="devengado" DefaultId="DataItem5" />
+      </DataItems>
+      <GaugeElement Name="Obra  vs Encargo">
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem1" />
+        <DeltaOptions ResultIndicationThresholdType="Absolute" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="Devengado  vs Obra">
+        <ActualValue DefaultId="DataItem3" />
+        <TargetValue DefaultId="DataItem2" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+      <GaugeElement Name="Devengado vs Compromiso">
+        <ActualValue DefaultId="DataItem5" />
+        <TargetValue DefaultId="DataItem4" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+      </GaugeElement>
+    </Gauge>
+    <Chart ComponentName="chartDashboardItem1" Name="GRAFICO DE BARRAS FINANCIERO" DataSource="dashboardSqlDataSource1" DataMember="proyecto" Rotated="true">
+      <ColoringOptions UseGlobalColors="false" />
+      <DataItems>
+        <Dimension DataMember="abreviatura" DefaultId="DataItem0" />
+        <Measure DataMember="CronogramaMonto" SummaryType="Max" DefaultId="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="SupervisionMonto" SummaryType="Max" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="ValorizacionMonto" SummaryType="Max" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" />
+          <Series>
+            <Simple Name="Programación">
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" ShowForZeroValues="true" />
+            </Simple>
+            <Simple Name="Supervision">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" ShowForZeroValues="true" />
+            </Simple>
+            <Simple Name="Valorizacion">
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem2" Name="PROGRAMACION" DataSource="dashboardSqlDataSource1" DataMember="proyecto">
+      <DataItems>
+        <Dimension DataMember="CRONOGRAMA_FECHA" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem0" />
+        <Measure DataMember="AVANCE" SummaryType="Min" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" />
+          <Series>
+            <Simple Name="AVANCE(%)" ShowPointMarkers="true" SeriesType="Spline">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem4" Name="VALORIZACIÓN" DataSource="dashboardSqlDataSource1" DataMember="proyecto">
+      <DataItems>
+        <Dimension DataMember="valorizacion_fecha" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem1" />
+        <Measure DataMember="ValorizacionMonto" SummaryType="Max" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY Visible="false" />
+          <Series>
+            <Simple SeriesType="Spline">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem5" Name="GRAFICO DE BARRAS DE PORCENTAJES" DataSource="dashboardSqlDataSource1" DataMember="proyecto" Rotated="true">
+      <ColoringOptions UseGlobalColors="false" />
+      <DataItems>
+        <Dimension DataMember="abreviatura" DefaultId="DataItem0" />
+        <Measure DataMember="avance_cronograma" SummaryType="Max" DefaultId="DataItem1">
+          <NumericFormat FormatType="Percent" />
+        </Measure>
+        <Measure DataMember="avance_supervision" SummaryType="Max" DefaultId="DataItem2">
+          <NumericFormat FormatType="Percent" />
+        </Measure>
+        <Measure DataMember="avance_Valorizacion" SummaryType="Max" DefaultId="DataItem3">
+          <NumericFormat FormatType="Percent" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <AxisY TitleVisible="false" />
+          <Series>
+            <Simple Name="Programación">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+            <Simple Name="Supervisión">
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+            <Simple Name="Valorización">
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem3" Name="SEGUIMIENTO" DataSource="dashboardSqlDataSource1" DataMember="proyecto">
+      <DataItems>
+        <Dimension DataMember="SEGUIMIENTO_FECHA" DateTimeGroupInterval="DayMonthYear" DefaultId="DataItem0" />
+        <Measure DataMember="avance" SummaryType="Min" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Unit="Ones" />
+        </Measure>
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple Name="AVANCE(%)" ShowPointMarkers="true" SeriesType="Spline">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <ColorScheme>
+    <Entry DataSource="dashboardSqlDataSource1" DataMember="proyecto" PaletteIndex="2">
+      <MeasureKey>
+        <Definition DataMember="SupervisionMonto" SummaryType="Max" />
+      </MeasureKey>
+    </Entry>
+    <Entry DataSource="dashboardSqlDataSource1" DataMember="proyecto" PaletteIndex="1">
+      <MeasureKey>
+        <Definition DataMember="ValorizacionMonto" SummaryType="Max" />
+      </MeasureKey>
+    </Entry>
+    <Entry DataSource="dashboardSqlDataSource1" DataMember="proyecto" PaletteIndex="3">
+      <MeasureKey>
+        <Definition DataMember="CronogramaMonto" SummaryType="Max" />
+      </MeasureKey>
+    </Entry>
+  </ColorScheme>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutItem DashboardItem="gridDashboardItem1" Weight="17.519908987485778" />
+      <LayoutGroup Weight="21.843003412969285">
+        <LayoutItem DashboardItem="chartDashboardItem2" Weight="23.102753525856279" />
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="76.897246474143714" />
+      </LayoutGroup>
+      <LayoutGroup Weight="60.637087599544934">
+        <LayoutGroup Orientation="Vertical" Weight="23.102753525856279">
+          <LayoutItem DashboardItem="chartDashboardItem3" Weight="49.906191369606006" />
+          <LayoutItem DashboardItem="chartDashboardItem4" Weight="50.093808630393994" />
+        </LayoutGroup>
+        <LayoutGroup Orientation="Vertical" Weight="76.897246474143714">
+          <LayoutItem DashboardItem="chartDashboardItem5" Weight="63.602251407129458" />
+          <LayoutItem DashboardItem="gaugeDashboardItem1" Weight="36.397748592870542" />
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SecondMasterPage.Master.cs" Inherits="InfogesEmape.Modules.SecondMasterPage" %>
+<%@ Register src="../Includes/TitleContent.ascx" tagname="TitleContent" tagprefix="uc1" %>
+<%@ Register src="../Includes/Footer.ascx" tagname="Footer" tagprefix="uc2" %>
+<%@ Register src="../Includes/Header.ascx" tagname="Header" tagprefix="uc3" %>
+
+<%@ Register assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" tagprefix="dxw" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.0.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <link href="~/Styles/style01.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/TabbedMenu.css" rel="TabbedMenusheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+      
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 184px;
+        }
+        .style7
+        {
+            width: 297px;
+        }
+        </style>
+</head>
+<body  background="../Images/FondoEmape.jpeg" >
+    <form id="form1" runat="server">
+    <div style="width: 100%; text-align:left">
+
+    <div >
+       <div style="width: 100%">
+    
+        <uc3:Header ID="Header1" runat="server" />
+
+        <table style="width: 100%">
+        <tr align="left">
+        <td align="left">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"  >
+            <!-- AREA DE CONTENIDO DE FORMULARIOS -->
+            </asp:ContentPlaceHolder>
+        </td>
+        </tr>
+        </table>
+        <br />
+        <uc2:Footer ID="Footer1" runat="server"  />
+         
+        </div>
+  
+    </div>
+    </div>
+    </form>
+    
+</body>
+</html>

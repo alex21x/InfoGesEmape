@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report2" Landscape="true" Margins="81, 63, 0, 0" PageWidth="1100" PageHeight="850" Version="17.1" DataMember="obras_sp_SaldoTipoObra1()" DataSource="#Ref-0">
+  <Bands>
+    <Item1 Ref="2" ControlType="TopMarginBand" Name="TopMargin" HeightF="0" />
+    <Item2 Ref="3" ControlType="DetailBand" Name="Detail" HeightF="0.6250064" />
+    <Item3 Ref="4" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="0" />
+    <Item4 Ref="5" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="0">
+      <GroupFields>
+        <Item1 Ref="6" FieldName="ANO_EJE" />
+      </GroupFields>
+    </Item4>
+    <Item5 Ref="7" ControlType="GroupFooterBand" Name="GroupFooter1" HeightF="666.666748">
+      <Controls>
+        <Item1 Ref="8" ControlType="XRChart" Name="chart2" SizeF="906.25,320.833344" LocationFloat="39.7499733, 342.708344" BorderColor="Black" Borders="None">
+          <Chart Ref="9">
+            <DataContainer Ref="10">
+              <SeriesSerializable>
+                <Item1 Ref="11" Name="TRANSFERENCIAS SIN EJECUTAR" ArgumentDataMember="obras_sp_saldoTipoObra2().descripcion" ValueDataMembersSerializable="obras_sp_saldoTipoObra2().ENCARGO">
+                  <View Ref="12" TypeNameSerializable="FullStackedBarSeriesView" />
+                  <Label Ref="13" TypeNameSerializable="FullStackedBarSeriesLabel" TextPattern="{VP:0.00%} {V:n}" />
+                </Item1>
+                <Item2 Ref="14" Name="EJECUCION" ArgumentDataMember="obras_sp_saldoTipoObra2().descripcion" ValueDataMembersSerializable="obras_sp_saldoTipoObra2().DEVENGADO">
+                  <View Ref="15" TypeNameSerializable="FullStackedBarSeriesView" />
+                  <Label Ref="16" TypeNameSerializable="FullStackedBarSeriesLabel" TextPattern="{VP:0.00%} {V:n}" />
+                </Item2>
+              </SeriesSerializable>
+            </DataContainer>
+            <Legend Ref="17" AlignmentHorizontal="Center" AlignmentVertical="TopOutside" Name="Default Legend" />
+            <Titles>
+              <Item1 Ref="18" Text="PROYECTO SOCIALES Y VIALES" Font="Arial, 18pt, style=Bold, charSet=0" />
+            </Titles>
+            <OptionsPrint Ref="19" ImageFormat="Metafile" />
+            <Diagram Ref="20" Rotated="true" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="21" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="22" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="23" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item1>
+        <Item2 Ref="24" ControlType="XRChart" Name="chart1" SizeF="906.25,320.833344" LocationFloat="39.7500038, 0" BorderColor="Black" Borders="None">
+          <Chart Ref="25">
+            <DataContainer Ref="26">
+              <SeriesSerializable>
+                <Item1 Ref="27" Name="TRANSFERENCIAS SIN EJECUTAR" ArgumentDataMember="obras_sp_SaldoTipoObra1().ABREVIATURA" ValueDataMembersSerializable="obras_sp_SaldoTipoObra1().ENCARGO">
+                  <View Ref="28" TypeNameSerializable="FullStackedBarSeriesView" />
+                  <Label Ref="29" TypeNameSerializable="FullStackedBarSeriesLabel" TextPattern="{VP:0.00%} {V:n}" />
+                </Item1>
+                <Item2 Ref="30" Name="EJECUCION" ArgumentDataMember="obras_sp_SaldoTipoObra1().ABREVIATURA" ValueDataMembersSerializable="obras_sp_SaldoTipoObra1().DEVENGADO">
+                  <View Ref="31" TypeNameSerializable="FullStackedBarSeriesView" />
+                  <Label Ref="32" TypeNameSerializable="FullStackedBarSeriesLabel" TextPattern="{VP:0.00%} {V:n}" />
+                </Item2>
+              </SeriesSerializable>
+            </DataContainer>
+            <Legend Ref="33" AlignmentHorizontal="Center" AlignmentVertical="TopOutside" Name="Default Legend" />
+            <Titles>
+              <Item1 Ref="34" Text="PROYECTOS EMBLEMATICOS" Font="Arial, 18pt, style=Bold, charSet=0" />
+            </Titles>
+            <OptionsPrint Ref="35" ImageFormat="Metafile" />
+            <Diagram Ref="36" Rotated="true" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="37" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="38" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="39" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item2>
+      </Controls>
+    </Item5>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X29icmFzX0Nvbm5lY3Rpb24iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlN0b3JlZFByb2NRdWVyeSIgTmFtZT0ib2JyYXNfc3BfU2FsZG9UaXBvT2JyYTEoKSI+PFByb2NOYW1lPm9icmFzLnNwX1NhbGRvVGlwb09icmExPC9Qcm9jTmFtZT48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJTdG9yZWRQcm9jUXVlcnkiIE5hbWU9Im9icmFzX3NwX3NhbGRvVGlwb09icmEyKCkiPjxQcm9jTmFtZT5vYnJhcy5zcF9zYWxkb1RpcG9PYnJhMjwvUHJvY05hbWU+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJvYnJhc19zcF9TYWxkb1RpcG9PYnJhMSgpIj48RmllbGQgTmFtZT0iQU5PX0VKRSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJhY3RfcHJveSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJBQlJFVklBVFVSQSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJpZFRpcG9fUHJveWVjdG8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJBQ1RfUFJPWV9OT01CUkUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iZGVzY3JpcGNpb24iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRU5DQVJHTyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iQ09NUFJPTUlTTyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iREVWRU5HQURPIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJHSVJBRE8iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IlBBR0FETyIgVHlwZT0iRGVjaW1hbCIgLz48L1ZpZXc+PFZpZXcgTmFtZT0ib2JyYXNfc3Bfc2FsZG9UaXBvT2JyYTIoKSI+PEZpZWxkIE5hbWU9IkFOT19FSkUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iYWN0X3Byb3kiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iaWRUaXBvX1Byb3llY3RvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQUJSRVZJQVRVUkEiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQUNUX1BST1lfTk9NQlJFIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImRlc2NyaXBjaW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkVOQ0FSR08iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IkNPTVBST01JU08iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IkRFVkVOR0FETyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iR0lSQURPIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJQQUdBRE8iIFR5cGU9IkRlY2ltYWwiIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiBDb21tYW5kVGltZW91dD0iMCIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

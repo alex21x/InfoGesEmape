@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report1" Landscape="true" Margins="42, 126, 76, 0" PaperKind="A4" PageWidth="1169" PageHeight="827" Version="17.1" DataMember="view_avance" DataSource="#Ref-0">
+  <FormattingRuleSheet>
+    <Item1 Ref="2" Name="formattingRule1" DataMember="view_avance">
+      <Formatting Ref="3" BorderStyle="Inset" StringFormat="Near;Near;0;None;Character;Default" />
+    </Item1>
+  </FormattingRuleSheet>
+  <Parameters>
+    <Item1 Ref="5" Visible="false" Description="pDistrito" Name="pDistrito" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="6" ControlType="TopMarginBand" Name="TopMargin" HeightF="76" />
+    <Item2 Ref="7" ControlType="DetailBand" Name="Detail" HeightF="3.125" />
+    <Item3 Ref="8" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="0" />
+    <Item4 Ref="9" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="537.5">
+      <Controls>
+        <Item1 Ref="10" ControlType="XRChart" Name="chart1" SizeF="353.791565,444.791656" LocationFloat="0, 0" BorderColor="Black" Borders="None">
+          <Chart Ref="11">
+            <DataContainer Ref="12">
+              <SeriesSerializable>
+                <Item1 Ref="13" Name="Series 1" ArgumentDataMember="view_avance.DESCRIPCION" ValueDataMembersSerializable="view_avance.AVANCE" />
+              </SeriesSerializable>
+            </DataContainer>
+            <Legend Ref="14" Visibility="False" Name="Default Legend" />
+            <Titles>
+              <Item1 Ref="15" Text="AVANCE %" Font="Tahoma, 11.25pt, style=Bold, charSet=0" />
+            </Titles>
+            <OptionsPrint Ref="16" ImageFormat="Metafile" />
+            <Diagram Ref="17" Rotated="true" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="18" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="19" Visibility="False" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="20" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item1>
+        <Item2 Ref="21" ControlType="XRChart" Name="chart2" SizeF="204.5835,444.791656" LocationFloat="561.708069, 0" BorderColor="Black" Borders="None">
+          <Chart Ref="22">
+            <DataContainer Ref="23">
+              <SeriesSerializable>
+                <Item1 Ref="24" Name="Series 1" ArgumentDataMember="view_avance.DESCRIPCION" ValueDataMembersSerializable="view_avance.fecha_inicio_obra_maximo;view_avance.FECHA_FIN" ValueScaleType="DateTime" ShowInLegend="false" SeriesPointsSorting="Descending">
+                  <View Ref="25" TypeNameSerializable="OverlappedGanttSeriesView" />
+                </Item1>
+              </SeriesSerializable>
+            </DataContainer>
+            <Legend Ref="26" Visibility="False" Name="Default Legend" />
+            <Titles>
+              <Item1 Ref="27" Text="INICIO - FIN" Font="Tahoma, 12pt, style=Bold, charSet=0" />
+            </Titles>
+            <OptionsPrint Ref="28" ImageFormat="Metafile" />
+            <Diagram Ref="29" TypeNameSerializable="GanttDiagram">
+              <AxisX Ref="30" Visibility="False" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="31" Visibility="False" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="32" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item2>
+        <Item3 Ref="33" ControlType="XRChart" Name="chart3" SizeF="172.499817,444.791656" LocationFloat="353.791565, 0" BorderColor="Black" Borders="None">
+          <Chart Ref="34">
+            <DataContainer Ref="35">
+              <SeriesSerializable>
+                <Item1 Ref="36" Name="Series 1" LegendName="Default Legend" ArgumentDataMember="view_avance.DESCRIPCION" ValueDataMembersSerializable="view_avance.CRONOGRAMA_FECHA" ValueScaleType="DateTime" LabelsVisibility="True" ShowInLegend="false" ToolTipPointPattern="{V:d/MM/yyyy}" ToolTipEnabled="True" CrosshairLabelVisibility="True" LegendTextPattern="{V:d/MM/yyyy}">
+                  <Label Ref="37" Position="Center" TypeNameSerializable="SideBySideBarSeriesLabel" ResolveOverlappingMode="Default" TextPattern="{V:d/MM/yyyy}" />
+                  <Colorizer TypeNameSerializable="RangeColorizer" />
+                </Item1>
+              </SeriesSerializable>
+            </DataContainer>
+            <Legend Ref="39" Visibility="False" TextVisible="false" Name="Default Legend" />
+            <Titles>
+              <Item1 Ref="40" Text="ULT. FECHA" Font="Tahoma, 12pt, style=Bold, charSet=0" />
+            </Titles>
+            <OptionsPrint Ref="41" ImageFormat="Metafile" />
+            <Diagram Ref="42" Rotated="true" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="43" Visibility="False" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="44" Visibility="False" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="45" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item3>
+        <Item4 Ref="46" ControlType="XRChart" Name="chart4" SizeF="229.000061,444.791656" LocationFloat="766.291565, 0" BorderColor="Black" Borders="None">
+          <Chart Ref="47">
+            <DataContainer Ref="48">
+              <SeriesSerializable>
+                <Item1 Ref="49" Name="Series 1" ArgumentDataMember="view_avance.DESCRIPCION" ValueDataMembersSerializable="view_avance.monto_obra" SeriesPointsSortingKey="Value_1" ToolTipPointPattern="{V:c2}" ToolTipEnabled="True" CrosshairLabelVisibility="True" CrosshairHighlightPoints="True" LegendTextPattern="{V:c2}">
+                  <Label Ref="50" TypeNameSerializable="SideBySideBarSeriesLabel" TextPattern="{V:c2}" />
+                </Item1>
+              </SeriesSerializable>
+            </DataContainer>
+            <Legend Ref="51" Visibility="False" Name="Default Legend" />
+            <Titles>
+              <Item1 Ref="52" Text="S/." Font="Tahoma, 12pt, charSet=0" />
+            </Titles>
+            <OptionsPrint Ref="53" ImageFormat="Metafile" />
+            <Diagram Ref="54" Rotated="true" PaneDistance="1" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="55" Visibility="False" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="56" Visibility="False" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="57" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item4>
+      </Controls>
+    </Item4>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v17.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2U+PE5hbWU+c3FsRGF0YVNvdXJjZTE8L05hbWU+PENvbm5lY3Rpb24gTmFtZT0ibG9jYWxob3N0X29icmFzX0Nvbm5lY3Rpb24iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJ2aWV3X2F2YW5jZSI+PFBhcmFtZXRlciBOYW1lPSJwRGlzdHJpdG8iIFR5cGU9IkRldkV4cHJlc3MuRGF0YUFjY2Vzcy5FeHByZXNzaW9uIj4oU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5KShbUGFyYW1ldGVycy5wRGlzdHJpdG9dKTwvUGFyYW1ldGVyPjxUYWJsZXM+PFRhYmxlIE5hbWU9InZpZXdfYXZhbmNlIiAvPjwvVGFibGVzPjxDb2x1bW5zPjxDb2x1bW4gVGFibGU9InZpZXdfYXZhbmNlIiBOYW1lPSJDVUkiIC8+PENvbHVtbiBUYWJsZT0idmlld19hdmFuY2UiIE5hbWU9Ik5PTUJSRV9QUk9ZRUNUTyIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iQUJSRVZJQVRVUkEiIC8+PENvbHVtbiBUYWJsZT0idmlld19hdmFuY2UiIE5hbWU9IkRJU1RSSVRPIiAvPjxDb2x1bW4gVGFibGU9InZpZXdfYXZhbmNlIiBOYW1lPSJERVNDUklQQ0lPTiIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iSURDT05UUkFUTyIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iQ09OVFJBVE9fTlVNRVJPIiAvPjxDb2x1bW4gVGFibGU9InZpZXdfYXZhbmNlIiBOYW1lPSJJREFDVElWSURBRF9QUk9ZRUNUTyIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iQUNUSVZJREFEX1BST1lFQ1RPIiAvPjxDb2x1bW4gVGFibGU9InZpZXdfYXZhbmNlIiBOYW1lPSJJRFRJUE9fUFJPWUVDVE8iIC8+PENvbHVtbiBUYWJsZT0idmlld19hdmFuY2UiIE5hbWU9IlRJUE9fUFJPWUVDVE8iIC8+PENvbHVtbiBUYWJsZT0idmlld19hdmFuY2UiIE5hbWU9IklEUEFRVUVURSIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iUEFRVUVURSIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iZmVjaGFfaW5pY2lvX29icmFfbWF4aW1vIiAvPjxDb2x1bW4gVGFibGU9InZpZXdfYXZhbmNlIiBOYW1lPSJwbGF6b19lamVjdWNpb25fb2JyYSIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iT2JqZXRpdm8iIC8+PENvbHVtbiBUYWJsZT0idmlld19hdmFuY2UiIE5hbWU9Im1vbnRvX29icmEiIC8+PENvbHVtbiBUYWJsZT0idmlld19hdmFuY2UiIE5hbWU9IkZFQ0hBX0ZJTiIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iQ1JPTk9HUkFNQV9GRUNIQSIgLz48Q29sdW1uIFRhYmxlPSJ2aWV3X2F2YW5jZSIgTmFtZT0iQ1JPTk9HUkFNQV9TRU1BTkEiIC8+PENvbHVtbiBUYWJsZT0idmlld19hdmFuY2UiIE5hbWU9IkFWQU5DRSIgLz48L0NvbHVtbnM+PEZpbHRlcj5TdGFydHNXaXRoKFt2aWV3X2F2YW5jZS5ESVNUUklUT10sID9wRGlzdHJpdG8pPC9GaWx0ZXI+PEdyb3VwRmlsdGVyPjwvR3JvdXBGaWx0ZXI+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJ2aWV3X2F2YW5jZSI+PEZpZWxkIE5hbWU9IkNVSSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOT01CUkVfUFJPWUVDVE8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQUJSRVZJQVRVUkEiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRElTVFJJVE8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iREVTQ1JJUENJT04iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSURDT05UUkFUTyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkNPTlRSQVRPX05VTUVSTyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJJREFDVElWSURBRF9QUk9ZRUNUTyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkFDVElWSURBRF9QUk9ZRUNUTyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJJRFRJUE9fUFJPWUVDVE8iIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJUSVBPX1BST1lFQ1RPIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IklEUEFRVUVURSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlBBUVVFVEUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iZmVjaGFfaW5pY2lvX29icmFfbWF4aW1vIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0icGxhem9fZWplY3VjaW9uX29icmEiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9Ik9iamV0aXZvIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0ibW9udG9fb2JyYSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iRkVDSEFfRklOIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iQ1JPTk9HUkFNQV9GRUNIQSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IkNST05PR1JBTUFfU0VNQU5BIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkFWQU5DRSIgVHlwZT0iRGVjaW1hbCIgLz48L1ZpZXc+PC9EYXRhU2V0PjwvUmVzdWx0U2NoZW1hPjxDb25uZWN0aW9uT3B0aW9ucyBDbG9zZUNvbm5lY3Rpb249InRydWUiIENvbW1hbmRUaW1lb3V0PSIwIiAvPjwvU3FsRGF0YVNvdXJjZT4=" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

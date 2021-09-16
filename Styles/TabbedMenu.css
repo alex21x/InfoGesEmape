@@ -1,0 +1,64 @@
+﻿.TabbedMenuTableSide {
+    width: 1px;
+    height: 28px;
+    background-image: url('../Images/TabbedMenu/LeftSideSeparators.gif');
+    overflow: hidden;
+}
+.TabbedMenu .rootItem table {
+	background-image: url('../Images/TabbedMenu/ItemBackground.gif');
+}
+
+.TabbedMenu .rootItemHover table {
+	background-image: url('../Images/TabbedMenu/ItemBackgroundHover.gif');
+}
+
+.TabbedMenu .rootItemSelected table {
+    background-image: url('../Images/TabbedMenu/ItemBackgroundSelected.gif');
+}
+.TabbedMenu .rootItem div, 
+.TabbedMenu .rootItemHover div, 
+.TabbedMenu .rootItemSelected div {
+    padding: 0px;
+    margin: 0px;
+}
+    
+.TabbedMenu .rootItem div {
+    height: 26px;
+    border-top: solid 1px #D8D8D8;
+    border-bottom: Solid 1px #A3A3A3;
+}
+.TabbedMenuSideBorders {
+    border-bottom: Solid 1px #A3A3A3;
+}
+	 
+.TabbedMenu .rootItemHover div, 
+.TabbedMenu .rootItemSelected div {
+    height: 27px;
+    border-top: none;
+}
+.TabbedMenu .rootItem table, 
+.TabbedMenu .rootItemHover table, 
+.TabbedMenu .rootItemSelected table {
+    border-collapse: collapse;
+    border-width: 0px;
+    margin-left: 1px;
+    margin-right: 1px;
+    background-repeat: repeat-x;
+    background-position: top;
+}
+.TabbedMenu .rootItem th, 
+.TabbedMenu .rootItemHover th, 
+.TabbedMenu .rootItemSelected th {
+    padding: 7px;
+	padding-top: 6px;	
+	white-space: nowrap;
+    font-weight: normal;
+}
+.TabbedMenu .rootItemHover th, 
+.TabbedMenu .rootItemSelected th {
+    padding-top: 7px;
+}
+.TabbedMenu .WhiteBorderRight { border-right: solid 1px White; }
+.TabbedMenu .rootItemSelected div {
+    border-bottom: 0px;
+}

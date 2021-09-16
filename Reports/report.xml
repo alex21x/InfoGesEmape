@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ChartXmlSerializer version="17.1.3.0">
+  <Chart AppearanceNameSerializable="Default" SelectionMode="None" SeriesSelectionMode="Series">
+    <DataContainer DataMember="" SeriesDataMember="gso_estado_situacional.actividad" BoundSeriesSorting="None">
+      <SeriesTemplate LegendName="Default Legend" ArgumentDataMember="gso_estado_situacional.fecha_culminacion" />
+    </DataContainer>
+    <OptionsPrint ImageFormat="Metafile" />
+    <Diagram Rotated="true" DependentAxesYRange="True" PaneLayoutDirection="Horizontal" TypeNameSerializable="XYDiagram">
+      <AxisX VisibleInPanesSerializable="-1" />
+      <AxisY VisibleInPanesSerializable="-1" />
+      <DefaultPane EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+    </Diagram>
+  </Chart>
+</ChartXmlSerializer>

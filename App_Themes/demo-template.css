@@ -1,0 +1,104 @@
+﻿html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.demo-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+}
+
+.dx-theme-generic .demo-container {
+    min-height: 450px;
+}
+
+.dx-theme-generic.TabletPortrait .demo-container,
+.dx-theme-generic.TabletLandscape .demo-container {
+    min-height: 100%;
+}
+
+.dx-color-scheme-dark .selected-data,
+.dx-color-scheme-contrast .selected-data {
+    background: #363636;
+}
+
+.dx-color-scheme-dark #events,
+.dx-color-scheme-contrast #events {
+    background: #363636;
+}
+
+.dx-color-scheme-dark #events ul li,
+.dx-color-scheme-contrast #events ul li {
+    border-bottom: 1px solid #4d4d4d;
+}
+
+.dx-color-scheme-dark .options,
+.dx-color-scheme-contrast .options {
+     background-color: #363636;
+}
+
+.dx-theme-ios7 .options,
+.dx-theme-android5 .options,
+.dx-theme-win10 .options {
+    left: 0;
+    top: auto;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+}
+
+.dx-theme-ios7 .widget-container,
+.dx-theme-android5 .widget-container,
+.dx-theme-win10 .widget-container {
+    margin-right: 0;
+}
+
+.dx-theme-ios7 #calendar-demo .widget-container {
+    margin-bottom: 380px;
+}
+
+.dx-theme-android5 #calendar-demo .widget-container {
+    margin-bottom: 430px;
+}
+
+.dx-theme-win10 #calendar-demo .widget-container {
+    margin-bottom: 370px;
+}
+
+.dx-theme-ios7 #list-api-demo .widget-container,
+.dx-theme-win10 #list-api-demo .widget-container  {
+    margin-bottom: 180px;
+}
+
+.dx-theme-android5 #list-api-demo .widget-container {
+    margin-bottom: 205px;
+}
+
+.dx-theme-ios7 #list-demo .widget-container {
+    margin-bottom: 200px;
+}
+
+.dx-theme-win10 #list-demo .widget-container {
+    margin-bottom: 210px;
+}
+
+.dx-theme-android5 #list-demo .widget-container {
+    margin-bottom: 250px;
+}
+
+.dx-theme-ios7 #form-demo .widget-container,
+.dx-theme-win10 #form-demo .widget-container {
+    margin-bottom: 400px;
+}
+
+.dx-theme-android5 #form-demo .widget-container {
+    margin-bottom: 470px;
+}

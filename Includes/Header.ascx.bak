@@ -1,0 +1,92 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Header.ascx.cs" Inherits="InfoGesRegional.Includes.Header" %>
+
+
+<%@ Register src="MenuTree.ascx" tagname="MenuTree" tagprefix="uc4" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxMenu" tagprefix="dxm" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPanel" tagprefix="dxp" %>
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dxe" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxRoundPanel" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPanel" tagprefix="dx" %>
+        <style type="text/css">
+            .style1
+            {
+                width: 316px;
+            }
+            .style3
+            {
+                width: 29px;
+            }
+            .style4
+            {
+                width: 56px;
+            }
+        </style>
+        <table style="width: 91%">
+            <tr>
+                <td class="style4">
+                    <asp:Image ID="IdLogo"  runat="server" Height="99px"  
+                        Width="105px" /></td>
+                <td align="center" valign="top">
+                <table>
+                <tr>
+                <td align="center"><asp:Label CssClass="labelHeader" ID="lblOperador" runat="server" Text="Pliego : [MUN. DIST. NUEVO CHIMBOTE]"></asp:Label>
+                </td>
+                </tr>
+                <tr>
+                <td valign="bottom">   
+                
+                
+                
+                
+<dx:ASPxRoundPanel ShowHeader="False" Width="100%" ID="ASPxRoundPanel1" 
+    runat="server" EnableTheming="False" BackColor="White" Height="62px">
+    <bottomrightcorner height="5px" url="../Images/TabbedMenu/rpBottomRight.png" width="5px"></bottomrightcorner>
+    <noheadertoprightcorner height="5px" url="../Images/TabbedMenu/rpTopRight.png" width="5px"></noheadertoprightcorner>
+    <noheadertopleftcorner height="5px" url="../Images/TabbedMenu/rpTopLeft.png" width="5px"></noheadertopleftcorner>
+    <bottomleftcorner height="5px" url="~/Images/TabbedMenu/rpBottomLeft.png" width="5px"></bottomleftcorner>
+    <PanelCollection>
+        <dx:PanelContent ID="PanelContent2" runat="server">
+        
+<%-- EndRegion --%>
+<%-- BeginRegion Static Html --%>
+        <div style="height: 30px;">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+
+                        <td valign="top">
+<%-- EndRegion --%>
+
+            <dxm:ASPxMenu ID="ASPxMenu2" SkinID="None" runat="server" AutoSeparators="RootOnly"
+                EnableDefaultAppearance="False" ItemLinkMode="TextOnly" Font-Names="Tahoma" Font-Size="10px"
+                Font-Underline="False" ForeColor="#162436" SeparatorColor="#5386CB" SeparatorHeight="12px"
+                SeparatorWidth="1px">
+                <Paddings Padding="0px" />
+                <SeparatorPaddings PaddingLeft="14px" PaddingRight="14px" PaddingTop="1px" />
+                <LinkStyle>
+                    <HoverFont Underline="True" />
+                </LinkStyle>
+            </dxm:ASPxMenu>
+<%-- BeginRegion Static Html --%>
+                        </td>
+                        <td valign="top" class="TabbedMenuSideBorders">
+                        </td>
+                    </tr>
+                </table>
+        </div>
+<%-- EndRegion --%>
+<%-- BeginRegion ASPxRoundPanel --%>
+        </dx:PanelContent>
+
+</PanelCollection>
+</dx:ASPxRoundPanel>                
+                           
+                </td>
+                </tr>
+                </table>
+                </td>
+                <td align="right" valign="top">
+                <asp:Label CssClass="labelHeader" ID="lblUser" runat="server" Text="Usuario : Amerika" Font-Size="X-Small" Visible="false"></asp:Label>
+                <asp:LinkButton Font-Size="X-Small" ID="LinkButton1" runat="server" CssClass="lnkText" onclick="LinkButton1_Click">Cerrar Sessión</asp:LinkButton>
+                </td>
+            </tr>
+        </table>

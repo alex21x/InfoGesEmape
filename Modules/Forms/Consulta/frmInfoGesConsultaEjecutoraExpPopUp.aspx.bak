@@ -1,0 +1,47 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmInfoGesConsultaEjecutoraExpPopUp.aspx.cs" Inherits="InfoGesRegional.Modules.Forms.Consulta.frmInfoGesConsultaEjecutoraExpPopUp" %>
+
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dxwgv" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dxe" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dxcp" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dxe" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView.Export" TagPrefix="dxwgv" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Consulta Expediente Administrativo SIAF</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+<dxe:ASPxButton ID="btnXlsExport" runat="server" Text="Export to XLS" UseSubmitBehavior="False"
+                    OnClick="btnXlsExport_Click" />    
+        <dxwgv:ASPxGridView ID="ASPxGridview1"  runat="server" Width="90%" 
+            ClientInstanceName="ASPxGridview1"
+            OnLoad="LoadASPxGridview" 
+            AutoGenerateColumns="false"  Font-Size="X-Small">
+        <Columns>
+            <dxwgv:GridViewDataTextColumn FieldName="EXPEDIENTE" Caption="Exp." VisibleIndex="2" />                            
+            <dxwgv:GridViewDataTextColumn FieldName="ANO_EJE" Caption="Periodo" VisibleIndex="2" />                            
+            <dxwgv:GridViewDataTextColumn FieldName="MES_EJE" Caption="Mes" VisibleIndex="2" />                            
+            <dxwgv:GridViewDataDateColumn FieldName="COD_DOC" Caption="Cod. Doc." VisibleIndex="3"  />
+            <dxwgv:GridViewDataTextColumn FieldName="NUM_DOC" Caption="Num. Doc." VisibleIndex="4" width="200px"/>
+            <dxwgv:GridViewDataDateColumn FieldName="FECHA_DOC" Caption="Fecha Doc" VisibleIndex="5"/>
+            <dxwgv:GridViewDataTextColumn FieldName="EJECUCION" Caption="Ejecución" VisibleIndex="6" width="120px">
+                <PropertiesTextEdit DisplayFormatString="c">
+                 </PropertiesTextEdit>            
+            </dxwgv:GridViewDataTextColumn>
+            <dxwgv:GridViewDataTextColumn FieldName="RUC" Caption="Ruc" VisibleIndex="7" Width="100px" />
+            <dxwgv:GridViewDataTextColumn FieldName="NOMBRE_RUC" Caption="Nombre Ruc" VisibleIndex="7" Width="200px" />
+            <dxwgv:GridViewDataTextColumn FieldName="NOTAS" Caption="Notas" VisibleIndex="7" Width="900px" />
+        </Columns> 
+            <Styles CssFilePath="~/App_Themes/Glass/GridView/styles.css" CssPostfix="Glass">
+            </Styles>
+     </dxwgv:ASPxGridView>
+      <dxwgv:ASPxGridViewExporter ID="gridExport" runat="server" GridViewID="ASPxGridview1"></dxwgv:ASPxGridViewExporter>                  
+    </div>
+    </form>
+</body>
+</html>

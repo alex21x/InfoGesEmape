@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-PE">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_siaf_301262_Connection" ProviderKey="MySql">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="siaf_301262" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="Port" Value="3306" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="infoges_dashboard_acumulado">
+        <Tables>
+          <Table Name="infoges_dashboard_acumulado" X="30" Y="30" Width="125" Height="704" />
+        </Tables>
+        <Columns>
+          <Column Table="infoges_dashboard_acumulado" Name="ANO_EJE" />
+          <Column Table="infoges_dashboard_acumulado" Name="SEC_EJEC" />
+          <Column Table="infoges_dashboard_acumulado" Name="SEC_FUNC" />
+          <Column Table="infoges_dashboard_acumulado" Name="ID_CLASIFICADOR" />
+          <Column Table="infoges_dashboard_acumulado" Name="FUNCION" />
+          <Column Table="infoges_dashboard_acumulado" Name="PROGRAMA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUB_PROGRAMA" />
+          <Column Table="infoges_dashboard_acumulado" Name="ACT_PROY" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPONENTE" />
+          <Column Table="infoges_dashboard_acumulado" Name="PROGRAMA_PPTO" />
+          <Column Table="infoges_dashboard_acumulado" Name="FINALIDAD" />
+          <Column Table="infoges_dashboard_acumulado" Name="UNIDAD_MEDIDA" />
+          <Column Table="infoges_dashboard_acumulado" Name="GENERICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUBGENERICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="SUBGENERICA_DET" />
+          <Column Table="infoges_dashboard_acumulado" Name="ESPECIFICA" />
+          <Column Table="infoges_dashboard_acumulado" Name="ESPECIFICA_DET" />
+          <Column Table="infoges_dashboard_acumulado" Name="FUENTE_FINANC" />
+          <Column Table="infoges_dashboard_acumulado" Name="TIPO_TRANSACCION" />
+          <Column Table="infoges_dashboard_acumulado" Name="CICLO" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIA_G" />
+          <Column Table="infoges_dashboard_acumulado" Name="MODIFICACION_G" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIM" />
+          <Column Table="infoges_dashboard_acumulado" Name="CERTIFICADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPROMISO_ANUAL" />
+          <Column Table="infoges_dashboard_acumulado" Name="COMPROMISO" />
+          <Column Table="infoges_dashboard_acumulado" Name="DEVENGADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="GIRADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIA_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="MODIFICACION_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="PIM_I" />
+          <Column Table="infoges_dashboard_acumulado" Name="DETERMINADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="RECAUDADO" />
+          <Column Table="infoges_dashboard_acumulado" Name="MES_EJE" />
+        </Columns>
+        <Filter>[infoges_dashboard_acumulado.CICLO] = 'G'</Filter>
+        <GroupFilter></GroupFilter>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="infoges_dashboard_acumulado">
+            <Field Name="ANO_EJE" Type="String" />
+            <Field Name="SEC_EJEC" Type="String" />
+            <Field Name="SEC_FUNC" Type="String" />
+            <Field Name="ID_CLASIFICADOR" Type="String" />
+            <Field Name="FUNCION" Type="String" />
+            <Field Name="PROGRAMA" Type="String" />
+            <Field Name="SUB_PROGRAMA" Type="String" />
+            <Field Name="ACT_PROY" Type="String" />
+            <Field Name="COMPONENTE" Type="String" />
+            <Field Name="PROGRAMA_PPTO" Type="String" />
+            <Field Name="FINALIDAD" Type="String" />
+            <Field Name="UNIDAD_MEDIDA" Type="String" />
+            <Field Name="GENERICA" Type="String" />
+            <Field Name="SUBGENERICA" Type="String" />
+            <Field Name="SUBGENERICA_DET" Type="String" />
+            <Field Name="ESPECIFICA" Type="String" />
+            <Field Name="ESPECIFICA_DET" Type="String" />
+            <Field Name="FUENTE_FINANC" Type="String" />
+            <Field Name="TIPO_TRANSACCION" Type="String" />
+            <Field Name="CICLO" Type="String" />
+            <Field Name="PIA_G" Type="Decimal" />
+            <Field Name="MODIFICACION_G" Type="Decimal" />
+            <Field Name="PIM" Type="Decimal" />
+            <Field Name="CERTIFICADO" Type="Decimal" />
+            <Field Name="COMPROMISO_ANUAL" Type="Decimal" />
+            <Field Name="COMPROMISO" Type="Decimal" />
+            <Field Name="DEVENGADO" Type="Decimal" />
+            <Field Name="GIRADO" Type="Decimal" />
+            <Field Name="PIA_I" Type="Decimal" />
+            <Field Name="MODIFICACION_I" Type="Decimal" />
+            <Field Name="PIM_I" Type="Decimal" />
+            <Field Name="DETERMINADO" Type="Decimal" />
+            <Field Name="RECAUDADO" Type="Decimal" />
+            <Field Name="MES_EJE" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="SALDO_PIM_DEVENGADO" Expression="[PIM] - [DEVENGADO]" DataType="Auto" DataMember="infoges_dashboard_acumulado" />
+        <CalculatedField Name="SALDO_CA_DEVENGADOS" Expression="[COMPROMISO_ANUAL] - [DEVENGADO]" DataType="Auto" DataMember="infoges_dashboard_acumulado" />
+        <CalculatedField Name="SALDO_2CERTIFICADO_CA" Expression="[CERTIFICADO] - [COMPROMISO_ANUAL]" DataType="Auto" DataMember="infoges_dashboard_acumulado" />
+        <CalculatedField Name="SALDO_1PIM_CERTIFICADO" Expression="[PIM] - [CERTIFICADO]" DataType="Auto" DataMember="infoges_dashboard_acumulado" />
+        <CalculatedField Name="SALDO_3_CA_COMPROMISO" Expression="[COMPROMISO_ANUAL] - [COMPROMISO]" DataType="Auto" DataMember="infoges_dashboard_acumulado" />
+        <CalculatedField Name="SALDO_4COMPROMISO_DEVENGADO" Expression="[COMPROMISO] - [DEVENGADO]" DataType="Auto" DataMember="infoges_dashboard_acumulado" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="SELECCION" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado">
+      <DataItems>
+        <Dimension DataMember="GENERICA" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Chart ComponentName="chartDashboardItem1" Name="SALDO DE DEVENGADOS" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado">
+      <DataItems>
+        <Dimension DataMember="FUENTE_FINANC" SortOrder="Descending" DefaultId="DataItem0" />
+        <Measure DataMember="PIM" DefaultId="DataItem3" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+        <Measure DataMember="SALDO_PIM_DEVENGADO" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple Name="PIM">
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" ShowForZeroValues="true" />
+            </Simple>
+            <Simple Name="DEVENGADO">
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" ShowForZeroValues="true" />
+            </Simple>
+            <Simple Name="SALDO">
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" ShowForZeroValues="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <AxisX Reverse="true" />
+    </Chart>
+    <Chart ComponentName="chartDashboardItem2" Name="SALDO DE COMPROMISO ANUAL" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado">
+      <DataItems>
+        <Dimension DataMember="FUENTE_FINANC" DefaultId="DataItem1" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem0" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+        <Measure DataMember="SALDO_CA_DEVENGADOS" DefaultId="DataItem3" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple Name="CA">
+              <Value DefaultId="DataItem0" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" />
+            </Simple>
+            <Simple Name="DEVENGADO">
+              <Value DefaultId="DataItem2" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" />
+            </Simple>
+            <Simple Name="SALDO">
+              <Value DefaultId="DataItem3" />
+              <PointLabelOptions Visible="true" Orientation="RotateLeft" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Card ComponentName="cardDashboardItem1" Name="OBJETIVO" DataSource="dashboardSqlDataSource1" DataMember="infoges_dashboard_acumulado">
+      <DataItems>
+        <Measure DataMember="PIM" DefaultId="DataItem1" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem0" />
+        <Measure DataMember="COMPROMISO_ANUAL" DefaultId="DataItem3" />
+        <Measure DataMember="DEVENGADO" DefaultId="DataItem2" />
+      </DataItems>
+      <Card Name="DEV. vs PIM">
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem1" />
+        <CardDeltaOptions ResultIndicationThresholdType="Absolute" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+        <SparklineOptions ViewType="WinLoss" />
+        <LayoutTemplate MinWidth="125" MaxWidth="125" Type="Compact">
+          <MainValue ValueType="Title" DimensionIndex="0" />
+          <SubValue ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue ValueType="ActualValue" DimensionIndex="0" />
+          <BottomSubValue1 ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <BottomSubValue2 ValueType="PercentVariation" DimensionIndex="0" />
+        </LayoutTemplate>
+      </Card>
+      <Card Name="DEV vs CA.">
+        <ActualValue DefaultId="DataItem2" />
+        <TargetValue DefaultId="DataItem3" />
+        <CardDeltaOptions ResultIndicationThresholdType="Absolute" />
+        <AbsoluteVariationNumericFormat FormatType="Number" Precision="0" />
+        <PercentVariationNumericFormat FormatType="Percent" />
+        <PercentOfTargetNumericFormat FormatType="Percent" />
+        <SparklineOptions ViewType="WinLoss" />
+        <LayoutTemplate MinWidth="125" MaxWidth="150" Type="Compact">
+          <MainValue ValueType="Title" DimensionIndex="0" />
+          <SubValue ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue ValueType="ActualValue" DimensionIndex="0" />
+          <BottomSubValue1 ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <BottomSubValue2 ValueType="PercentVariation" DimensionIndex="0" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical" Weight="25.85">
+        <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="32.5" />
+        <LayoutItem DashboardItem="cardDashboardItem1" Weight="67.5" />
+      </LayoutGroup>
+      <LayoutGroup Orientation="Vertical" Weight="74.15">
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="46.9" />
+        <LayoutItem DashboardItem="chartDashboardItem2" Weight="53.1" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
