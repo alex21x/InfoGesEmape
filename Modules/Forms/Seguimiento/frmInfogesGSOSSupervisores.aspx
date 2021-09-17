@@ -211,7 +211,7 @@
 		<SettingsDetail ShowDetailRow="True" AllowOnlyOneMasterRowExpanded="True" ExportIndex="1" ExportMode="All" />
 		<Templates>
 			<DetailRow>
-				<dx:ASPxGridView ID="GridContratoValorizacionDet" runat="server" AutoGenerateColumns="False" OnLoad="GridContratoValorizacionDetSup_Load" OnCustomUnboundColumnData="detailGrid_CustomUnboundColumnData" EnableRowsCache="False" KeyFieldName="IDCONTRATOVALORIZACIONDET" OnRowUpdating="GridContratoSupValorizacionDet_RowUpdating" OnCustomSummaryCalculate="GridContratoValorizacionDet_CustomSummaryCalculate" OnRowValidating="GridContratoValorizacionDet_RowValidating" ClientInstanceName="GridContratoValorizacionDet" Theme="Office2010Blue" CssClass="ocultar" OnSummaryDisplayText="GridContratoValorizacionDet_SummaryDisplayText" OnHtmlRowPrepared="GridContratoValorizacionDet_HtmlRowPrepared">
+				<dx:ASPxGridView ID="GridContratoValorizacionDet" runat="server" AutoGenerateColumns="False" OnLoad="GridContratoValorizacionDetSup_Load" OnCustomUnboundColumnData="detailGrid_CustomUnboundColumnData" EnableRowsCache="False" KeyFieldName="IDCONTRATOVALORIZACIONDET" OnRowUpdating="GridContratoSupValorizacionDet_RowUpdating" OnCustomSummaryCalculate="GridContratoValorizacionDet_CustomSummaryCalculate" OnRowValidating="GridContratoValorizacionDet_RowValidating" ClientInstanceName="GridContratoValorizacionDet" Theme="Office2010Blue" CssClass="ocultar" OnSummaryDisplayText="GridContratoValorizacionDet_SummaryDisplayText" OnHtmlRowPrepared="GridContratoValorizacionDet_HtmlRowPrepared" OnHtmlDataCellPrepared="GridContratoValorizacionDet_HtmlDataCellPrepared">
 					<Columns>
 						<dx:GridViewDataTextColumn Caption="#" FieldName="IDCONTRATOVALORIZACIONDET" VisibleIndex="0">
 							<EditFormSettings Visible="False" />
