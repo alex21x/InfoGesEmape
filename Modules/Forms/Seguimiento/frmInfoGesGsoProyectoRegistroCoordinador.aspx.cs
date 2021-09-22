@@ -1008,9 +1008,9 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 				GridContratoValorizacionDet.DataColumns["APROBADO"].ReadOnly = true;
 			}
 
-			if (aprobado == 1 ) {              
-                GridContratoValorizacionDet.DataColumns["CANTIDAD"].EditFormSettings.Visible = DefaultBoolean.False;
-            }
+			//if (aprobado == 1 ) {              
+                //GridContratoValorizacionDet.DataColumns["CANTIDAD"].EditFormSettings.Visible = DefaultBoolean.False;
+            //}
 
             //ds5 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCon((string)(Session["pIdProyecto"]), IdContrato);
 
@@ -2035,21 +2035,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 
 		protected void GridContratoValorizacionDet_HtmlRowPrepared(object sender, ASPxGridViewTableRowEventArgs e)
 		{
-			if (!object.Equals(e.RowType, GridViewRowType.Data)) return;
-
-            //bool hasError = string.IsNullOrEmpty(e.GetValue("SEGUIMIENTO_FECHA").ToString());
-            //string cantidad = e.GetValue("CANTIDAD").ToString();
-            //string saldo_old = e.OldValues["SALDO_OLD_"].ToString();
-            //string cantidadSup = e.GetValue("CANTIDADSUP").ToString();
-            /*if (cantidad != cantidadSup)
-			{
-				//e.Row.ForeColor = System.Drawing.Color.Red;
-				//e.Row.BackColor = Color.FromArgb(255, 204, 229);
-				//e.Row.BackColor = System.Drawing.Color.Red;
-			}*/
-            
-
-            
+			if (!object.Equals(e.RowType, GridViewRowType.Data)) return;                     
             decimal precio = (decimal)e.GetValue("PRECIO");
 
             if (precio > 0) {
@@ -2102,17 +2088,15 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
         protected void GridContratoValorizacionDet_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
         {
             ASPxGridView GridContratoValorizacionDet = (ASPxGridView)sender;
-            int catID = Convert.ToInt32(GridContratoValorizacionDet.GetRowValues(e.VisibleIndex, "CANTIDAD"));
-            
-            if (catID == 0)
+            decimal precio = Convert.ToDecimal(GridContratoValorizacionDet.GetRowValues(e.VisibleIndex, "PRECIO"));            
+            if (precio == 0)
             {
                 foreach (var cell in e.Row.Cells)
                 {
                     if (cell.GetType() == typeof(DevExpress.Web.Rendering.GridViewTableDataCell))
                     {
                         DevExpress.Web.Rendering.GridViewTableDataCell cel = (DevExpress.Web.Rendering.GridViewTableDataCell)cell;
-                        cel.Attributes.Add("onclick", "event.cancelBubble = true");
-                        //cel.Attributes.Add("style", "color:red");
+                        cel.Attributes.Add("onclick", "event.cancelBubble = true");                        
                     }
                 }
             }

@@ -988,7 +988,7 @@ namespace InfogesEmape.Code.Data.Forms.Seguimiento
             StringSql += " A.IDPROYECTOCOMPONENTE, A.IDCONTRATO, A.IDCOMPONENTE, A.CONTRATO_NUMERO,A.RUC, A.EMPRESA, A.FECHA_CONTRATO,A.MONTO_OBRA, ";
             StringSql += " A.FECHA_ADELANTO_DIRECTO, A.FECHA_ADELANTO_DIRECTO_MAX, A.MONTO_ADELANTO_MATERIALES, A.FECHA_ADELANTO_MAXIMO_MATERIALES, ";
             StringSql += " A.FECHA_ADELANTO_INSTALACION, A.MONTO_ADELANTO_INSTALACION, A.FECHA_ADELANTO_MAXIMO_INSTALACION, A.FECHA_ENTREGA_TERRENO, ";
-            StringSql += " A.FECHA_ENTREGA_TERRENO_LIMITE, A.FECHA_INICIO_OBRA, A.FECHA_INICIO_OBRA_MAXIMO, A.PLAZO_EJECUCION_OBRA, A.IDESTADO_CONTRATO, A.IDESTADO_CONTRATO, D.DESCRIPCION DESCRIPCION_ESTADO_CONTRATO ";
+            StringSql += " A.FECHA_ENTREGA_TERRENO_LIMITE, A.FECHA_INICIO_OBRA, A.FECHA_INICIO_OBRA_MAXIMO, A.PLAZO_EJECUCION_OBRA, A.IDESTADO_CONTRATO, A.IDESTADO_CONTRATO, D.DESCRIPCION DESCRIPCION_ESTADO_CONTRATO,A.RUC_SUPERVISOR,A.RAZON_SOCIAL_SUPERVISOR";
             StringSql += " FROM OBRASEMP.CONTRATO A ";
             StringSql += " JOIN OBRASEMP.PROYECTO_COMPONENTE B ON A.idProyectoComponente=B.idProyectoComponente";
             StringSql += " JOIN OBRASEMP.PROYECTO C ON B.IDPROYECTO=C.IDPROYECTO ";
@@ -1037,7 +1037,7 @@ namespace InfogesEmape.Code.Data.Forms.Seguimiento
             sqlCommand += " INSERT INTO OBRASEMP.Contrato( ";
             sqlCommand += " IDPROYECTOCOMPONENTE, CONTRATO_NUMERO, RUC, EMPRESA, FECHA_CONTRATO, MONTO_OBRA, PLAZO_EJECUCION_OBRA, FECHA_INICIO_OBRA,FECHA_INICIO_OBRA_MAXIMO,FECHA_ADELANTO_DIRECTO,";	
             sqlCommand += " FECHA_ADELANTO_DIRECTO_MAX, MONTO_ADELANTO_MATERIALES,FECHA_ADELANTO_MAXIMO_MATERIALES,MONTO_ADELANTO_INSTALACION,";
-            sqlCommand += " FECHA_ADELANTO_MAXIMO_INSTALACION,	FECHA_ENTREGA_TERRENO,FECHA_ENTREGA_TERRENO_LIMITE,IDESTADO_CONTRATO,IDCOMPONENTE)";
+            sqlCommand += " FECHA_ADELANTO_MAXIMO_INSTALACION,	FECHA_ENTREGA_TERRENO,FECHA_ENTREGA_TERRENO_LIMITE,IDESTADO_CONTRATO,IDCOMPONENTE,RUC_SUPERVISOR,RAZON_SOCIAL_SUPERVISOR)";
             sqlCommand += " VALUES ( ";
             sqlCommand += (parameterValues[0].ToString().Length == 0 ? "null" : parameterValues[0].ToString()) + ",";
             sqlCommand += (parameterValues[1].ToString().Length == 0 ? "null" : "'" + parameterValues[1].ToString() + "'") + ",";
@@ -1057,7 +1057,11 @@ namespace InfogesEmape.Code.Data.Forms.Seguimiento
             sqlCommand += (parameterValues[15].ToString().Length == 0 ? "null" : "'" + parameterValues[15].ToString() + "'") + ",";
             sqlCommand += (parameterValues[16].ToString().Length == 0 ? "null" : "'" + parameterValues[16].ToString() + "'") + ",";
             sqlCommand += (parameterValues[18].ToString().Length == 0 ? "null" : "'" + parameterValues[18].ToString() + "'") + ",";
-            sqlCommand += (parameterValues[17].ToString().Length == 0 ? "null" : parameterValues[17].ToString()) + ");";
+            sqlCommand += (parameterValues[17].ToString().Length == 0 ? "null" : parameterValues[17].ToString()) + ",";
+            sqlCommand += (parameterValues[19].ToString().Length == 0 ? "null" : "'" + parameterValues[19].ToString() + "'") + ",";
+            sqlCommand += (parameterValues[20].ToString().Length == 0 ? "null" : "'" + parameterValues[20].ToString() + "'") + ");";
+
+
 
             sqlCommand += (" select LAST_INSERT_ID() as last_id_generate from dual; ");
 
@@ -1097,7 +1101,9 @@ namespace InfogesEmape.Code.Data.Forms.Seguimiento
                 sqlCommand += " IDESTADO_CONTRATO=" + parameterValues[17].ToString() + ",";
             }
 
-            sqlCommand += " FECHA_ENTREGA_TERRENO_LIMITE ="+(parameterValues[16].ToString().Length == 0 ? "null" : "'" + parameterValues[16].ToString() + "'") + " ";
+            sqlCommand += " FECHA_ENTREGA_TERRENO_LIMITE ="+(parameterValues[16].ToString().Length == 0 ? "null" : "'" + parameterValues[16].ToString() + "'") + ", ";
+            sqlCommand += " RUC_SUPERVISOR =" + (parameterValues[18].ToString().Length == 0 ? "null" : "'" + parameterValues[18].ToString() + "'") + ",";
+            sqlCommand += " RAZON_SOCIAL_SUPERVISOR =" + (parameterValues[19].ToString().Length == 0 ? "null" : "'" + parameterValues[19].ToString() + "'") + " ";
 
             sqlCommand += " WHERE IDCONTRATO="+ (parameterValues[0].ToString().Length == 0 ? "null" : parameterValues[0].ToString()) + "; ";
 
@@ -1197,7 +1203,7 @@ namespace InfogesEmape.Code.Data.Forms.Seguimiento
             DataSet ds2 = new DataSet();
 
             //string StringSql  = " SELECT A.CTP_ID IDCONTRATOPARTIDA,A.CTP_CODIGO,A.PAR_NOMBRE,A.PAR_PRECIO,A.PAR_CANTIDAD,A.PAR_MEDIDA,A.APROBADO,A.LEV1,A.LEV2";
-            string StringSql = " SELECT A.CTP_ID IDCONTRATOPARTIDA,A.CTP_CODIGO,A.PAR_NOMBRE,A.PAR_PRECIO,A.PAR_CANTIDAD,A.PAR_MEDIDA,A.APROBADO,NULL LEV1,NULL LEV2";
+            string StringSql = " SELECT A.CTP_ID IDCONTRATOPARTIDA,A.CTP_CODIGO,A.PAR_NOMBRE,A.PAR_PRECIO,A.PAR_CANTIDAD,A.PAR_MEDIDA,IF(A.PAR_CANTIDAD=0, 1, A.APROBADO) APROBADO";
             StringSql += " FROM OBRASEMP.VIEW_CONTRATO_PARTIDA02 A";
                     StringSql += " WHERE A.CTP_CONTRATO_ID ="+IdContrato + " AND A.CTP_ESTADO = 2 ORDER BY A.CTP_CODIGO";
             

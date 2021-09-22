@@ -194,7 +194,7 @@
 										<SettingsBehavior AllowFocusedRow="True" />
 										<Settings ShowFooter="True" ShowTitlePanel="true"  />
 										<Settings ShowFooter="True" />
-										<SettingsPager EnableAdaptivity="true" />										
+										<SettingsPager EnableAdaptivity="true" PageSize="40" />										
 										<GroupSummary>											
 											<dx:ASPxSummaryItem FieldName="TOTAL" SummaryType="SUM" ShowInGroupFooterColumn="TOTAL" DisplayFormat="Total Partida = {0:c}" />
 										</GroupSummary>

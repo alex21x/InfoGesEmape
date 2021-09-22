@@ -54,8 +54,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
                     pIdOPeracion = "New";
                 }               
             }
-            GridContratoPartida.SettingsBehavior.AutoExpandAllGroups = true;           
-            PopulateGridFormatConditions();
+            GridContratoPartida.SettingsBehavior.AutoExpandAllGroups = true;                       
         }
 
 
@@ -312,6 +311,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 					}
 					else
 					{
+                        //TXTDATO.Text("123123");
 						e.TotalValue = "VALIDAR TODOS LOS PRECIOS Y CANTIDADES";
 					}
 
@@ -450,79 +450,9 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
                 //GridContratoPartida.Columns["APROBADO"].Visible = false;
 
                 //DataColumn
+                //e.Cell.Enabled = false;
                 e.Cell.Text = String.Empty;                                
             }            
-        }
-
-
-
-        protected void PopulateGridFormatConditions()
-        {
-            //const string IconSetSpriteResourceName = "DevExpress.Web.Css.FCISprite.css";
-
-            //ASPxGridviewProyecto.FormatConditions.Clear();
-
-
-            //var condition1 = new GridViewFormatConditionHighlight
-            //{
-            //    Rule = GridConditionRule.GreaterOrEqual,
-            //    Value1 = 50,
-            //    FieldName = "AVANCE"
-            //};
-            //condition1.Format = GridConditionHighlightFormat.Custom;
-            //condition1.CellStyle.CssClass = "dxFCRule dxWeb_fcIcons_Arrows5_4";
-            //ASPxGridviewProyecto.FormatConditions.Add(condition1);
-
-
-
-            //var condition2 = new GridViewFormatConditionHighlight { Rule = GridConditionRule.Between, Value1 = 20, Value2 = 50, FieldName = "AVANCE" };
-            //condition2.Format = GridConditionHighlightFormat.Custom;
-            //condition2.CellStyle.CssClass = "dxFCRule dxWeb_fcIcons_Arrows5_3";
-            //ASPxGridviewProyecto.FormatConditions.Add(condition2);
-
-            //var condition3 = new GridViewFormatConditionHighlight { Rule = GridConditionRule.Less, Value1 = 20, FieldName = "AVANCE" };
-            //condition3.Format = GridConditionHighlightFormat.Custom;
-            //condition3.CellStyle.CssClass = "dxFCRule dxWeb_fcIcons_Arrows5_5";
-            //ASPxGridviewProyecto.FormatConditions.Add(condition3);
-
-            ////var condition3 = new GridViewFormatConditionHighlight { Rule = GridConditionRule.Less, Value1 = 20, FieldName = "UnitsInStock" };
-            ////condition3.Format = GridConditionHighlightFormat.Custom;
-            ////condition3.CellStyle.CssClass = "dxFCRule dxWeb_fcIcons_Arrows5_5";
-            ////ASPxGridviewProyecto.FormatConditions.Add(condition3);
-
-            ////ResourceManager.RegisterCssResource(Page, typeof(ASPxWebControl), IconSetSpriteResourceName);
-            ////ResourceManager.RegisterCssResource(Page, typeof(ASPxWebControl), IconSetSpriteResourceName);
-
-            /*GridViewFormatConditionIconSet Rule = new GridViewFormatConditionIconSet();
-            Rule.FieldName = "SALDO";
-            Rule.MinimumValue = 0;
-            Rule.MaximumValue = 20000000;
-            Rule.Format = GridConditionIconSetFormat.Ratings5;
-            GridContratoPartida.FormatConditions.Add(Rule);*/
-
-
-
-            /*var condition3 = new GridViewFormatConditionHighlight { Rule = GridConditionRule.Less, Value1 = 0, FieldName = "PAR_CANTIDAD" };
-            condition3.Format = GridConditionHighlightFormat.Custom;
-            condition3.CellStyle.CssClass = "dxFCRule dxWeb_fcIcons_Arrows5_5";
-            GridContratoPartida.FormatConditions.Add(condition3);*/
-
-            /*GridViewFormatConditionIconSet Rule1 = new GridViewFormatConditionIconSet();            
-            Rule1.FieldName = "PAR_CANTIDAD";
-
-                       
-            //Rule1.MinimumValue = 0;
-            Rule1.MaximumValue = 0;
-            Rule1.Format = GridConditionIconSetFormat.Arrows4Colored;
-            GridContratoPartida.FormatConditions.Add(Rule1);*/
-
-            //CardViewFormatConditionIconSet Format4 = new CardViewFormatConditionIconSet();
-            //Format4.FieldName = "SALDO";
-            //Format4.Format = GridConditionIconSetFormat.Arrows3Colored;
-            //Format4.MinimumValue = 0;
-            //Format4.MaximumValue = 2000000000;
-            //ASPxGridviewProyecto.FormatConditions.Add(Format4);
-
         }
 
         protected void GridContratoPartida_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
@@ -534,7 +464,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
                 e.Row.ForeColor = System.Drawing.Color.Red;
             }*/
             /*string Status = (e.GetValue("PAR_CANTIDAD")).ToString();*/
-            if (catID == 0)
+            if (catID <= 0)
             {
                 foreach (var cell in e.Row.Cells)
                 {

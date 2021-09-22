@@ -456,8 +456,8 @@
 					<Settings VerticalScrollableHeight="594" GroupFormat="{1} {2}" />
 					<SettingsEditing Mode="Batch" />
 					<Settings ShowFooter="True" />
-                    <SettingsDetail ExportMode="All" />
-                    <SettingsPager EnableAdaptivity="true" />                                        
+                    <SettingsDetail ExportMode="All" />                    
+                    <SettingsPager EnableAdaptivity="true" PageSize="40" />
                     <Styles Header-Wrap="True">
                     	<Header Wrap="True">
 						</Header>
