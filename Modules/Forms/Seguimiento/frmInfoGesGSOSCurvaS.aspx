@@ -60,7 +60,7 @@
 <HeaderStyle HorizontalAlign="Center" Font-Bold="True"></HeaderStyle>
     <Columns>
     <dx:GridViewDataDateColumn FieldName="FECHA_CONTRATO" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
-    Caption="FECHA CONTRATO" VisibleIndex="4" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+    Caption="FECHA CONTRATO" VisibleIndex="2" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
 <Settings AllowAutoFilter="False" AllowHeaderFilter="False"></Settings>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
@@ -68,7 +68,7 @@
 <CellStyle HorizontalAlign="Right"></CellStyle>
     </dx:GridViewDataDateColumn>
     <dx:GridViewDataTextColumn FieldName="MONTO_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
-    Caption="IMPORTE OBRA" VisibleIndex="6" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+    Caption="IMPORTE OBRA" VisibleIndex="4" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
 <Settings AllowAutoFilter="False" AllowHeaderFilter="False"></Settings>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
@@ -76,14 +76,14 @@
 <CellStyle HorizontalAlign="Right"></CellStyle>
     </dx:GridViewDataTextColumn>
     <dx:GridViewDataTextColumn FieldName="PLAZO_EJECUCION_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
-    Caption="PLAZO EJECUCIÓN" VisibleIndex="7" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+    Caption="PLAZO EJECUCIÓN" VisibleIndex="5" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
 <Settings AllowAutoFilter="False" AllowHeaderFilter="False"></Settings>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
 
 <CellStyle HorizontalAlign="Right"></CellStyle>
     </dx:GridViewDataTextColumn>
-    <dx:GridViewBandColumn Caption="INICIO DE OBRA"  VisibleIndex="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
+    <dx:GridViewBandColumn Caption="INICIO DE OBRA"  VisibleIndex="3" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
 <HeaderStyle HorizontalAlign="Center" Font-Bold="True"></HeaderStyle>
     <Columns>
     <dx:GridViewDataDateColumn FieldName="FECHA_INICIO_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
@@ -104,6 +104,12 @@
     </dx:GridViewDataDateColumn>
     </Columns>
     </dx:GridViewBandColumn>
+        <dx:GridViewDataTextColumn Caption="SUPERVISOR" FieldName="RAZON_SOCIAL_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="6">
+            <HeaderStyle Font-Bold="True" />
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn Caption="RUC SUPERVISOR" FieldName="RUC_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="7">
+            <HeaderStyle Font-Bold="True" />
+        </dx:GridViewDataTextColumn>
     </Columns>
     </dx:GridViewBandColumn>
     <dx:GridViewBandColumn   Caption="ENTREGA DE TERRENO"  VisibleIndex="3" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  HeaderStyle-Wrap="True">
@@ -156,6 +162,63 @@
                                         <dx:WebChartControl ID="WebChartControl2" runat="server" CrosshairEnabled="True" Height="500px" Width="700px" AppearanceNameSerializable="Gray">
 											<Legend Name="Default Legend"></Legend>
 										</dx:WebChartControl>                                                                              
+                                        <dx:ASPxGridView ID="GridProyectoContratoResumen" runat="server" CssClass="auto-style4" AutoGenerateColumns="False">
+                                            <Columns>
+                                                <dx:GridViewBandColumn Caption="     " ShowInCustomizationForm="True" VisibleIndex="0">
+                                                    <Columns>
+                                                        <dx:GridViewDataTextColumn Caption="FECHA " ShowInCustomizationForm="True" VisibleIndex="0">
+                                                            <HeaderStyle Font-Bold="True" />
+                                                            <CellStyle Font-Bold="True">
+                                                            </CellStyle>
+                                                        </dx:GridViewDataTextColumn>
+                                                    </Columns>
+                                                </dx:GridViewBandColumn>
+                                                <dx:GridViewBandColumn Caption="VALORIZACION PROGRAMA SIN IGV" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                    <HeaderStyle Border-BorderStyle="Solid" Font-Bold="True" />
+                                                    <Columns>
+                                                        <dx:GridViewDataTextColumn Caption="PARCIAL (S/.)" ShowInCustomizationForm="True" VisibleIndex="0">
+                                                            <HeaderStyle Font-Bold="True" />
+                                                            <CellStyle Font-Bold="True">
+                                                            </CellStyle>
+                                                            <ExportCellStyle Font-Bold="True">
+                                                            </ExportCellStyle>
+                                                        </dx:GridViewDataTextColumn>
+                                                        <dx:GridViewDataTextColumn Caption="MES PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                            <HeaderStyle Font-Bold="True" />
+                                                            <ExportCellStyle Font-Bold="True">
+                                                            </ExportCellStyle>
+                                                        </dx:GridViewDataTextColumn>
+                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="2">
+                                                            <HeaderStyle Font-Bold="True" />
+                                                            <ExportCellStyle Font-Bold="True">
+                                                            </ExportCellStyle>
+                                                        </dx:GridViewDataTextColumn>
+                                                    </Columns>
+                                                </dx:GridViewBandColumn>
+                                                <dx:GridViewBandColumn Caption="VALORIZACION REAL SIN IGV" ShowInCustomizationForm="True" VisibleIndex="2">
+                                                    <HeaderStyle Font-Bold="True" />
+                                                    <ExportCellStyle Font-Bold="True">
+                                                    </ExportCellStyle>
+                                                    <Columns>
+                                                        <dx:GridViewDataTextColumn Caption="PARCIAL (S/.)" ShowInCustomizationForm="True" VisibleIndex="0">
+                                                            <HeaderStyle Font-Bold="True" />
+                                                            <ExportCellStyle Font-Bold="True">
+                                                            </ExportCellStyle>
+                                                        </dx:GridViewDataTextColumn>
+                                                        <dx:GridViewDataTextColumn Caption="MES REAL %" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                            <HeaderStyle Font-Bold="True" />
+                                                            <ExportCellStyle Font-Bold="True">
+                                                            </ExportCellStyle>
+                                                        </dx:GridViewDataTextColumn>
+                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO REAL %" ShowInCustomizationForm="True" VisibleIndex="2">
+                                                            <HeaderStyle Font-Bold="True" />
+                                                            <ExportCellStyle Font-Bold="True">
+                                                            </ExportCellStyle>
+                                                        </dx:GridViewDataTextColumn>
+                                                    </Columns>
+                                                </dx:GridViewBandColumn>
+                                            </Columns>
+                                        </dx:ASPxGridView>
                                     </td>
                                 </tr>
                                 </table>
@@ -168,8 +231,8 @@
 </asp:Content>
 <asp:Content ID="Content3" runat="server" contentplaceholderid="head">
     <style type="text/css">
-        .auto-style3 {
-            margin-left: 0px;
+        .auto-style4 {
+            margin-top: 24px;
         }
     </style>
 </asp:Content>
