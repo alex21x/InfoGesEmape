@@ -32,6 +32,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             //ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma((string)(Session["pIdProyecto"]), IdContrato);
             ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma02((string)(Session["pIdProyecto"]), IdContrato, pIdValorizacion, pEjecucion);
 
+            //PARA PASAR DATOS AL GRID
             GridProyectoContratoResumen.DataSource = ds1.Tables[0];
             GridProyectoContratoResumen.DataBind();
                 
@@ -83,13 +84,13 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
         }
         private void SearchByProyectoContratoResumen()
         {
-            string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
+           /* string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
             DataSet ds4 = new DataSet();
             ds4 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoResumen(pIdProyecto, IdContrato);
             // ds4 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma02((string)(Session["pIdProyecto"]), IdContrato, pIdValorizacion, pEjecucion);
             GridProyectoContratoResumen.KeyFieldName = "IDCONTRATO";
             GridProyectoContratoResumen.DataSource = ds4.Tables[0];
-            GridProyectoContratoResumen.DataBind();
+            GridProyectoContratoResumen.DataBind();*/
         }
 
 

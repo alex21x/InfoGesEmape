@@ -1924,15 +1924,10 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             GridViewDataItemTemplateContainer templateContainer = (GridViewDataItemTemplateContainer)link.NamingContainer;
 
             int rowVisibleIndex = templateContainer.VisibleIndex;
-            string pIdValorizacion = templateContainer.Grid.GetRowValues(rowVisibleIndex, "IDCONTRATOSEGUIMIENTO").ToString();            
+            string pIdValorizacion = templateContainer.Grid.GetRowValues(rowVisibleIndex, "IDCONTRATOSEGUIMIENTO").ToString();
 
-            //string contentUrl = string.Format("{0}?EAN13={1}", Session["baseURL"], pIdValorizacion);
-            string contentUrl = "frmInfoGesGSOSCurvaS.aspx" + "?pIdValorizacion=" + pIdValorizacion;
-
-            link.NavigateUrl = "javascript:void(0);";
-            //link.Text = string.Format("More Info: EAN13 - {0}", ean13);
+            link.Attributes.Add("onClick", "window.open('frmInfoGesGSOSCurvaS.aspx?pIdValorizacion=" + pIdValorizacion + "','height=200,width=400,status=yes,toolbar=no,menubar=no,location=no');return false");
             link.Text = string.Format("Curva S", pIdValorizacion);
-            link.ClientSideEvents.Click = string.Format("function(s, e) {{ OnMoreInfoClick('{0}'); }}", contentUrl);
         }
 
 
