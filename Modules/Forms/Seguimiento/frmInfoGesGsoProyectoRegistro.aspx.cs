@@ -995,7 +995,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 		protected void OnRowInsertingProyectoContrato(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
             string pNumeroContrato, pRuc, pEmpresa, pFechaContrato, pMontoObra, pPlazoEjecucionObra, pFechaInicioObra, pFechaInicioObraMaximo, pFechaAdelantoDirecto,
-            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite, pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor;
+            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite, pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor,pPorcentajeGanador;
 
 
             if (e.NewValues["CONTRATO_NUMERO"] == null)
@@ -1015,6 +1015,10 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             else
                 pRazonSocialSupervisor = (e.NewValues["RAZON_SOCIAL_SUPERVISOR"].ToString().Length == 0 ? "null" : e.NewValues["RAZON_SOCIAL_SUPERVISOR"].ToString());
 
+            if (e.NewValues["PORCENTAJE_GANADOR"] == null)
+                pPorcentajeGanador = "";
+            else
+                pPorcentajeGanador = (e.NewValues["PORCENTAJE_GANADOR"].ToString().Length == 0 ? "null" : e.NewValues["PORCENTAJE_GANADOR"].ToString());
 
             if (e.NewValues["RUC"] == null)
                 pRuc = "";
@@ -1106,7 +1110,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             //string Id = e.Keys["IDPROYECTO_DETALLE"].ToString();
             string IdComponente = GridProyectoComponente.GetRowValues(GridProyectoComponente.FocusedRowIndex, "IDCOMPONENTE").ToString();
             string[] parameters = { IdProyectoComponente, pNumeroContrato, pRuc, pEmpresa, pFechaContrato, pMontoObra, pPlazoEjecucionObra, pFechaInicioObra, pFechaInicioObraMaximo, pFechaAdelantoDirecto,
-            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite,IdComponente,pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor};
+            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite,IdComponente,pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor,pPorcentajeGanador};
             String LvCadena = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.InsertProyectoContrato(parameters);
             GridProyectoContrato.CancelEdit();
             e.Cancel = true;
@@ -1118,7 +1122,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
         protected void OnRowUpdatingProyectoContrato(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
             string pNumeroContrato, pRuc, pEmpresa, pFechaContrato, pMontoObra, pPlazoEjecucionObra, pFechaInicioObra, pFechaInicioObraMaximo, pFechaAdelantoDirecto,
-            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite, pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor;
+            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite, pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor, pPorcentajeGanador;
 
 
             //INSERTANDO LOS DATOS DEL SUPERVISOR
@@ -1133,7 +1137,10 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             else
                 pRazonSocialSupervisor = (e.NewValues["RAZON_SOCIAL_SUPERVISOR"].ToString().Length == 0 ? "null" : e.NewValues["RAZON_SOCIAL_SUPERVISOR"].ToString());
 
-
+            if (e.NewValues["PORCENTAJE_GANADOR"] == null)
+                pPorcentajeGanador = "";
+            else
+                pPorcentajeGanador = (e.NewValues["PORCENTAJE_GANADOR"].ToString().Length == 0 ? "null" : e.NewValues["PORCENTAJE_GANADOR"].ToString());
 
             if (e.NewValues["CONTRATO_NUMERO"] == null)
                 pNumeroContrato = "";
@@ -1232,7 +1239,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             string IdComponente = GridProyectoComponente.GetRowValues(GridProyectoComponente.FocusedRowIndex, "IDCOMPONENTE").ToString();
             string Id = e.Keys["IDCONTRATO"].ToString();
             string[] parameters = { Id, pNumeroContrato, pRuc, pEmpresa, pFechaContrato, pMontoObra, pPlazoEjecucionObra, pFechaInicioObra, pFechaInicioObraMaximo, pFechaAdelantoDirecto,
-            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite,pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor};
+            pFechaAdelantoDirectoMax, pMontoAdelantoMateriales, pFechaAdelantoMaximoMateriales, pMontoAdelantoInstalacion, pFechaAdelantoMaximoInstalacion, pFechaEntregaTerreno, pFechaEntregaTerrenoLimite,pDescripionEstadoContrato,pRucSupervisor,pRazonSocialSupervisor,pPorcentajeGanador};
             String LvCadena = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.UpdatedProyectoContrato(parameters);
             GridProyectoContrato.CancelEdit();
             e.Cancel = true;

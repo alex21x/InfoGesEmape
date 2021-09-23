@@ -14,6 +14,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 	{
         private string pIdOPeracion;
         private string pIdProyecto;
+        private string pIdProyectoo;
         private Int32 pnContrato = 0;
 
 		protected void Page_Load(object sender, EventArgs e)
@@ -23,7 +24,8 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             InfogesEmape.Modules.MasterPage m = (InfogesEmape.Modules.MasterPage)Page.Master;
 			pIdOPeracion = "" + Request.Params["pOpera"];
 			pIdProyecto = "" + Request.Params["pId"];
-			Session["pIdProyecto"] = pIdProyecto;
+            pIdProyectoo = "" + Request.Params["pId"];
+            Session["pIdProyecto"] = pIdProyecto;
 
 			if (pIdProyecto != null)
             {
@@ -387,6 +389,36 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
+            DataSet ds1 = new DataSet();
+            string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
+            ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchContratoById(pIdProyectoo);
+
+
+            DataSet ds3 = new DataSet();
+            ds3 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContrato((string)(Session["pIdProyecto"]));
+
+            String DATOSCABECERA;
+
+            DATOSCABECERA = "CONTRATO " + ds1.Tables[0].Rows[0]["CUI"].ToString() + " - " + ds1.Tables[0].Rows[0]["DESCRIPCION"].ToString();
+
+            DATOSCABECERA += "\r\nDATOS DEL CONTRATISTA";
+            DATOSCABECERA += "\r\n---------------------------------------";
+            DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC"].ToString();
+            DATOSCABECERA += "\r\nRAZÓN SOCIAL: " + ds3.Tables[0].Rows[0]["EMPRESA"].ToString();
+
+            DATOSCABECERA += "\r\n";
+
+            DATOSCABECERA += "\r\nDATOS DEL SUPERVISOR";
+            DATOSCABECERA += "\r\n---------------------------------------";
+            DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC_SUPERVISOR"].ToString();
+            DATOSCABECERA += "\r\nRAZÓN SOCIAL: " + ds3.Tables[0].Rows[0]["RAZON_SOCIAL_SUPERVISOR"].ToString();
+
+            DATOSCABECERA += "\r\n% GANADOR";
+            DATOSCABECERA += "\r\n--------------------";
+            DATOSCABECERA += "\r\n%: " + ds3.Tables[0].Rows[0]["PORCENTAJE_GANADOR"].ToString();
+
+            gridExporter.PageHeader.Center = DATOSCABECERA;
             gridExporter.Landscape = true;
             gridExporter.RightMargin = 0;
             gridExporter.LeftMargin = 0;

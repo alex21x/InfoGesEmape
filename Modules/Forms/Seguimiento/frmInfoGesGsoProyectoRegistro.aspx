@@ -471,27 +471,27 @@ CodeBehind="frmInfoGesGsoProyectoRegistro.aspx.cs" Inherits="InfogesEmape.Module
                                     <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
                                 <Columns>
                                 <dx:GridViewDataDateColumn FieldName="FECHA_CONTRATO" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="60px"
-                                Caption="FECHA CONTRATO" VisibleIndex="2" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+                                Caption="FECHA CONTRATO" VisibleIndex="1" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
                                     <Settings AllowAutoFilter="False" AllowHeaderFilter="False" />
                                     <HeaderStyle Font-Bold="True" HorizontalAlign="Center" Wrap="True" />
                                     <CellStyle HorizontalAlign="Right">
                                     </CellStyle>
                                 </dx:GridViewDataDateColumn>
                                 <dx:GridViewDataTextColumn FieldName="MONTO_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="80px"
-                                Caption="IMPORTE OBRA" VisibleIndex="4" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+                                Caption="IMPORTE OBRA" VisibleIndex="3" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
                                     <Settings AllowAutoFilter="False" AllowHeaderFilter="False" />
                                     <HeaderStyle Font-Bold="True" HorizontalAlign="Center" Wrap="True" />
                                     <CellStyle HorizontalAlign="Right">
                                     </CellStyle>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="PLAZO_EJECUCION_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="60px"
-                                Caption="PLAZO EJECUCIÓN" VisibleIndex="5" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+                                Caption="PLAZO EJECUCIÓN" VisibleIndex="4" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
                                     <Settings AllowAutoFilter="False" AllowHeaderFilter="False" />
                                     <HeaderStyle Font-Bold="True" HorizontalAlign="Center" Wrap="True" />
                                     <CellStyle HorizontalAlign="Right">
                                     </CellStyle>
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewBandColumn Caption="INICIO DE OBRA"  VisibleIndex="3" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
+                                <dx:GridViewBandColumn Caption="INICIO DE OBRA"  VisibleIndex="2" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
                                     <HeaderStyle Font-Bold="True" HorizontalAlign="Center" />
                                 <Columns>
                                 <dx:GridViewDataDateColumn FieldName="FECHA_INICIO_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="60px"
@@ -510,9 +510,11 @@ CodeBehind="frmInfoGesGsoProyectoRegistro.aspx.cs" Inherits="InfogesEmape.Module
                                 </dx:GridViewDataDateColumn>
                                 </Columns>
                                 </dx:GridViewBandColumn>
-                                    <dx:GridViewDataTextColumn Caption="SUPERVISOR" FieldName="RAZON_SOCIAL_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="6">
+                                    <dx:GridViewDataTextColumn Caption="SUPERVISOR" FieldName="RAZON_SOCIAL_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="5">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn Caption="RUC SUPERVISOR" FieldName="RUC_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="7">
+                                    <dx:GridViewDataTextColumn Caption="RUC SUPERVISOR" FieldName="RUC_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="6">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="% GANADOR" FieldName="PORCENTAJE_GANADOR" ShowInCustomizationForm="True" VisibleIndex="7">
                                     </dx:GridViewDataTextColumn>
                                 </Columns>
                                 </dx:GridViewBandColumn>
@@ -939,9 +941,9 @@ CodeBehind="frmInfoGesGsoProyectoRegistro.aspx.cs" Inherits="InfogesEmape.Module
                                 OnRowDeleting="OnRowDeletingContratoProgramacion"  Width="95%">
 <%--                                <SettingsSearchPanel CustomEditorID="tbToolbarSearch" />--%>
 <%--                                <ClientSideEvents ToolbarItemClick="OnToolbarItemClick" />  --%>                               
-                                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True"/>
-                                <Settings ShowTitlePanel="true" />
                                 <SettingsBehavior AllowFocusedRow="true" />
+                                <Settings ShowTitlePanel="true" />
+                                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True"/>
                                 <SettingsText Title="PROGRAMACION" />    
                                 <Columns>
                                 <dx:GridViewDataTextColumn FieldName="CRONOGRAMA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="30px"
