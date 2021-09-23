@@ -76,6 +76,15 @@ namespace InfogesEmape.Modules.Forms.Seguimiento {
         protected global::DevExpress.Web.ASPxGridViewExporter gridExporter;
         
         /// <summary>
+        /// Control gridExporter01.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridViewExporter gridExporter01;
+        
+        /// <summary>
         /// Control LBLSUBTOTAL.
         /// </summary>
         /// <remarks>

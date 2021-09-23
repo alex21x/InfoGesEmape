@@ -1,12 +1,16 @@
 ﻿using DevExpress.Web;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraPrintingLinks;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 namespace InfogesEmape.Modules.Forms.Seguimiento
 {
@@ -390,7 +394,37 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            DataSet ds1 = new DataSet();
+            PrintingSystemBase ps = new PrintingSystemBase();
+            ps.PageSettings.Landscape = false;
+            //GridContratoPartida.ShowPrintPreview();
+
+            //XtraPageSettings pageSettings = gridExporter01.PageSettings;
+
+            PrintableComponentLinkBase link1 = new PrintableComponentLinkBase(ps);
+            link1.Component = gridExporter01;
+
+            
+
+            PrintableComponentLinkBase link2 = new PrintableComponentLinkBase(ps);
+            link2.Component = gridExporter;
+
+            CompositeLinkBase compositeLink = new CompositeLinkBase(ps);
+            compositeLink.Links.AddRange(new object[] { link1, link2 });
+
+            
+            compositeLink.CreateDocument();
+            //compositeLink.Landscape = true;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                compositeLink.ExportToPdf(stream);                
+                //gridExporter.WritePdfToResponse("filename", true);
+                //WritePdfToResponse("filename", true);
+                WriteToResponse("filename", true, "pdf", stream);
+            }            
+            ps.Dispose();
+
+
+            /*DataSet ds1 = new DataSet();
             string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
             ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchContratoById(pIdProyectoo);
 
@@ -422,8 +456,25 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             gridExporter.Landscape = true;
             gridExporter.RightMargin = 0;
             gridExporter.LeftMargin = 0;
-            gridExporter.WritePdfToResponse();
+            gridExporter.WritePdfToResponse();*/
         }
+
+
+        void WriteToResponse(string fileName, bool saveAsFile, string fileFormat, MemoryStream stream)
+        {
+            if (Page == null || Page.Response == null)
+                return;
+            string disposition = saveAsFile ? "attachment" : "inline";
+            Page.Response.Clear();
+            Page.Response.Buffer = false;            
+            Page.Response.AppendHeader("Content-Type", string.Format("application/{0}", fileFormat));
+            Page.Response.AppendHeader("Content-Transfer-Encoding", "binary");
+            Page.Response.AppendHeader("Content-Disposition",
+                string.Format("{0}; filename={1}.{2}", disposition, fileName, fileFormat));
+            Page.Response.BinaryWrite(stream.GetBuffer());
+            Page.Response.End();
+        }
+
         protected void Button2_Click(object sender, EventArgs e)
         {
             gridExporter.WriteXlsxToResponse();
