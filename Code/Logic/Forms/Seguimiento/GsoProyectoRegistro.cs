@@ -238,10 +238,15 @@ namespace InfogesEmape.Code.Logic.Forms.Seguimiento
 		{
 			return Code.Data.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContrato(pIdProyecto, pIdPersona);
 		}
-		#endregion
 
-		#region InsertProyectoContrato
-		public static string InsertProyectoContrato(string[] parameterValues)
+        public static DataSet SearchByProyectoContratoResumen(string pIdProyecto, string pIdPersona)
+        {
+            return Code.Data.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContrato(pIdProyecto, pIdPersona);
+        }
+        #endregion
+
+        #region InsertProyectoContrato
+        public static string InsertProyectoContrato(string[] parameterValues)
 		{
 			string s1 = "", s2 = "", s3 = "";
 

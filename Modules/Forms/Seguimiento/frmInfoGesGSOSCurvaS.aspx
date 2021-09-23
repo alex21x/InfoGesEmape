@@ -9,8 +9,9 @@
 <%@ Register assembly="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts" tagprefix="dx" %>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>    
 
-    
+    <asp:Panel runat="server" ID="panelPDF">
      <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" AutoPostBack="true"
             ActiveTabIndex="0" Height="300%" TabSpacing="3px"  Font-Size="X-Small" 
             Width="100%">
@@ -156,7 +157,7 @@
     
 
  </td>
-             </tr>
+             </tr>                                
                                 <tr>
                                     <td><br /><br />
                                         <dx:WebChartControl ID="WebChartControl2" runat="server" CrosshairEnabled="True" Height="500px" Width="700px" AppearanceNameSerializable="Gray">
@@ -183,12 +184,12 @@
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="MES PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                        <dx:GridViewDataTextColumn Caption="MES PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="1" FieldName="CRONOGRAMA_FECHA">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="2">
+                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="2" FieldName="AVANCE_CRONOGRAMA">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
@@ -205,12 +206,12 @@
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="MES REAL %" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                        <dx:GridViewDataTextColumn Caption="MES REAL %" ShowInCustomizationForm="True" VisibleIndex="1" FieldName="SEGUIMIENTO_FECHA">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO REAL %" ShowInCustomizationForm="True" VisibleIndex="2">
+                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO REAL %" ShowInCustomizationForm="True" VisibleIndex="2" FieldName="AVANCE_VALORIZACION">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
@@ -227,13 +228,17 @@
 		        </dx:TabPage>                                             
             </TabPages>
         </dx:ASPxPageControl>     
+        </asp:Panel>
 
 </asp:Content>
+
+                                        
+                                
 <asp:Content ID="Content3" runat="server" contentplaceholderid="head">
     <style type="text/css">
         .auto-style4 {
             margin-top: 24px;
         }
     </style>
+    
 </asp:Content>
-

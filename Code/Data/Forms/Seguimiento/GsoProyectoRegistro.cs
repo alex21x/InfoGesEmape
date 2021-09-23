@@ -1024,6 +1024,30 @@ namespace InfogesEmape.Code.Data.Forms.Seguimiento
             return InfogesEmape.Code.Data.Forms.Consulta.DinamicaSiaf.Mysqlquery(StringSql);
         }
         #endregion
+        public static DataSet SearchByProyectoContratoResumen(string IdProyecto, string IdPersona)
+        {
+            DataSet ds1 = new DataSet();
+           /*string StringSql = " SELECT ";
+            StringSql += " A.IDCONTRATOSEGUIMIENTO,A.SEGUIMIENTO_MES,A.SEGUIMIENTO_CRONOGRAMA,A.SEGUIMIENTO_FECHA,A.AVANCE AS AVANCE,A.APROBADO,FORMAT(A.MONTO,2) AS MONTO_OBRA, ";
+            StringSql += " A.ADELANTO_DIRECTO,A.ADELANTO_MATERIALES FROM OBRASEMP.CONTRATO_SEGUIMIENTO_CON A,OBRASEMP.CONTRATO B, OBRASEMP.PROYECTO_COMPONENTE C, ";
+            StringSql += " OBRASEMP.PROYECTO D WHERE A.IDCONTRATO = B.idcontrato AND B.idProyectoComponente = C.idProyectoComponente AND C.IDPROYECTO = D.IDPROYECTO ";
+            StringSql += "  AND D.CUI = '"+IdProyecto+"' AND A.IDCONTRATO ='"+ IdPersona +"' ";*/
+
+            /*  string StringSql = "SELECT";
+              StringSql += " * FROM CONTRATO_SEGUIMIENTO_CON CS INNER JOIN  CONTRATO C ON CS.IDCONTRATO = C.idcontrato INNER JOIN CONTRATO_CRONOGRAMA CC ON CC.IDCONTRATO = C.idcontrato ";
+              StringSql += "WHERE C.idcontrato = '"+ IdProyecto +"'";*/
+
+            string StringSql = " SELECT ";
+            StringSql += " A.IDCONTRATOSEGUIMIENTO,A.SEGUIMIENTO_MES,A.SEGUIMIENTO_CRONOGRAMA,A.SEGUIMIENTO_FECHA,A.AVANCE AS AVANCE,A.APROBADO,FORMAT(A.MONTO,2) AS MONTO_OBRA, ";
+            StringSql += " A.ADELANTO_DIRECTO,A.ADELANTO_MATERIALES FROM OBRASEMP.CONTRATO_SEGUIMIENTO_CON A INNER JOIN OBRASEMP.CONTRATO B ON A.`IDCONTRATO`= B.`idcontrato` ";
+            StringSql += " INNER JOIN OBRASEMP.PROYECTO_COMPONENTE C ON B.`idProyectoComponente` = C.`idProyectoComponente` ";
+            StringSql += " INNER JOIN OBRASEMP.PROYECTO D ON C.`idproyecto` = D.`idProyecto`";
+            StringSql += " CONTRATO_CRONOGRAMA E ON B.`idcontrato` = E.`IDCONTRATO`";
+            StringSql += "  WHERE D.CUI = '" + IdProyecto + "' AND A.IDCONTRATO ='" + IdPersona + "' ";
+
+
+            return InfogesEmape.Code.Data.Forms.Consulta.DinamicaSiaf.Mysqlquery(StringSql);
+        }
 
         #region InsertProyectoContrato
         public static string InsertProyectoContrato(string[] parameterValues)

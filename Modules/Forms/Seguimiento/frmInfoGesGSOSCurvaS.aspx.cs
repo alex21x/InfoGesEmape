@@ -17,7 +17,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
         private string pIdValorizacion;
         private string pEjecucion;
         protected void Page_Load(object sender, EventArgs e)
-		{
+        {
 
             pIdProyecto = (string)Session["pIdProyecto"];
             pIdContrato = "" + Request.Params["pIdContrato"];
@@ -25,16 +25,20 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             pEjecucion = "" + Request.Params["pEjecucion"];
 
             SearchByProyectoContrato();
-			DataSet ds1 = new DataSet();
-			string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
+            SearchByProyectoContratoResumen();
+            DataSet ds1 = new DataSet();
+            string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
 
-			//ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma((string)(Session["pIdProyecto"]), IdContrato);
-			ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma02((string)(Session["pIdProyecto"]), IdContrato, pIdValorizacion, pEjecucion);
-			
-			//int IdValorizacion = 1;
-			//DataSet ds2 = new DataSet();
-			//ds2= Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCon((string)(Session["pIdProyecto"]), IdContrato);
-			Series series1 = new Series("PROGRAMACIÓN", ViewType.Line);
+            //ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma((string)(Session["pIdProyecto"]), IdContrato);
+            ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma02((string)(Session["pIdProyecto"]), IdContrato, pIdValorizacion, pEjecucion);
+
+            GridProyectoContratoResumen.DataSource = ds1.Tables[0];
+            GridProyectoContratoResumen.DataBind();
+                
+            //int IdValorizacion = 1;
+            //DataSet ds2 = new DataSet();
+            //ds2= Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCon((string)(Session["pIdProyecto"]), IdContrato);
+            Series series1 = new Series("PROGRAMACIÓN", ViewType.Line);
 			Series series2 = new Series("AVANCE", ViewType.Line);
 			series1.ArgumentDataMember = "CRONOGRAMA_FECHA";
 			series1.ValueDataMembers[0] = "AVANCE_CRONOGRAMA";
@@ -77,5 +81,18 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 
 
         }
+        private void SearchByProyectoContratoResumen()
+        {
+            string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
+            DataSet ds4 = new DataSet();
+            ds4 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoResumen(pIdProyecto, IdContrato);
+            // ds4 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma02((string)(Session["pIdProyecto"]), IdContrato, pIdValorizacion, pEjecucion);
+            GridProyectoContratoResumen.KeyFieldName = "IDCONTRATO";
+            GridProyectoContratoResumen.DataSource = ds4.Tables[0];
+            GridProyectoContratoResumen.DataBind();
+        }
+
+
+
     }
 }
