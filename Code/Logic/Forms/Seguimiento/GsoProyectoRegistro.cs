@@ -1136,6 +1136,10 @@ namespace InfogesEmape.Code.Logic.Forms.Seguimiento
 		{
 			return Code.Data.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma02(pIdProyecto, pIdContrato, pIdValorizacion, pEjecucion);
 		}
-		#endregion
-	}
+        #endregion
+        public static DataSet SearchByProyectoContratoCronograma03(string pIdProyecto, string pIdContrato, string pIdValorizacion, string pEjecucion = "")
+        {
+            return Code.Data.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma03(pIdProyecto, pIdContrato, pIdValorizacion, pEjecucion);
+        }
+    }
 }

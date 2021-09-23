@@ -67,6 +67,15 @@ namespace InfogesEmape.Modules.Forms.Seguimiento {
         protected global::DevExpress.XtraCharts.Web.WebChartControl WebChartControl2;
         
         /// <summary>
+        /// Control WebChartControl3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.XtraCharts.Web.WebChartControl WebChartControl3;
+        
+        /// <summary>
         /// Control GridProyectoContratoResumen.
         /// </summary>
         /// <remarks>

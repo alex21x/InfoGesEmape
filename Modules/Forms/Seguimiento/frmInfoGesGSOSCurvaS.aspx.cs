@@ -27,13 +27,15 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             SearchByProyectoContrato();
             SearchByProyectoContratoResumen();
             DataSet ds1 = new DataSet();
+            DataSet ds2 = new DataSet();
             string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
 
             //ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma((string)(Session["pIdProyecto"]), IdContrato);
             ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma02((string)(Session["pIdProyecto"]), IdContrato, pIdValorizacion, pEjecucion);
-
+            //comparacin en soles
+            ds2 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContratoCronograma03((string)(Session["pIdProyecto"]), IdContrato, pIdValorizacion, pEjecucion);
             //PARA PASAR DATOS AL GRID
-            GridProyectoContratoResumen.DataSource = ds1.Tables[0];
+            GridProyectoContratoResumen.DataSource = ds2.Tables[0];
             GridProyectoContratoResumen.DataBind();
                 
             //int IdValorizacion = 1;
@@ -51,8 +53,23 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 			WebChartControl2.Series.Add(series2);
 			WebChartControl2.DataSource = ds1.Tables[0];
 			WebChartControl2.DataMember = "AVANCE";
-			WebChartControl2.DataBind();			
-		}
+			WebChartControl2.DataBind();
+
+            Series series3 = new Series("PROGRAMACIÓN S/.", ViewType.Line);
+            Series series4 = new Series("AVANCE S/.", ViewType.Line);
+            series3.ArgumentDataMember = "CRONOGRAMA_FECHA";
+            series3.ValueDataMembers[0] = "MONTO_OBRA";
+
+            series4.ArgumentDataMember = "SEGUIMIENTO_FECHA";
+            series4.ValueDataMembers[0] = "MONTOVALORIZACION";
+
+            WebChartControl3.Series.Add(series3);
+            WebChartControl3.Series.Add(series4);
+            WebChartControl3.DataSource = ds2.Tables[0];
+            WebChartControl3.DataMember = "AVANCE";
+            WebChartControl3.DataBind();
+
+        }
 
 
         #region OnLoadProyectoContrato

@@ -23,7 +23,7 @@
 				        <dx:ContentControl ID="ContentControl13" runat="server">	
                             <table>
                                 <tr>
-                                    <td >
+                                    <td colspan ="2" >
 
                         <dx:ASPxGridView ID="GridProyectoContrato" runat="server"  Width="100%"  Visible="true" KeyFieldName="IDCONTRATO"
     OnLoad="OnLoadProyectoContrato" >
@@ -160,9 +160,26 @@
              </tr>                                
                                 <tr>
                                     <td><br /><br />
-                                        <dx:WebChartControl ID="WebChartControl2" runat="server" CrosshairEnabled="True" Height="500px" Width="700px" AppearanceNameSerializable="Gray">
-											<Legend Name="Default Legend"></Legend>
-										</dx:WebChartControl>                                                                              
+                                        <dx:WebChartControl ID="WebChartControl2" runat="server" AppearanceNameSerializable="Gray" CrosshairEnabled="True" Height="350px" Width="700px">
+                                            <Legend Name="Default Legend"></Legend>
+                                        </dx:WebChartControl>
+
+                                        
+                                    </td>
+                                    <td><br /><br />
+                                       <dx:WebChartControl ID="WebChartControl3" runat="server" CrosshairEnabled="True" Height="350px" Width="699px">
+                                            <Legend Name="Default Legend"></Legend>
+                                        </dx:WebChartControl>
+                                    </td>
+
+                                    
+                                    
+                                </tr>
+                                <tr>
+
+                                    <td colspan="2"><br /><br />
+                                        
+                                       
                                         <dx:ASPxGridView ID="GridProyectoContratoResumen" runat="server" CssClass="auto-style4" AutoGenerateColumns="False">
                                             <Columns>
                                                 <dx:GridViewBandColumn Caption="     " ShowInCustomizationForm="True" VisibleIndex="0">
@@ -177,19 +194,19 @@
                                                 <dx:GridViewBandColumn Caption="VALORIZACION PROGRAMA SIN IGV" ShowInCustomizationForm="True" VisibleIndex="1">
                                                     <HeaderStyle Border-BorderStyle="Solid" Font-Bold="True" />
                                                     <Columns>
-                                                        <dx:GridViewDataTextColumn Caption="PARCIAL (S/.)" ShowInCustomizationForm="True" VisibleIndex="0">
+                                                        <dx:GridViewDataTextColumn Caption="PARCIAL (S/.)" ShowInCustomizationForm="True" VisibleIndex="2" FieldName="MONTO_OBRA">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <CellStyle Font-Bold="True">
                                                             </CellStyle>
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="MES PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="1" FieldName="CRONOGRAMA_FECHA">
+                                                        <dx:GridViewDataTextColumn Caption="MES PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="0" FieldName="CRONOGRAMA_FECHA">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="2" FieldName="AVANCE_CRONOGRAMA">
+                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO PROGRAMADO %" ShowInCustomizationForm="True" VisibleIndex="1" FieldName="AVANCE_CRONOGRAMA">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
@@ -201,17 +218,17 @@
                                                     <ExportCellStyle Font-Bold="True">
                                                     </ExportCellStyle>
                                                     <Columns>
-                                                        <dx:GridViewDataTextColumn Caption="PARCIAL (S/.)" ShowInCustomizationForm="True" VisibleIndex="0">
+                                                        <dx:GridViewDataTextColumn Caption="PARCIAL (S/.)" ShowInCustomizationForm="True" VisibleIndex="2" FieldName="MONTOVALORIZACION">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="MES REAL %" ShowInCustomizationForm="True" VisibleIndex="1" FieldName="SEGUIMIENTO_FECHA">
+                                                        <dx:GridViewDataTextColumn Caption="MES REAL %" ShowInCustomizationForm="True" VisibleIndex="0" FieldName="SEGUIMIENTO_FECHA">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
                                                         </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO REAL %" ShowInCustomizationForm="True" VisibleIndex="2" FieldName="AVANCE_VALORIZACION">
+                                                        <dx:GridViewDataTextColumn Caption="ACUMULADO REAL %" ShowInCustomizationForm="True" VisibleIndex="1" FieldName="AVANCE_VALORIZACION">
                                                             <HeaderStyle Font-Bold="True" />
                                                             <ExportCellStyle Font-Bold="True">
                                                             </ExportCellStyle>
@@ -221,7 +238,8 @@
                                             </Columns>
                                         </dx:ASPxGridView>
                                     </td>
-                                </tr>
+                                 </tr>
+                              
                                 </table>
                             </dx:ContentControl>
 			        </ContentCollection>

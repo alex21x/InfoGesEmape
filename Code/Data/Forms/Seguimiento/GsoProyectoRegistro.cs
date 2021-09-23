@@ -1604,5 +1604,22 @@ namespace InfogesEmape.Code.Data.Forms.Seguimiento
 
             return InfogesEmape.Code.Data.Forms.Consulta.DinamicaSiaf.Mysqlquery(StringSql);
 		}
-	}
+        public static DataSet SearchByProyectoContratoCronograma03(string IdProyecto, string pIdContrato, string pIdValorizacion, string pEjecucion = "")
+        {
+            DataSet ds1 = new DataSet();
+            string StringSql = "  ";
+            string AVANCE,MONTO;
+
+            AVANCE = (pEjecucion == "2") ? "AVANCESUP AS AVANCE" : "AVANCE AS AVANCE";
+            MONTO = (pEjecucion == "2") ? "MONTOSUP AS MONTOVALORIZACION" : "MONTO AS MONTOVALORIZACION";
+            StringSql += " SELECT A.SEGUIMIENTO_FECHA,A.AVANCE AVANCE_VALORIZACION,A.MONTOVALORIZACION,B.CRONOGRAMA_FECHA,B.AVANCE AVANCE_CRONOGRAMA,(C.MONTO_OBRA*(B.AVANCE/100)) AS MONTO_OBRA FROM ";
+            StringSql += " (SELECT " + AVANCE + "," +MONTO+ ",SEGUIMIENTO_FECHA,SEGUIMIENTO_CRONOGRAMA FROM OBRASEMP.CONTRATO_SEGUIMIENTO_CON WHERE IDCONTRATO = " + pIdContrato + " AND IDCONTRATOSEGUIMIENTO <=" + pIdValorizacion + ") A ";
+            StringSql += " RIGHT JOIN(SELECT IDCONTRATO,AVANCE,CRONOGRAMA_FECHA,CRONOGRAMA FROM OBRASEMP.CONTRATO_CRONOGRAMA WHERE IDCONTRATO = " + pIdContrato + ") B ";
+            StringSql += " RIGHT JOIN(SELECT IDCONTRATO,MONTO_OBRA FROM OBRASEMP.CONTRATO WHERE IDCONTRATO = 109) C ON C.IDCONTRATO = B.IDCONTRATO";
+            StringSql += " ON A.`SEGUIMIENTO_CRONOGRAMA` = B.`CRONOGRAMA` ";
+
+            return InfogesEmape.Code.Data.Forms.Consulta.DinamicaSiaf.Mysqlquery(StringSql);
+        }
+
+    }
 }
