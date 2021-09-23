@@ -157,7 +157,7 @@
     
 
  </td>
-             </tr>                                
+                       </tr>                                
                                 <tr>
                                     <td><br /><br />
                                         <dx:WebChartControl ID="WebChartControl2" runat="server" AppearanceNameSerializable="Gray" CrosshairEnabled="True" Height="350px" Width="700px">
@@ -170,9 +170,7 @@
                                        <dx:WebChartControl ID="WebChartControl3" runat="server" CrosshairEnabled="True" Height="350px" Width="699px">
                                             <Legend Name="Default Legend"></Legend>
                                         </dx:WebChartControl>
-                                    </td>
-
-                                    
+                                    </td>                     
                                     
                                 </tr>
                                 <tr>
