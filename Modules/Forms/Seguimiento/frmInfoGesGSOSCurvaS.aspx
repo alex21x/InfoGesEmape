@@ -8,6 +8,8 @@
 <%@ Register assembly="DevExpress.XtraCharts.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts.Web" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts" tagprefix="dx" %>
 
+<%@ Register assembly="DevExpress.Web.ASPxPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPivotGrid" tagprefix="dx" %>
+
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>    
 
@@ -157,10 +159,23 @@
     
 
  </td>
-                       </tr>                                
+                       </tr>      
+                                
+                                <tr> 
+                                         <td  colspan="2" >
+                                        <br />
+                                        <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary btn-xs" OnClick="Button1_Click" Text="Export to PDF"  />
+                                        <asp:Button ID="Button4" runat="server" CssClass="btn btn-success btn-xs" OnClick="Button2_Click" Text="Export to EXCEL"  />
+                                    </td> 
+                                   
+                                    
+                                    
+            
+                                
+                                </tr>
                                 <tr>
                                     <td><br /><br />
-                                        <dx:WebChartControl ID="WebChartControl2" runat="server" AppearanceNameSerializable="Gray" CrosshairEnabled="True" Height="350px" Width="700px">
+                                        <dx:WebChartControl ID="WebChartControl2" runat="server" AppearanceNameSerializable="Gray" CrosshairEnabled="True" Height="350px" Width="700px" ClientInstanceName="chat1">
                                             <Legend Name="Default Legend"></Legend>
                                         </dx:WebChartControl>
 
@@ -235,6 +250,11 @@
                                                 </dx:GridViewBandColumn>
                                             </Columns>
                                         </dx:ASPxGridView>
+                                       
+                                        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter2" runat="server" ExportedRowType="All" GridViewID="GridProyectoContrato">
+                                        </dx:ASPxGridViewExporter>
+                                        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" ExportedRowType="All" GridViewID="GridProyectoContratoResumen">
+                                        </dx:ASPxGridViewExporter>
                                     </td>
                                  </tr>
                               

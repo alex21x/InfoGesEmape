@@ -396,8 +396,12 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
         {
             using (MemoryStream ms = new MemoryStream())
             {
+
                 //PrintableComponentLink pcl = new PrintableComponentLink(new PrintingSystem());
                 CompositeLink composLink = new CompositeLink(new PrintingSystem());
+
+                //composLink.CreateMarginalHeaderArea += new CreateAreaEventHandler(composLink_CreateMarginalHeaderArea);
+
                 PrintableComponentLink pcLink1 = new PrintableComponentLink(new PrintingSystem());
                 PrintableComponentLink pcLink2 = new PrintableComponentLink(new PrintingSystem());
 
@@ -408,16 +412,18 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
                 // The order of operations corresponds to the document structure.
                 //composLink.Links.Add(linkGrid1Report);
                 composLink.Links.Add(pcLink1);
-
+                composLink.BreakSpace = 100;
                 composLink.Margins.Top = 30;
                 //composLink.Links.Add(linkMainReport);
                 //composLink.Links.Add(linkGrid2Report);
                 composLink.Links.Add(pcLink2);
 
                 //pcl.Component = gridExporter;
+
                 composLink.Margins.Left = composLink.Margins.Right = 0;
                 composLink.Margins.Top = 30;
                 composLink.Landscape = true;
+               
                 composLink.CreateDocument(true);
                 composLink.PrintingSystem.Document.AutoFitToPagesWidth = 1;
 
@@ -436,6 +442,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
                 WriteResponse(this.Response, ms.ToArray(), System.Net.Mime.DispositionTypeNames.Attachment.ToString());
             }
         }
+
   
         public static void WriteResponse(HttpResponse response, byte[] filearray, string type)
         {
