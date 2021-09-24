@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -393,71 +394,111 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
-            PrintingSystemBase ps = new PrintingSystemBase();
-            ps.PageSettings.Landscape = false;
-            //GridContratoPartida.ShowPrintPreview();
-
-            //XtraPageSettings pageSettings = gridExporter01.PageSettings;
-
-            PrintableComponentLinkBase link1 = new PrintableComponentLinkBase(ps);
-            link1.Component = gridExporter01;
-
-            
-
-            PrintableComponentLinkBase link2 = new PrintableComponentLinkBase(ps);
-            link2.Component = gridExporter;
-
-            CompositeLinkBase compositeLink = new CompositeLinkBase(ps);
-            compositeLink.Links.AddRange(new object[] { link1, link2 });
-
-            
-            compositeLink.CreateDocument();
-            //compositeLink.Landscape = true;
-            using (MemoryStream stream = new MemoryStream())
+            using (MemoryStream ms = new MemoryStream())
             {
-                compositeLink.ExportToPdf(stream);                
-                //gridExporter.WritePdfToResponse("filename", true);
-                //WritePdfToResponse("filename", true);
-                WriteToResponse("filename", true, "pdf", stream);
-            }            
-            ps.Dispose();
+                //PrintableComponentLink pcl = new PrintableComponentLink(new PrintingSystem());
+                CompositeLink composLink = new CompositeLink(new PrintingSystem());
+                PrintableComponentLink pcLink1 = new PrintableComponentLink(new PrintingSystem());
+                PrintableComponentLink pcLink2 = new PrintableComponentLink(new PrintingSystem());
+
+                pcLink1.Component = this.gridExporter01;
+                pcLink2.Component = this.gridExporter;
+
+                // Populate the collection of links in the composite link.
+                // The order of operations corresponds to the document structure.
+                //composLink.Links.Add(linkGrid1Report);
+                composLink.Links.Add(pcLink1);
+
+                composLink.Margins.Top = 30;
+                //composLink.Links.Add(linkMainReport);
+                //composLink.Links.Add(linkGrid2Report);
+                composLink.Links.Add(pcLink2);
+
+                //pcl.Component = gridExporter;
+                composLink.Margins.Left = composLink.Margins.Right = 0;
+                composLink.Margins.Top = 30;
+                composLink.Landscape = true;
+                composLink.CreateDocument(true);
+                composLink.PrintingSystem.Document.AutoFitToPagesWidth = 1;
 
 
-            /*DataSet ds1 = new DataSet();
-            string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
-            ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchContratoById(pIdProyectoo);
+                /*pcLink2.Margins.Left = pcLink2.Margins.Right = 0;
+                pcLink2.Margins.Top = 10;
+                pcLink2.Landscape = true;
+                pcLink2.CreateDocument(true);
+                pcLink2.PrintingSystem.Document.AutoFitToPagesWidth = 1;*/
 
-
-            DataSet ds3 = new DataSet();
-            ds3 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContrato((string)(Session["pIdProyecto"]));
-
-            String DATOSCABECERA;
-
-            DATOSCABECERA = "CONTRATO " + ds1.Tables[0].Rows[0]["CUI"].ToString() + " - " + ds1.Tables[0].Rows[0]["DESCRIPCION"].ToString();
-
-            DATOSCABECERA += "\r\nDATOS DEL CONTRATISTA";
-            DATOSCABECERA += "\r\n---------------------------------------";
-            DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC"].ToString();
-            DATOSCABECERA += "\r\nRAZÓN SOCIAL: " + ds3.Tables[0].Rows[0]["EMPRESA"].ToString();
-
-            DATOSCABECERA += "\r\n";
-
-            DATOSCABECERA += "\r\nDATOS DEL SUPERVISOR";
-            DATOSCABECERA += "\r\n---------------------------------------";
-            DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC_SUPERVISOR"].ToString();
-            DATOSCABECERA += "\r\nRAZÓN SOCIAL: " + ds3.Tables[0].Rows[0]["RAZON_SOCIAL_SUPERVISOR"].ToString();
-
-            DATOSCABECERA += "\r\n% GANADOR";
-            DATOSCABECERA += "\r\n--------------------";
-            DATOSCABECERA += "\r\n%: " + ds3.Tables[0].Rows[0]["PORCENTAJE_GANADOR"].ToString();
-
-            gridExporter.PageHeader.Center = DATOSCABECERA;
-            gridExporter.Landscape = true;
-            gridExporter.RightMargin = 0;
-            gridExporter.LeftMargin = 0;
-            gridExporter.WritePdfToResponse();*/
+                PageHeaderFooter phf = composLink.PageHeaderFooter as PageHeaderFooter;
+                phf.Header.Content.Clear();
+                //phf.Header.Content.AddRange(new string[] { leftColumn, middleColumn, rightColumn });
+                phf.Header.LineAlignment = BrickAlignment.Far;
+                composLink.ExportToPdf(ms);
+                WriteResponse(this.Response, ms.ToArray(), System.Net.Mime.DispositionTypeNames.Attachment.ToString());
+            }
         }
+  
+        public static void WriteResponse(HttpResponse response, byte[] filearray, string type)
+        {
+            response.ClearContent();
+            response.Buffer = true;
+            response.Cache.SetCacheability(HttpCacheability.Private);
+            response.ContentType = "application/pdf";
+            ContentDisposition contentDisposition = new ContentDisposition();
+            contentDisposition.FileName = "SaldoDotacao.pdf";
+            contentDisposition.DispositionType = type;
+            response.AddHeader("Content-Disposition", contentDisposition.ToString());
+            response.BinaryWrite(filearray);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+            try
+            {
+                response.End();
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+            }
+        }
+
+        // Inserts a PageInfoBrick into the top margin to display the time.
+        void composLink_CreateMarginalHeaderArea(object sender, CreateAreaEventArgs e)
+        {
+            e.Graph.DrawPageInfo(PageInfo.DateTime, "{0:hhhh:mmmm:ssss}", Color.Black,
+                new RectangleF(0, 0, 200, 50), BorderSide.None);
+        }
+        void linkGrid1Report_CreateDetailArea(object sender, CreateAreaEventArgs e)
+        {
+            TextBrick tb = new TextBrick();
+            tb.Text = "Northwind Traders";
+            tb.Font = new Font("Arial", 15);
+            tb.Rect = new RectangleF(0, 0, 300, 25);
+            tb.BorderWidth = 0;
+            tb.BackColor = Color.Transparent;
+            tb.HorzAlignment = DevExpress.Utils.HorzAlignment.Near;
+            e.Graph.DrawBrick(tb);
+        }
+
+        // Creates an interval between the grids and fills it with color.
+        void linkMainReport_CreateDetailArea(object sender, CreateAreaEventArgs e)
+        {
+
+            TextBrick tb = new TextBrick();
+            tb.Rect = new RectangleF(0, 0, e.Graph.ClientPageSize.Width, 50);
+            tb.BackColor = Color.Gray;
+            e.Graph.DrawBrick(tb);
+        }
+
+        // Creates a text header for the second grid.
+        void linkGrid2Report_CreateDetailArea(object sender, CreateAreaEventArgs e)
+        {
+            TextBrick tb = new TextBrick();
+            tb.Text = "Suppliers";
+            tb.Font = new Font("Arial", 15);
+            tb.Rect = new RectangleF(0, 0, 300, 25);
+            tb.BorderWidth = 0;
+            tb.BackColor = Color.Transparent;
+            tb.HorzAlignment = DevExpress.Utils.HorzAlignment.Near;
+            e.Graph.DrawBrick(tb);
+        }
+
 
 
         void WriteToResponse(string fileName, bool saveAsFile, string fileFormat, MemoryStream stream)

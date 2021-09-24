@@ -221,7 +221,7 @@
     </tr>
 
                                 <tr>                                        
-                                        <dx:ASPxGridViewExporter ID="gridExporter" runat="server" ExportedRowType="All" GridViewID="GridContratoPartida" PaperKind="A4"></dx:ASPxGridViewExporter>
+                                        <dx:ASPxGridViewExporter ID="gridExporter" runat="server" ExportedRowType="All" GridViewID="GridContratoPartida" PaperKind="A4" Landscape="True" MaxColumnWidth="390"></dx:ASPxGridViewExporter>
                                     <dx:ASPxGridViewExporter ID="gridExporter01" runat="server" ExportedRowType="All" GridViewID="GridProyectoContrato" PaperKind="A4"></dx:ASPxGridViewExporter>                                            
                                         <td style="margin-left:400px; text-align:right;">
                                             <table style="font-size:12px;margin-top:20px;font-weight:bold" width="100%" class="table table-streap">												
