@@ -85,6 +85,15 @@ namespace InfogesEmape.Modules.Forms.Seguimiento {
         protected global::DevExpress.Web.ASPxGridViewExporter exporterValorizacion;
         
         /// <summary>
+        /// Control ASPxButton3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ASPxButton3;
+        
+        /// <summary>
         /// Control Button3.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,15 @@ namespace InfogesEmape.Modules.Forms.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// Control ASPxGridViewExporter1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridViewExporter ASPxGridViewExporter1;
         
         /// <summary>
         /// Control GridProyectoProgramacion.

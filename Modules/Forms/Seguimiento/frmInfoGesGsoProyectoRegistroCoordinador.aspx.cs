@@ -15,6 +15,12 @@ using DevExpress.XtraPrinting;
 using DevExpress.Export;
 using DevExpress.CodeParser;
 
+using DevExpress.XtraCharts;
+using DevExpress.XtraPrintingLinks;
+using System.IO;
+using System.Net.Mime;
+using DevExpress.XtraCharts.Native;
+
 namespace InfogesEmape.Modules.Forms.Seguimiento
 {
     public partial class frmInfoGesGsoProyectoRegistroCoordinador : System.Web.UI.Page
@@ -1852,40 +1858,93 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 		protected void Button1_Click(object sender, EventArgs e)
         {
 
-            DataSet ds1 = new DataSet();            
-            string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
-            ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchContratoById(pIdProyecto);
+            /* DataSet ds1 = new DataSet();            
+             string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
+             ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchContratoById(pIdProyecto);
 
 
-            DataSet ds3 = new DataSet();
-            ds3 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContrato((string)(Session["pIdProyecto"]));
+             DataSet ds3 = new DataSet();
+             ds3 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchByProyectoContrato((string)(Session["pIdProyecto"]));
 
-            String DATOSCABECERA;
+             String DATOSCABECERA;
 
-            DATOSCABECERA = "CONTRATO " + ds1.Tables[0].Rows[0]["CUI"].ToString() + " - " + ds1.Tables[0].Rows[0]["DESCRIPCION"].ToString();
+             DATOSCABECERA = "CONTRATO " + ds1.Tables[0].Rows[0]["CUI"].ToString() + " - " + ds1.Tables[0].Rows[0]["DESCRIPCION"].ToString();
 
-            DATOSCABECERA += "\r\nDATOS DEL CONTRATISTA";
-            DATOSCABECERA += "\r\n---------------------------------------";
-            DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC"].ToString();
-            DATOSCABECERA += "\r\nRAZÓN SOCIAL: "+ ds3.Tables[0].Rows[0]["EMPRESA"].ToString();
+             DATOSCABECERA += "\r\nDATOS DEL CONTRATISTA";
+             DATOSCABECERA += "\r\n---------------------------------------";
+             DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC"].ToString();
+             DATOSCABECERA += "\r\nRAZÓN SOCIAL: "+ ds3.Tables[0].Rows[0]["EMPRESA"].ToString();
 
-            DATOSCABECERA += "\r\n";
+             DATOSCABECERA += "\r\n";
 
-            DATOSCABECERA += "\r\nDATOS DEL SUPERVISOR";
-            DATOSCABECERA += "\r\n---------------------------------------";
-            DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC_SUPERVISOR"].ToString();
-            DATOSCABECERA += "\r\nRAZÓN SOCIAL: " + ds3.Tables[0].Rows[0]["RAZON_SOCIAL_SUPERVISOR"].ToString();
+             DATOSCABECERA += "\r\nDATOS DEL SUPERVISOR";
+             DATOSCABECERA += "\r\n---------------------------------------";
+             DATOSCABECERA += "\r\nRUC: " + ds3.Tables[0].Rows[0]["RUC_SUPERVISOR"].ToString();
+             DATOSCABECERA += "\r\nRAZÓN SOCIAL: " + ds3.Tables[0].Rows[0]["RAZON_SOCIAL_SUPERVISOR"].ToString();
 
-            DATOSCABECERA += "\r\n% GANADOR";
-            DATOSCABECERA += "\r\n--------------------";
-            DATOSCABECERA += "\r\n%: " + ds3.Tables[0].Rows[0]["PORCENTAJE_GANADOR"].ToString();            
+             DATOSCABECERA += "\r\n% GANADOR";
+             DATOSCABECERA += "\r\n--------------------";
+             DATOSCABECERA += "\r\n%: " + ds3.Tables[0].Rows[0]["PORCENTAJE_GANADOR"].ToString();            
 
-            exporterValorizacion.PageHeader.Center = DATOSCABECERA;
+             exporterValorizacion.PageHeader.Center = DATOSCABECERA;
 
-            exporterValorizacion.Landscape = true;
-            exporterValorizacion.RightMargin = 0;
-            exporterValorizacion.LeftMargin = 0;
-            exporterValorizacion.WritePdfToResponse();
+             exporterValorizacion.Landscape = true;
+             exporterValorizacion.RightMargin = 0;
+             exporterValorizacion.LeftMargin = 0;
+             exporterValorizacion.WritePdfToResponse();*/
+
+            // exportar dos GRID
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                CompositeLink composLink = new CompositeLink(new PrintingSystem());
+
+             //composLink.CreateMarginalHeaderArea += new CreateAreaEventHandler(composLink_CreateMarginalHeaderArea);
+
+                    PrintableComponentLink pcLink1 = new PrintableComponentLink(new PrintingSystem());
+                    PrintableComponentLink pcLink2 = new PrintableComponentLink(new PrintingSystem());
+                    pcLink1.Component = this.ASPxGridViewExporter1;
+                    pcLink2.Component = this.exporterValorizacion;
+
+                    composLink.Links.Add(pcLink1);
+                    composLink.Links.Add(pcLink2);
+                    
+                    composLink.Margins.Left = composLink.Margins.Right = 0;
+                    composLink.BreakSpace = 100;
+                    composLink.Margins.Top = 30;
+                    composLink.Landscape = true;
+
+                   composLink.CreateDocument(true);
+                   composLink.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+
+                    PageHeaderFooter phf = composLink.PageHeaderFooter as PageHeaderFooter;
+                    phf.Header.Content.Clear();
+                    //phf.Header.Content.AddRange(new string[] { leftColumn, middleColumn, rightColumn });
+                    phf.Header.LineAlignment = BrickAlignment.Far;
+                    composLink.ExportToPdf(ms);
+                    WriteResponse(this.Response, ms.ToArray(), System.Net.Mime.DispositionTypeNames.Attachment.ToString());
+
+           }
+        }
+        public static void WriteResponse(HttpResponse response, byte[] filearray, string type)
+        {
+            response.ClearContent();
+            response.Buffer = true;
+            response.Cache.SetCacheability(HttpCacheability.Private);
+            response.ContentType = "application/pdf";
+            ContentDisposition contentDisposition = new ContentDisposition();
+            contentDisposition.FileName = "Curva.pdf";
+            contentDisposition.DispositionType = type;
+            response.AddHeader("Content-Disposition", contentDisposition.ToString());
+            response.BinaryWrite(filearray);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+            try
+            {
+                response.End();
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+            }
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
@@ -1900,6 +1959,8 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             exporterValorizacion.WriteXlsxToResponse(new XlsxExportOptionsEx { ExportType = ExportType.WYSIWYG });
             //exporterValorizacion.WriteXlsxToResponse(New XlsxExportOptionsEx() With {.ExportType = ExportType.WYSIWYG})  
             //exporterValorizacion.WriteXlsxToResponse();
+            // exportar excel
+           
         }
 
 		protected void hyperLink_Init(object sender, EventArgs e)
@@ -2126,6 +2187,40 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
                     }
                 }
             }
+        }
+
+      
+
+        protected void ASPxButton3_Click(object sender, EventArgs e)
+        {
+            PrintingSystem ps = new PrintingSystem();
+
+            PrintableComponentLink link = new PrintableComponentLink();
+            link.Component = ASPxGridViewExporter1;
+            link.PrintingSystem = ps;
+
+            PrintableComponentLink link1 = new PrintableComponentLink();
+            link1.Component = exporterValorizacion;
+            link1.PrintingSystem = ps;
+        
+            CompositeLink compositeLink = new CompositeLink();
+            compositeLink.Links.AddRange(new object[] {  link, link1 });
+            compositeLink.BreakSpace = 100;
+            compositeLink.PrintingSystem = ps;
+            compositeLink.CreateDocument();
+            compositeLink.PrintingSystem.ExportOptions.Pdf.DocumentOptions.Author = "Test";
+            using (MemoryStream stream = new MemoryStream())
+            {
+                compositeLink.PrintingSystem.ExportToXls(stream);
+                Response.Clear();
+                Response.Buffer = false;
+                Response.AppendHeader("Content-Type", "application/xls");
+                Response.AppendHeader("Content-Transfer-Encoding", "binary");
+                Response.AppendHeader("Content-Disposition", "attachment; filename=test.xls");
+                Response.BinaryWrite(stream.GetBuffer());
+                Response.End();
+            }
+
         }
     }	
 }

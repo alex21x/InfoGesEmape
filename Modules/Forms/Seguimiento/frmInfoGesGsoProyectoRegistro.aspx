@@ -75,7 +75,7 @@ CodeBehind="frmInfoGesGsoProyectoRegistro.aspx.cs" Inherits="InfogesEmape.Module
         <td>
 
         <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" AutoPostBack="True" 
-                ActiveTabIndex="3" Height="100%" TabSpacing="3px"  Font-Size="Medium" 
+                ActiveTabIndex="4" Height="100%" TabSpacing="3px"  Font-Size="Medium" 
                 Width="100%" TabStyle-VerticalAlign="Bottom"  TabAlign="Justify" OnActiveTabChanged="ASPxPageControl1_ActiveTabChanged" >
 	        <ActiveTabStyle Font-Bold="True" Font-Size="Large" ForeColor="Azure" >
 	        </ActiveTabStyle>                        
@@ -941,9 +941,9 @@ CodeBehind="frmInfoGesGsoProyectoRegistro.aspx.cs" Inherits="InfogesEmape.Module
                                 OnRowDeleting="OnRowDeletingContratoProgramacion"  Width="95%">
 <%--                                <SettingsSearchPanel CustomEditorID="tbToolbarSearch" />--%>
 <%--                                <ClientSideEvents ToolbarItemClick="OnToolbarItemClick" />  --%>                               
-                                <SettingsBehavior AllowFocusedRow="true" />
-                                <Settings ShowTitlePanel="true" />
                                  <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True"/>
+                                <Settings ShowTitlePanel="true" />
+                                <SettingsBehavior AllowFocusedRow="true" />
                                 <SettingsText Title="PROGRAMACION" />    
                                 <Columns>
                                 <dx:GridViewDataTextColumn FieldName="CRONOGRAMA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="30px"

@@ -12,6 +12,26 @@ using DevExpress.Spreadsheet;
 using QRCoder;
 using System.Drawing;
 using MessagingToolkit.QRCode.Codec;
+using DevExpress.XtraCharts;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DevExpress.Web;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraPrintingLinks;
+//using System;
+//using System.Collections.Generic;
+//using System.Data;
+using System.Drawing;
+using System.IO;
+//using System.Linq;
+using System.Net.Mime;
+using DevExpress.XtraCharts.Native;
+
 
 
 
@@ -2365,7 +2385,7 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-			DataSet ds1 = new DataSet();
+		/*	DataSet ds1 = new DataSet();
 			string IdContrato = GridProyectoContrato.GetRowValues(GridProyectoContrato.FocusedRowIndex, "IDCONTRATO").ToString();
 			ds1 = Code.Logic.Forms.Seguimiento.GsoProyectoRegistro.SearchContratoById(pIdProyecto);
 
@@ -2373,21 +2393,16 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 
 			gridExporter.PageHeader.Center = "CONTRATO "+ ds1.Tables[0].Rows[0]["CUI"].ToString() + " - "+ ds1.Tables[0].Rows[0]["DESCRIPCION"].ToString();						
 
-			//PrintableComponentLinkBase grd1 = new PrintableComponentLinkBase(ps);
-			//grd1.Component = grdResponsablesExporter;
-			//PrintableComponentLinkBase grd2 = new PrintableComponentLinkBase(ps);
-			//grd2.Component = grdInformacionExporter;
-
-			/// gridExporter.Page.
+			
 			gridExporter.Landscape = true;
             gridExporter.RightMargin = 0;
             gridExporter.LeftMargin = 0;
             gridExporter.WritePdfToResponse();
-			gridExporter02.WritePdfToResponse();
+			gridExporter02.WritePdfToResponse();*/
 
 
 
-			/*this.txtCUI.Text = ds1.Tables[0].Rows[0]["ACT_PROY"].ToString();
+            /*this.txtCUI.Text = ds1.Tables[0].Rows[0]["ACT_PROY"].ToString();
 			this.txtDescripcion.Text = ds1.Tables[0].Rows[0]["DESCRIPCION"].ToString();
 			this.txtAbreviatura.Text = ds1.Tables[0].Rows[0]["ABREVIATURA"].ToString();
 			this.txtExpedienteTecnico.Text = ds1.Tables[0].Rows[0]["MONTO_TOTAL_EXP_TECNICO"].ToString();
@@ -2405,7 +2420,40 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 			this.CboPaquete.Value = ds1.Tables[0].Rows[0]["IDPAQUETE"].ToString();
 			this.CboTipoProyecto.Value = ds1.Tables[0].Rows[0]["IDTIPO_PROYECTO"].ToString();
 			this.txtDistrito.Text = ds1.Tables[0].Rows[0]["DISTRITO"].ToString();}*/
-		}
+
+            // PRUEBA DEMOLINK
+            PrintingSystem ps = new PrintingSystem();
+
+            PrintableComponentLink link = new PrintableComponentLink();
+            link.Component = gridExporter;
+           
+            link.PrintingSystem = ps;
+
+           
+            CompositeLink compositeLink = new CompositeLink();
+            compositeLink.Links.AddRange(new object[] { link });
+            compositeLink.BreakSpace = 100;
+            compositeLink.Landscape = true;
+            /*TAMAÑO*/
+            compositeLink.Margins.Top = 30;
+            compositeLink.Margins.Left = compositeLink.Margins.Right = 0;
+            //compositeLink.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+
+            compositeLink.PrintingSystem = ps;
+            compositeLink.CreateDocument();
+            compositeLink.PrintingSystem.ExportOptions.Pdf.DocumentOptions.Author = "Test";
+            using (MemoryStream stream = new MemoryStream())
+            {
+                compositeLink.PrintingSystem.ExportToPdf(stream);
+                Response.Clear();
+                Response.Buffer = false;
+                Response.AppendHeader("Content-Type", "application/pdf");
+                Response.AppendHeader("Content-Transfer-Encoding", "binary");
+                Response.AppendHeader("Content-Disposition", "attachment; filename=test.pdf");
+                Response.BinaryWrite(stream.GetBuffer());
+                Response.End();
+            }
+        }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
