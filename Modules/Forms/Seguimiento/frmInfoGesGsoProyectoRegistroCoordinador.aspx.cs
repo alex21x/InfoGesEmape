@@ -2222,5 +2222,39 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             }
 
         }
+
+        protected void ASPxButton4_Click(object sender, EventArgs e)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                CompositeLink composLink = new CompositeLink(new PrintingSystem());
+
+                //composLink.CreateMarginalHeaderArea += new CreateAreaEventHandler(composLink_CreateMarginalHeaderArea);
+
+                PrintableComponentLink pcLink1 = new PrintableComponentLink(new PrintingSystem());
+                PrintableComponentLink pcLink2 = new PrintableComponentLink(new PrintingSystem());
+                pcLink1.Component = this.ASPxGridViewExporter1;
+                pcLink2.Component = this.exporterValorizacion;
+
+                composLink.Links.Add(pcLink1);
+                composLink.Links.Add(pcLink2);
+
+                composLink.Margins.Left = composLink.Margins.Right = 0;
+                composLink.BreakSpace = 100;
+                composLink.Margins.Top = 30;
+                composLink.Landscape = true;
+
+                composLink.CreateDocument(true);
+                composLink.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+
+                PageHeaderFooter phf = composLink.PageHeaderFooter as PageHeaderFooter;
+                phf.Header.Content.Clear();
+                //phf.Header.Content.AddRange(new string[] { leftColumn, middleColumn, rightColumn });
+                phf.Header.LineAlignment = BrickAlignment.Far;
+                composLink.ExportToPdf(ms);
+                WriteResponse(this.Response, ms.ToArray(), System.Net.Mime.DispositionTypeNames.Attachment.ToString());
+
+            }
+        }
     }	
 }

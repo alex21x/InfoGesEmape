@@ -76,6 +76,15 @@ namespace InfogesEmape.Modules.Forms.Seguimiento {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
+        /// Control ASPxButton4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ASPxButton4;
+        
+        /// <summary>
         /// Control exporterValorizacion.
         /// </summary>
         /// <remarks>

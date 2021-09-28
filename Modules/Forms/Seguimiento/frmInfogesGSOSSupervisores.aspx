@@ -19,14 +19,14 @@
     OnLoad="OnLoadProyectoContrato" Theme="Office2010Blue" >
     <Columns> 
     <dx:GridViewDataTextColumn FieldName="CONTRATO_NUMERO" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="80px"
-    Caption="NÚMERO CONTRATO" VisibleIndex="1" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False"  >
+    Caption="NÚMERO CONTRATO" VisibleIndex="0" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False"  >
 <Settings AllowAutoFilter="False" AllowHeaderFilter="False"></Settings>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
 
 <CellStyle HorizontalAlign="Right"></CellStyle>
     </dx:GridViewDataTextColumn> 
-    <dx:GridViewBandColumn  Caption="EMPRESA"  VisibleIndex="2" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
+    <dx:GridViewBandColumn  Caption="EMPRESA"  VisibleIndex="1" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
 <HeaderStyle HorizontalAlign="Center" Font-Bold="True"></HeaderStyle>
     <Columns>
     <dx:GridViewDataTextColumn FieldName="RUC" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="80px"
@@ -47,11 +47,11 @@
     </dx:GridViewDataTextColumn> 
     </Columns>
     </dx:GridViewBandColumn>
-    <dx:GridViewBandColumn Caption="CONTRATO"  VisibleIndex="3" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
+    <dx:GridViewBandColumn Caption="CONTRATO"  VisibleIndex="2" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
 <HeaderStyle HorizontalAlign="Center" Font-Bold="True"></HeaderStyle>
     <Columns>
     <dx:GridViewDataDateColumn FieldName="FECHA_CONTRATO" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
-    Caption="FECHA CONTRATO" VisibleIndex="4" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+    Caption="FECHA CONTRATO" VisibleIndex="1" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
 <Settings AllowAutoFilter="False" AllowHeaderFilter="False"></Settings>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
@@ -59,7 +59,7 @@
 <CellStyle HorizontalAlign="Right"></CellStyle>
     </dx:GridViewDataDateColumn>
     <dx:GridViewDataTextColumn FieldName="MONTO_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
-    Caption="IMPORTE OBRA" VisibleIndex="5" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+    Caption="IMPORTE OBRA" VisibleIndex="3" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
 <Settings AllowAutoFilter="False" AllowHeaderFilter="False"></Settings>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
@@ -67,14 +67,14 @@
 <CellStyle HorizontalAlign="Right"></CellStyle>
     </dx:GridViewDataTextColumn>
     <dx:GridViewDataTextColumn FieldName="PLAZO_EJECUCION_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
-    Caption="PLAZO EJECUCIÓN" VisibleIndex="6" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
+    Caption="PLAZO EJECUCIÓN" VisibleIndex="4" CellStyle-HorizontalAlign="Right"  Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False">
 <Settings AllowAutoFilter="False" AllowHeaderFilter="False"></Settings>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
 
 <CellStyle HorizontalAlign="Right"></CellStyle>
     </dx:GridViewDataTextColumn>
-    <dx:GridViewBandColumn Caption="INICIO DE OBRA"  VisibleIndex="4" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
+    <dx:GridViewBandColumn Caption="INICIO DE OBRA"  VisibleIndex="2" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true" >
 <HeaderStyle HorizontalAlign="Center" Font-Bold="True"></HeaderStyle>
     <Columns>
     <dx:GridViewDataDateColumn FieldName="FECHA_INICIO_OBRA" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
@@ -95,9 +95,18 @@
     </dx:GridViewDataDateColumn>
     </Columns>
     </dx:GridViewBandColumn>
+        <dx:GridViewDataTextColumn Caption="RUC SUPERVISOR" FieldName="RUC_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="5">
+            <HeaderStyle Font-Bold="True" />
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn Caption="RAZON SOCIAL SUPERVISOR" FieldName="RAZON_SOCIAL_SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="6">
+            <HeaderStyle Font-Bold="True" />
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn Caption="% GANADOR" FieldName="PORCENTAJE_GANADOR" ShowInCustomizationForm="True" VisibleIndex="7">
+            <HeaderStyle Font-Bold="True" />
+        </dx:GridViewDataTextColumn>
     </Columns>
     </dx:GridViewBandColumn>
-    <dx:GridViewBandColumn   Caption="ENTREGA DE TERRENO"  VisibleIndex="4" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  HeaderStyle-Wrap="True">
+    <dx:GridViewBandColumn   Caption="ENTREGA DE TERRENO"  VisibleIndex="3" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  HeaderStyle-Wrap="True">
 <HeaderStyle HorizontalAlign="Center" Wrap="True" Font-Bold="True"></HeaderStyle>
     <Columns>
     <dx:GridViewDataDateColumn FieldName="FECHA_ENTREGA_TERRENO" HeaderStyle-Wrap="True" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Font-Bold="true"  Width="100px"
@@ -134,12 +143,17 @@
     </dx:ASPxGridView>
 
 		 </td></tr>
-	<tr><td><br /><asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Export V.Sup PDF" CssClass="btn btn-success btn-xs" /><dx:ASPxGridViewExporter ID="exporterValorizacionSup" runat="server" GridViewID="GridProyectoContratoSup" Landscape="True" MaxColumnWidth="100" PaperKind="A3">
+	<tr><td><br /><asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Export V.Sup PDF" CssClass="btn btn-primary btn-xs" />
+        <asp:Button ID="Button4" runat="server" CssClass="btn btn-success btn-xs" Height="22px" OnClick="Button4_Click" Text="Export V. Sup Excel" />
+        <dx:ASPxGridViewExporter ID="exporterValorizacionSup" runat="server" GridViewID="GridProyectoContratoSup" Landscape="True" MaxColumnWidth="100" PaperKind="A3">
         <Styles>
             <Cell Font-Size="Smaller">
             </Cell>
         </Styles>
-    </dx:ASPxGridViewExporter><br /><br /><br />
+    </dx:ASPxGridViewExporter>
+        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" ExportedRowType="All" GridViewID="GridProyectoContrato">
+        </dx:ASPxGridViewExporter>
+        <br /><br /><br />
 <dx:ASPxGridView ID="GridProyectoContratoSup" runat="server" KeyFieldName="IDCONTRATOSEGUIMIENTO" OnLoad="OnloadProyectoContratoSup" Visible="true" Width="100%" AutoGenerateColumns="False" OnHtmlCommandCellPrepared="comando" Theme="Office2010Blue" OnRowUpdating="GridContratoSupValorizacionDet_RowUpdating">
 		<Columns>
 			<dx:GridViewCommandColumn VisibleIndex="0" Width="50px" />			

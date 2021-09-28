@@ -122,7 +122,7 @@
         <dx:GridViewDataTextColumn Caption="RUC SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="5" FieldName="RUC_SUPERVISOR">
             <HeaderStyle Font-Bold="True" />
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn Caption="NOMBRE SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="6" FieldName="RAZON_SOCIAL_SUPERVISOR">
+        <dx:GridViewDataTextColumn Caption="RAZON SOCIAL SUPERVISOR" ShowInCustomizationForm="True" VisibleIndex="6" FieldName="RAZON_SOCIAL_SUPERVISOR">
             <HeaderStyle Font-Bold="True" />
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn Caption="% GANADOR" ShowInCustomizationForm="True" VisibleIndex="7" FieldName="PORCENTAJE_GANADOR">
@@ -169,7 +169,12 @@
 </tr>
 <tr><td colspan="6"> <br> </td></tr>
 <tr><td colspan="6"> 
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Export V. PDF" CssClass="btn btn-primary btn-xs" />
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Export V. PDF" CssClass="btn btn-primary btn-xs" Visible="False" />
+    
+    
+    
+    <dx:ASPxButton ID="ASPxButton4" runat="server" Height="5px" OnClick="ASPxButton4_Click" Text="Export. V. Pdf" Width="107px" CssClass="btn btn-primary btn-xs">
+    </dx:ASPxButton>
     
     
     
@@ -179,7 +184,7 @@
             </Cell>
         </Styles>
     </dx:ASPxGridViewExporter>
-    <dx:ASPxButton ID="ASPxButton3" runat="server" Text="Export V. Excel" CssClass="btn btn-success btn-xs" AutoPostBack="False" OnClick="ASPxButton3_Click">
+    <dx:ASPxButton ID="ASPxButton3" runat="server" Text="Export V. Excel" CssClass="btn btn-success btn-xs" AutoPostBack="False" OnClick="ASPxButton3_Click" Height="5px">
     </dx:ASPxButton>
     <!--<asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Export V.Sup PDF" CssClass="btn btn-success btn-xs" />-->
     <!--<dx:ASPxGridViewExporter ID="exporterValorizacionSup" runat="server" GridViewID="GridProyectoContratoSup" Landscape="True" MaxColumnWidth="100" PaperKind="A3">

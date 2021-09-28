@@ -8,6 +8,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DevExpress.XtraCharts;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraPrintingLinks;
+using System.IO;
+using System.Net.Mime;
+using DevExpress.XtraCharts.Native;
 
 namespace InfogesEmape.Modules.Forms.Seguimiento
 {
@@ -683,10 +689,66 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            exporterValorizacionSup.Landscape = true;
-            exporterValorizacionSup.RightMargin = 0;
-            exporterValorizacionSup.LeftMargin = 0;
-            exporterValorizacionSup.WritePdfToResponse();
+
+
+            /* exporterValorizacionSup.Landscape = true;
+             exporterValorizacionSup.RightMargin = 0;
+             exporterValorizacionSup.LeftMargin = 0;
+             exporterValorizacionSup.WritePdfToResponse();*/
+
+            // codigo para exportar dos gridview 
+            using (MemoryStream ms = new MemoryStream())
+            {
+                CompositeLink composLink = new CompositeLink(new PrintingSystem());
+
+           
+
+                PrintableComponentLink pcLink1 = new PrintableComponentLink(new PrintingSystem());
+                PrintableComponentLink pcLink2 = new PrintableComponentLink(new PrintingSystem());
+
+
+                pcLink1.Component = this.ASPxGridViewExporter1;
+                pcLink2.Component = this.exporterValorizacionSup;
+          
+                    composLink.Links.Add(pcLink1);
+                    composLink.Links.Add(pcLink2);
+                    composLink.BreakSpace = 100;
+                    composLink.Margins.Top = 30;
+
+                      composLink.Margins.Left = composLink.Margins.Right = 0;
+                    composLink.Margins.Top = 30;
+                    composLink.Landscape = true;
+                    composLink.CreateDocument(true);
+                    composLink.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+
+                    PageHeaderFooter phf = composLink.PageHeaderFooter as PageHeaderFooter;
+                    phf.Header.Content.Clear();
+                    //phf.Header.Content.AddRange(new string[] { leftColumn, middleColumn, rightColumn });
+                    phf.Header.LineAlignment = BrickAlignment.Far;
+                    composLink.ExportToPdf(ms);
+            WriteResponse(this.Response, ms.ToArray(), System.Net.Mime.DispositionTypeNames.Attachment.ToString());
+                
+             }  
+        }
+        public static void WriteResponse(HttpResponse response, byte[] filearray, string type)
+        {
+            response.ClearContent();
+            response.Buffer = true;
+            response.Cache.SetCacheability(HttpCacheability.Private);
+            response.ContentType = "application/pdf";
+            ContentDisposition contentDisposition = new ContentDisposition();
+            contentDisposition.FileName = "Curva.pdf";
+            contentDisposition.DispositionType = type;
+            response.AddHeader("Content-Disposition", contentDisposition.ToString());
+            response.BinaryWrite(filearray);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+            try
+            {
+                response.End();
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+            }
         }
 
         protected void GridContratoValorizacionDet_HtmlDataCellPrepared(object sender, ASPxGridViewTableDataCellEventArgs e)
@@ -726,6 +788,37 @@ namespace InfogesEmape.Modules.Forms.Seguimiento
             if ((e.DataColumn.FieldName == "CANTIDAD" || e.DataColumn.FieldName == "SALDOACUMULADO") && Convert.ToInt32(e.GetValue("PRECIO")) == 0)
                 e.Cell.BackColor = Color.FromArgb(144, 223, 203);
 
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            PrintingSystem ps = new PrintingSystem();
+
+            PrintableComponentLink link = new PrintableComponentLink();
+            link.Component = ASPxGridViewExporter1;
+            link.PrintingSystem = ps;
+
+            PrintableComponentLink link1 = new PrintableComponentLink();
+            link1.Component = exporterValorizacionSup;
+            link1.PrintingSystem = ps;
+            
+            CompositeLink compositeLink = new CompositeLink();
+            compositeLink.Links.AddRange(new object[] { link,link1 });
+            compositeLink.BreakSpace = 100;
+            compositeLink.PrintingSystem = ps;
+            compositeLink.CreateDocument();
+            compositeLink.PrintingSystem.ExportOptions.Pdf.DocumentOptions.Author = "Test";
+            using (MemoryStream stream = new MemoryStream())
+            {
+                compositeLink.PrintingSystem.ExportToXls(stream);
+                Response.Clear();
+                Response.Buffer = false;
+                Response.AppendHeader("Content-Type", "application/xls");
+                Response.AppendHeader("Content-Transfer-Encoding", "binary");
+                Response.AppendHeader("Content-Disposition", "attachment; filename=test.xls");
+                Response.BinaryWrite(stream.GetBuffer());
+                Response.End();
+            }
         }
     }
 }
