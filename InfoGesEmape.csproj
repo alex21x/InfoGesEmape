@@ -299,6 +299,7 @@
     <Content Include="Modules\ContentDashBoard.aspx" />
     <Content Include="Modules\Forms\Consulta\InfoGesDashBoardObrasGG.aspx" />
     <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOPresupuesto.aspx" />
+    <Content Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroCoordinador_2.aspx" />
     <Content Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPolinomica.aspx" />
     <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSAmortizacion.aspx" />
     <Content Include="Modules\Forms\Seguimiento\frmInfoGesGSOSCurvaS.aspx" />
@@ -488,6 +489,13 @@
     </Compile>
     <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGSOPresupuesto.aspx.designer.cs">
       <DependentUpon>frmInfoGesGSOPresupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroCoordinador_2.aspx.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroCoordinador_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroCoordinador_2.aspx.designer.cs">
+      <DependentUpon>frmInfoGesGsoProyectoRegistroCoordinador_2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Forms\Seguimiento\frmInfoGesGsoProyectoRegistroPolinomica.aspx.cs">
       <DependentUpon>frmInfoGesGsoProyectoRegistroPolinomica.aspx</DependentUpon>

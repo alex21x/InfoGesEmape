@@ -52,7 +52,7 @@ namespace InfogesEmape
                     Context.User = oUser;
                     DataSet r1;
                     int r = Code.Data.Accounts.User.Validate(this.TextBox1.Text, this.TextBox2.Text);
-                    Session["IdPersonal"] = r.ToString() ;
+                    Session["IdPersonal"] = r.ToString();
                     r1 = Code.Data.Accounts.User.Validate1(r.ToString());
 
                      if (r1.Tables[0].Rows.Count == 1)
@@ -65,8 +65,16 @@ namespace InfogesEmape
                          Session["IdDni"] = this.TextBox2.Text;
                          FormsAuthentication.SetAuthCookie(this.TextBox1.Text, true);
                          string lPag = "";
-                         if (this.TextBox1.Text == "GESOCOORDINADOR" || this.TextBox1.Text == "GESOSUPERVISOR" || this.TextBox1.Text == "GESOCONTRATISTA")
-                             r = 100; 
+                         if (this.TextBox1.Text == "GESOSUPERVISOR" || this.TextBox1.Text == "GESOCONTRATISTA")
+                        {
+                            r = 100;
+                        }
+                         if (this.TextBox1.Text == "GESOCOORDINADOR")
+                        {
+                            r = 101;
+                        }
+                         
+                          
                          switch (r.ToString())
                          {
                              case "44":
@@ -78,11 +86,16 @@ namespace InfogesEmape
                              case "100":
                                  lPag = "~/Modules/Forms/Seguimiento/frmInfoGesGSOProyectoCoordinador.aspx";
                                  break;
-                             default:
+                            case "101":
+                                lPag = "~/Modules/Forms/Seguimiento/frmInfoGesGsoProyectoRegistroCoordinador_2.aspx";
+                                break;
+                            default:
                                  lPag = "~/Modules/Content.aspx";
 
                                  break;
                          }
+
+
                          Response.Redirect(lPag);
 
                          

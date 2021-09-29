@@ -284,7 +284,7 @@ namespace InfogesEmape.Code.Data.Accounts
                     if (r != -1)
                     {
                         r = -1;
-                        StringSql = "SELECT user_id FROM account_user WHERE user_name='GESOCOORDINADOR' ";
+                        StringSql = "SELECT user_id FROM account_user WHERE user_name='GESOCOORDINADOR'";
                         Conexion.ConnectionString = Code.ConeccionString2.mysql();
                         Conexion.Open();
                         Query.CommandText = StringSql;
